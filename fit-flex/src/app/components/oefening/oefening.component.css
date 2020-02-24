@@ -1,7 +1,6 @@
 img {
     background-color: red;
-    height: 6em;
-    width: 100%;
+    height: 15em;
 }
 
 #laad-meer {
@@ -11,6 +10,14 @@ img {
 
 .badge {
     width: 100%;
+}
+
+.kg {
+    width: 31%;
+}
+
+.set {
+    width: 23%;
 }
 
 /* input[type='number'] {
