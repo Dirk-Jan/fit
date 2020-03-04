@@ -1,15 +1,15 @@
 <div class="card">
-    <img class="card-img-top" src="https://bodybuildingblog.nl/wp-content/uploads/incline-benchpress-voorbeeld.jpg">
+    <!-- <img class="card-img-top" src="https://bodybuildingblog.nl/wp-content/uploads/incline-benchpress-voorbeeld.jpg"> -->
     <div class="card-body">
-        <h5 class="card-title">Benchpress</h5>
+        <h5 class="card-title">{{oefening.naam}}</h5>
         <p class="card-text">
-            <app-read-more-read-less text="asdasads \n \n \n \n \r * hallo asdasddsjf hjkfhekrwjf hkdsjfh sdjkehqukr ehdsf ksdh reiruk GTERKUF FGDKJJ HFDSATHKREDASHJKF SDHJKF DSH HjJK Eah jkdsahjkdhJ HEJFKSHDFJK HJKkjh fkjdsh sdkjakjsdfah ekjwfh kjsdfh kfewhkf shdjf hkj"></app-read-more-read-less>
+            <app-read-more-read-less [text]="oefening.omschrijving"></app-read-more-read-less>
         </p>
 
         <app-prestatie-form></app-prestatie-form>
         
         <h6>Vorige prestaties</h6>
-        <app-vorige-prestaties [prestaties]="prestaties"></app-vorige-prestaties>
+        <app-vorige-prestaties [prestaties]="oefening.prestaties"></app-vorige-prestaties>
 
         <!-- <span class="badge badge-pill badge-primary">Za 22 feb 2020</span>
         <app-oefening-prestatie></app-oefening-prestatie>

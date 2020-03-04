@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Prestatie } from 'src/app/models/prestatie';
+import { Oefening } from 'src/app/models/oefening';
 
 @Component({
   selector: 'app-oefening',
@@ -8,32 +9,7 @@ import { Prestatie } from 'src/app/models/prestatie';
 })
 export class OefeningComponent implements OnInit {
 
-  prestaties: Prestatie[] = [
-    {
-      date: null,
-      gewicht: 6,
-      set1: 15,
-      set2: 15,
-      set3: 15,
-      opmerking: 'te zwaar :('
-    },
-    {
-      date: null,
-      gewicht: 6,
-      set1: 15,
-      set2: 15,
-      set3: 15,
-      opmerking: 'te zwaar :('
-    },
-    {
-      date: null,
-      gewicht: 6,
-      set1: 15,
-      set2: 15,
-      set3: 15,
-      opmerking: 'te zwaar :('
-    }
-  ] as Prestatie[];
+  @Input() oefening: Oefening;
 
   constructor() { }
 
