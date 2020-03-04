@@ -1,15 +1,18 @@
 <div class="d-flex">
 
     <div class="input-group kg-container">
-        <input type="text" inputmode="numeric" pattern="[0-9]*" min="0" max="999" class="form-control" id="gewicht" name="segewichtt1" placeholder="Kg">
+        <input disabled type="text" inputmode="numeric" pattern="[0-9]*" min="0" max="999" class="form-control" id="gewicht" name="segewichtt1" placeholder="Kg" [value]="prestatie.gewicht">
         <div class="input-group-append">
             <span class="input-group-text">Kg</span>
         </div>
     </div>
     <div class="input-group set-container">    
-        <input type="text" inputmode="numeric" pattern="[0-9]*" min="0" max="99" class="form-control" id="set1" name="set1" placeholder="Set 1">
-        <input type="text" inputmode="numeric" pattern="[0-9]*" min="0" max="99" class="form-control" id="set2" name="set2" placeholder="Set 2">
-        <input type="text" inputmode="numeric" pattern="[0-9]*" min="0" max="99" class="form-control" id="set3" name="set3" placeholder="Set 3">
+        <input disabled type="text" inputmode="numeric" pattern="[0-9]*" min="0" max="99" class="form-control" id="set1" name="set1" placeholder="Set 1" [value]="prestatie.set1">
+        <input disabled type="text" inputmode="numeric" pattern="[0-9]*" min="0" max="99" class="form-control" id="set2" name="set2" placeholder="Set 2" [value]="prestatie.set2">
+        <input disabled type="text" inputmode="numeric" pattern="[0-9]*" min="0" max="99" class="form-control" id="set3" name="set3" placeholder="Set 3" [value]="prestatie.set3">
     </div>
-    
-    </div>
+
+</div>
+<p>
+    <app-read-more-read-less [text]="prestatie.opmerking"></app-read-more-read-less>
+</p>

@@ -9,6 +9,7 @@ import { OefeningPrestatieComponent } from './components/oefening-prestatie/oefe
 import { ReadMoreReadLessComponent } from './components/read-more-read-less/read-more-read-less.component';
 import { OefeningFormComponent } from './components/oefening-form/oefening-form.component';
 import { PrestatieFormComponent } from './components/prestatie-form/prestatie-form.component';
+import { VorigePrestatiesComponent } from './components/vorige-prestaties/vorige-prestaties.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { PrestatieFormComponent } from './components/prestatie-form/prestatie-fo
     OefeningPrestatieComponent,
     ReadMoreReadLessComponent,
     OefeningFormComponent,
-    PrestatieFormComponent
+    PrestatieFormComponent,
+    VorigePrestatiesComponent
   ],
   imports: [
     BrowserModule,

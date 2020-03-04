@@ -5,54 +5,19 @@
         <p class="card-text">
             <app-read-more-read-less text="asdasads \n \n \n \n \r * hallo asdasddsjf hjkfhekrwjf hkdsjfh sdjkehqukr ehdsf ksdh reiruk GTERKUF FGDKJJ HFDSATHKREDASHJKF SDHJKF DSH HjJK Eah jkdsahjkdhJ HEJFKSHDFJK HJKkjh fkjdsh sdkjakjsdfah ekjwfh kjsdfh kfewhkf shdjf hkj"></app-read-more-read-less>
         </p>
-        <div>
-            <label class="kg">Kg</label>
-            <label class="set">Set 1</label>
-            <label class="set">Set 2</label>
-            <label class="set">Set 3</label>
-        </div>
+
+        <app-prestatie-form></app-prestatie-form>
         
-        <span class="badge badge-pill badge-primary">Za 22 feb 2020</span>
+        <h6>Vorige prestaties</h6>
+        <app-vorige-prestaties [prestaties]="prestaties"></app-vorige-prestaties>
+
+        <!-- <span class="badge badge-pill badge-primary">Za 22 feb 2020</span>
         <app-oefening-prestatie></app-oefening-prestatie>
         
         <span class="badge badge-pill badge-primary">Do 20 feb 2020</span>
         <app-oefening-prestatie></app-oefening-prestatie>
 
-        <a id="laad-meer" class="btn btn-primary" href="#" role="button">Laad meer</a>
+        <a id="laad-meer" class="btn btn-primary" href="#" role="button">Laad meer</a> -->
 
-        <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Datum</th>
-                <th scope="col">Kg</th>
-                <th scope="col">Set 1</th>
-                <th scope="col">Set 2</th>
-                <th scope="col">Set 3</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Za 22 feb 2020</td>
-                <td>30</td>
-                <td>12</td>
-                <td>12</td>
-                <td>12</td>
-              </tr>
-              <tr>
-                <td>Do 20 feb 2020</td>
-                <td>30</td>
-                <td>15</td>
-                <td>15</td>
-                <td>15</td>
-              </tr>
-              <tr>
-                <td>Di 18 feb 2020</td>
-                <td>30</td>
-                <td>10</td>
-                <td>10</td>
-                <td>10</td>
-              </tr>
-            </tbody>
-          </table>
     </div>
 </div>

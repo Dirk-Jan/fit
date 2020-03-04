@@ -1,0 +1,10 @@
+<div>
+    <label class="kg">Kg</label>
+    <label class="set">Set 1</label>
+    <label class="set">Set 2</label>
+    <label class="set">Set 3</label>
+</div>
+
+<div *ngFor="let prestatie of prestaties">
+    <app-oefening-prestatie [prestatie]="prestatie"></app-oefening-prestatie>
+</div>

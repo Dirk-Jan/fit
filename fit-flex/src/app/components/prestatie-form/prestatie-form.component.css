@@ -1,0 +1,8 @@
+.submit-group {
+    display: flex;
+    justify-content: flex-end;
+}
+
+button {
+    align-self: flex-end;
+}
