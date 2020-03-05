@@ -12,7 +12,7 @@ export class OefeningenOverzichtPage implements OnInit {
 
   prestaties: Prestatie[] = [
     {
-      date: null,
+      datum: new Date('1968-11-16T00:00:00'),
       gewicht: 6,
       set1: 15,
       set2: 15,
@@ -20,7 +20,7 @@ export class OefeningenOverzichtPage implements OnInit {
       opmerking: 'te zwaar :('
     },
     {
-      date: null,
+      datum: new Date('2020-02-24T12:15:00'),
       gewicht: 6,
       set1: 15,
       set2: 15,
@@ -28,7 +28,7 @@ export class OefeningenOverzichtPage implements OnInit {
       opmerking: 'te zwaar :('
     },
     {
-      date: null,
+      datum: new Date('2020-02-26T12:15:00'),
       gewicht: 6,
       set1: 15,
       set2: 15,

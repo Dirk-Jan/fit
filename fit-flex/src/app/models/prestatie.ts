@@ -1,5 +1,5 @@
 export class Prestatie {
-    date: Date;
+    datum: Date;
     gewicht: number;
     set1: number;
     set2: number;
