@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { OefeningApi } from 'src/app/apis/oefening.api';
 
 @Component({
   selector: 'app-oefening-form',
@@ -12,12 +13,13 @@ export class OefeningFormComponent implements OnInit {
     omschrijving: new FormControl()
   });
 
-  constructor() { }
+  constructor(private oefeningApi: OefeningApi) { }
 
   ngOnInit(): void {
   }
 
   saveOefening() {
     console.log(this.form.value);
+    this.oefeningApi.add(this.form.value);
   }
 }

@@ -21,12 +21,14 @@ export class ReadMoreReadLessComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.enabled = this.text.length > this.readLessCount;
-    if (this.enabled) {
-      this.collapsed = true;
-      this.showLess();
-    } else {
-      this.textToDisplay = this.text;
+    if (typeof this.text !== 'undefined' && this.text !== null) {
+      this.enabled = this.text.length > this.readLessCount;
+      if (this.enabled) {
+        this.collapsed = true;
+        this.showLess();
+      } else {
+        this.textToDisplay = this.text;
+      }
     }
   }
 

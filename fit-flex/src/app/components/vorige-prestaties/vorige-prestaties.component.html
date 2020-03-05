@@ -1,4 +1,4 @@
-<div>
+<div *ngIf="prestaties?.length > 0">
     <label class="kg">Kg</label>
     <label class="set">Set 1</label>
     <label class="set">Set 2</label>
@@ -8,3 +8,5 @@
 <div *ngFor="let prestatie of prestaties">
     <app-oefening-prestatie [prestatie]="prestatie"></app-oefening-prestatie>
 </div>
+
+<p *ngIf="prestaties === undefined">Deze oefening heb je nog nooit gedaan.</p>

@@ -11,6 +11,8 @@ import { OefeningFormComponent } from './components/oefening-form/oefening-form.
 import { PrestatieFormComponent } from './components/prestatie-form/prestatie-form.component';
 import { VorigePrestatiesComponent } from './components/vorige-prestaties/vorige-prestaties.component';
 import { OefeningenOverzichtPage } from './pages/oefeningen-overzicht/oefeningen-overzicht.page';
+import { OefeningApi } from './apis/oefening.api';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,9 +28,10 @@ import { OefeningenOverzichtPage } from './pages/oefeningen-overzicht/oefeningen
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [OefeningApi],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

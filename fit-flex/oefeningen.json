@@ -1,0 +1,55 @@
+{
+  "oefeningen": [
+    {
+      "id": 1,
+      "naam": "Benchpress",
+      "omschrijving": "Doe maar gewwoon",
+      "prestaties": [
+        {
+          "id": 1,
+          "datum": "2020-02-24T12:15:00",
+          "gewicht": 200,
+          "set1": 15,
+          "set2": 15,
+          "set3": 15,
+          "opmerking": "Te zwaar"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "naam": "Chestpress",
+      "omschrijving": "",
+      "prestaties": [
+        {
+          "id": 2,
+          "datum": "2020-02-24T12:15:00",
+          "gewicht": 30,
+          "set1": 15,
+          "set2": 15,
+          "set3": 15,
+          "opmerking": ""
+        },
+        {
+          "id": 3,
+          "datum": "2020-02-26T12:15:00",
+          "gewicht": 30,
+          "set1": 15,
+          "set2": 15,
+          "set3": 15,
+          "opmerking": "Eitje"
+        }
+      ]
+    },
+    {
+      "naam": "Planken",
+      "omschrijving": null,
+      "id": 3
+    },
+    {
+      "naam": "Bicep curl",
+      "omschrijving": "doe een bicep curl",
+      "id": 4
+    }
+  ]
+}
