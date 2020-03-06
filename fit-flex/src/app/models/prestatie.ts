@@ -1,4 +1,5 @@
 export class Prestatie {
+    id: string;
     datum: Date;
     gewicht: number;
     set1: number;
