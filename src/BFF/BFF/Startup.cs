@@ -36,6 +36,19 @@ namespace BFF
             {
                 e.UseSqlServer(Environment.GetEnvironmentVariable(EnvNames.DbConnectionString));
             });
+
+            using var serviceScope = services.BuildServiceProvider().GetRequiredService<IServiceScopeFactory>()
+                .CreateScope();
+            var context = serviceScope.ServiceProvider.GetService<BFFContext>();
+            context.Database.Migrate();
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(CorsPolicies.AngularClient,
+                    buillder => { buillder.WithOrigins("http://localhost:4200")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod(); });
+            });
             services.AddControllers();
         }
 
@@ -47,6 +60,8 @@ namespace BFF
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors(CorsPolicies.AngularClient);
+            
             app.UseHttpsRedirection();
 
             app.UseRouting();

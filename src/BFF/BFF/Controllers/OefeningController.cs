@@ -2,9 +2,11 @@
 using BFF.Models;
 using BFF.Repositories.Abstractions;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
 
 namespace BFF.Controllers
 {
+    [ApiController]
     [Route(Routes.Oefeningen)]
     public class OefeningController : Controller
     {

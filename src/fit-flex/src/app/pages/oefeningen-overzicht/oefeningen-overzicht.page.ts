@@ -16,6 +16,7 @@ export class OefeningenOverzichtPage implements OnInit {
   constructor(private oefeningApi: OefeningApi) { }
 
   ngOnInit(): void {
+    console.log('Calling api');
     this.oefeningApi.query().subscribe(oefeningen => {
       this.oefeningen = oefeningen;
       console.log('Nieuwe oefeningen: ', oefeningen);
