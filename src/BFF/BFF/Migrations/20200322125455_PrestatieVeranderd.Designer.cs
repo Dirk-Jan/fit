@@ -4,14 +4,16 @@ using BFF.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BFF.Migrations
 {
     [DbContext(typeof(BFFContext))]
-    partial class BFFContextModelSnapshot : ModelSnapshot
+    [Migration("20200322125455_PrestatieVeranderd")]
+    partial class PrestatieVeranderd
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,14 +50,14 @@ namespace BFF.Migrations
                     b.Property<double>("Gewicht")
                         .HasColumnType("float");
 
-                    b.Property<double>("Herhalingen")
-                        .HasColumnType("float");
-
                     b.Property<Guid>("OefeningId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Opmerking")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Reps")
+                        .HasColumnType("float");
 
                     b.HasKey("Id");
 

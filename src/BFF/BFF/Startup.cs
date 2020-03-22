@@ -37,10 +37,12 @@ namespace BFF
                 e.UseSqlServer(Environment.GetEnvironmentVariable(EnvNames.DbConnectionString));
             });
 
+            // You need to comment this when adding a migration
             using var serviceScope = services.BuildServiceProvider().GetRequiredService<IServiceScopeFactory>()
                 .CreateScope();
-            var context = serviceScope.ServiceProvider.GetService<BFFContext>();
+            using var context = serviceScope.ServiceProvider.GetService<BFFContext>();
             context.Database.Migrate();
+            // You need to comment this when adding a migration
 
             services.AddCors(options =>
             {

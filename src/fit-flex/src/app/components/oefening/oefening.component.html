@@ -7,7 +7,7 @@
             <app-read-more-read-less [text]="oefening.omschrijving"></app-read-more-read-less>
         </p>
 
-        <app-prestatie-form></app-prestatie-form>
+        <app-prestatie-form [oefening]="oefening"></app-prestatie-form>
         
         <h6>Vorige prestaties</h6>
         <app-vorige-prestaties [prestaties]="oefening.prestaties"></app-vorige-prestaties>

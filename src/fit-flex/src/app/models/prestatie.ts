@@ -1,9 +1,8 @@
 export class Prestatie {
     id: string;
+    oefeningId: string;
     datum: Date;
     gewicht: number;
-    set1: number;
-    set2: number;
-    set3: number;
+    herhalingen: number;
     opmerking: string;
 }

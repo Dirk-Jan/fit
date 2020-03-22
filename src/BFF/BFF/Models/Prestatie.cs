@@ -8,9 +8,7 @@ namespace BFF.Models
         public Guid OefeningId { get; set; }
         public DateTime Datum { get; set; }
         public double Gewicht { get; set; }
-        public int Set1 { get; set; }
-        public int Set2 { get; set; }
-        public int Set3 { get; set; }
+        public double Herhalingen { get; set; }
         public string Opmerking { get; set; }
     }
 }

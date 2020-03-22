@@ -9,13 +9,6 @@ import { Prestatie } from 'src/app/models/prestatie';
 export class OefeningPrestatieComponent implements OnInit {
 
   @Input() prestatie: Prestatie;
-  // = {
-  //   date: null,
-  //   gewicht: 6,
-  //   set1: 15,
-  //   set2: 15,
-  //   set3: 15
-  // } as Prestatie;
 
   constructor() { }
 

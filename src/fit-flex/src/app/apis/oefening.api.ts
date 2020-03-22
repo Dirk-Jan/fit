@@ -32,6 +32,7 @@ export class OefeningApi {
     }
     
     addPrestatie(oefening: Oefening, prestatie: Prestatie) {
+		prestatie.oefeningId = oefening.id;
         this.http
             .post<Prestatie>('http://localhost:3000/prestaties', prestatie)
             .subscribe(addedPrestatie => {
