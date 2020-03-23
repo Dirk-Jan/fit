@@ -1,1 +1,1 @@
-<app-oefening *ngFor="let oefening of oefeningen" [oefening]="oefening"></app-oefening>
+<a *ngFor="let oef of oefeningen" class="btn btn-primary block" [routerLink]="['/oefeningen', oef.id]" router>{{oef.naam}}</a>

@@ -24,5 +24,13 @@ namespace BFF.Controllers
             _prestatieRepository.Add(prestatie);
             return Ok(prestatie);
         }
+
+        [HttpGet]
+        [Route("nextday/{oefeningId}/{lastDay}")]
+        public IActionResult GetNextDay(Guid oefeningId, DateTime lastDay)
+        {
+            
+            return Ok();
+        }
     }
 }

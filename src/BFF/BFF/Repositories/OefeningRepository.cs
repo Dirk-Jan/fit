@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using BFF.DAL;
@@ -19,8 +20,15 @@ namespace BFF.Repositories
         public IEnumerable<Oefening> GetAll()
         {
             var query = _context.Oefeningen
-                .Include(x => x.Prestaties);
+                .OrderBy(oefening => oefening.Naam);
             return query.ToList();
+        }
+
+        public Oefening GetById(Guid id)
+        {
+            return _context.Oefeningen
+                .Include(x => x.Prestaties)
+                .Single(oefening => oefening.Id == id);
         }
 
         public void Add(Oefening oefening)

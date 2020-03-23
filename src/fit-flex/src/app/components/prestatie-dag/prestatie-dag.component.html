@@ -1,0 +1,6 @@
+<span class="badge badge-pill badge-primary">{{prestatieDatum.datum}}</span>
+<div *ngFor="let prestatie of prestatieDatum.prestaties">
+    <app-oefening-prestatie [prestatie]="prestatie"></app-oefening-prestatie>
+</div>
+
+<a id="laad-meer" class="btn btn-primary" href="#" role="button">Laad meer</a>

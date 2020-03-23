@@ -5,8 +5,6 @@
     <label class="set">Set 3</label>
 </div>
 
-<div *ngFor="let prestatie of prestaties">
-    <app-oefening-prestatie [prestatie]="prestatie"></app-oefening-prestatie>
-</div>
+<app-prestatie-dag *ngFor="let prestatieDag of prestatieDagen"></app-prestatie-dag>
 
-<p *ngIf="prestaties === undefined">Deze oefening heb je nog nooit gedaan.</p>
+<p *ngIf="prestaties === undefined || prestaties.length === 0">Deze oefening heb je nog nooit gedaan.</p>

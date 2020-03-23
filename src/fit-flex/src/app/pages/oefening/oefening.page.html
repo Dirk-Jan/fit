@@ -1,3 +1,4 @@
+<a routerLink="/oefeningen" class="btn btn-primary">&lt;&lt; Terug naar oefeningen</a>
 <div class="card">
     <!-- <img class="card-img-top" src="https://bodybuildingblog.nl/wp-content/uploads/incline-benchpress-voorbeeld.jpg"> -->
     <!-- <img class="card-img-top"> -->
@@ -10,7 +11,7 @@
         <app-prestatie-form [oefening]="oefening"></app-prestatie-form>
         
         <h6>Vorige prestaties</h6>
-        <app-vorige-prestaties [prestaties]="oefening.prestaties"></app-vorige-prestaties>
+        <app-vorige-prestaties [prestatieDagen]="oefening.prestatieDagen"></app-vorige-prestaties>
 
         <!-- <span class="badge badge-pill badge-primary">Za 22 feb 2020</span>
         <app-oefening-prestatie></app-oefening-prestatie>

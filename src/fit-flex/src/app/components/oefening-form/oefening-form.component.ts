@@ -20,10 +20,7 @@ export class OefeningFormComponent implements OnInit {
   }
 
   saveOefening() {
-    // let oefening = new Oefening();
-    // oefening = this.form.value;
-    // console.log(oefening);
-    this.oefeningApi.add(this.form.value);
-    // this.oefeningApi.add(oefening);
+    this.oefeningApi.add(this.form.value)
+                    .subscribe();
   }
 }

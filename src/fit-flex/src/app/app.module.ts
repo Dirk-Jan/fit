@@ -4,7 +4,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { OefeningComponent } from './components/oefening/oefening.component';
 import { OefeningPrestatieComponent } from './components/oefening-prestatie/oefening-prestatie.component';
 import { ReadMoreReadLessComponent } from './components/read-more-read-less/read-more-read-less.component';
 import { OefeningFormComponent } from './components/oefening-form/oefening-form.component';
@@ -13,17 +12,20 @@ import { VorigePrestatiesComponent } from './components/vorige-prestaties/vorige
 import { OefeningenOverzichtPage } from './pages/oefeningen-overzicht/oefeningen-overzicht.page';
 import { OefeningApi } from './apis/oefening.api';
 import { HttpClientModule } from '@angular/common/http';
+import { OefeningPage } from './pages/oefening/oefening.page';
+import { PrestatieDagComponent } from './components/prestatie-dag/prestatie-dag.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    OefeningComponent,
+    OefeningPage,
     OefeningPrestatieComponent,
     ReadMoreReadLessComponent,
     OefeningFormComponent,
     PrestatieFormComponent,
     VorigePrestatiesComponent,
-    OefeningenOverzichtPage
+    OefeningenOverzichtPage,
+    PrestatieDagComponent
   ],
   imports: [
     BrowserModule,

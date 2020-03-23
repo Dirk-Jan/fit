@@ -1,6 +1,9 @@
-﻿using BFF.Constants;
+﻿using System;
+using System.Linq;
+using BFF.Constants;
 using BFF.Models;
 using BFF.Repositories.Abstractions;
+using BFF.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 
@@ -11,16 +14,46 @@ namespace BFF.Controllers
     public class OefeningController : Controller
     {
         private readonly IOefeningRepository _oefeningRepository;
+        private readonly IPrestatieRepository _prestatieRepository;
 
-        public OefeningController(IOefeningRepository oefeningRepository)
+        public OefeningController(IOefeningRepository oefeningRepository, IPrestatieRepository prestatieRepository)
         {
             _oefeningRepository = oefeningRepository;
+            _prestatieRepository = prestatieRepository;
         }
         
         [HttpGet]
         public IActionResult GetAll()
         {
             return Json(_oefeningRepository.GetAll());
+        }
+        
+        [HttpGet]
+        [Route("{id}")]
+        public IActionResult GetById(Guid id)
+        {
+            var oefening = _oefeningRepository.GetById(id);
+            var oefeningViewModel = new OefeningViewModel
+            {
+                Id = oefening.Id,
+                Naam = oefening.Naam,
+                Omschrijving = oefening.Omschrijving
+            };
+
+            var prestaties = _prestatieRepository.GetByOefeningId(id);
+            var result = prestaties.GroupBy(x => x.Datum.Date);
+
+            foreach (var hi in result)
+            {
+                
+            }
+            
+            if (result.Count() > 0)
+            {
+                result[0]
+            }
+            
+            return Json(oefeningViewModel);
         }
 
         [HttpPost]

@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using BFF.DAL;
 using BFF.Models;
 using BFF.Repositories.Abstractions;
@@ -17,6 +20,13 @@ namespace BFF.Repositories
         {
             _context.Prestaties.Add(prestatie);
             _context.SaveChanges();
+        }
+
+        public IEnumerable<Prestatie> GetByOefeningId(Guid oefeningId)
+        {
+            var query = _context.Prestaties.Where(x => x.OefeningId == oefeningId)
+                .OrderByDescending(x => x.Datum);
+            return query.ToList();
         }
     }
 }
