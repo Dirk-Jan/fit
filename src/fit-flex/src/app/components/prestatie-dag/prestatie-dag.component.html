@@ -1,4 +1,4 @@
-<span class="badge badge-pill badge-primary">{{prestatieDag.datum | date:'EEEE dd-LLLL-yyyy':'MET':'nl'}}</span>
+<span class="badge badge-pill badge-primary">{{prestatieDag.datum | date:'EEEE dd LLLL yyyy'}}</span>
 <div *ngFor="let prestatie of prestatieDag.prestaties">
     <app-oefening-prestatie [prestatie]="prestatie"></app-oefening-prestatie>
 </div>

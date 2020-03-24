@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +14,10 @@ import { OefeningApi } from './apis/oefening.api';
 import { HttpClientModule } from '@angular/common/http';
 import { OefeningPage } from './pages/oefening/oefening.page';
 import { PrestatieDagComponent } from './components/prestatie-dag/prestatie-dag.component';
+
+import { registerLocaleData } from '@angular/common';
+import localeNl from '@angular/common/locales/nl';
+registerLocaleData(localeNl, 'nl');
 
 @NgModule({
   declarations: [
@@ -33,7 +37,10 @@ import { PrestatieDagComponent } from './components/prestatie-dag/prestatie-dag.
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [OefeningApi],
+  providers: [
+    {provide: LOCALE_ID, useValue: 'nl' },
+    OefeningApi
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
