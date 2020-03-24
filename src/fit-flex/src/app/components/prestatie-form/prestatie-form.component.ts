@@ -26,6 +26,7 @@ export class PrestatieFormComponent implements OnInit {
 
   savePrestatie() {
     console.log('mijn form value ', this.form.value);
-    this.oefeningApi.addPrestatie(this.oefening, this.form.value);
+    this.oefeningApi.addPrestatie(this.oefening, this.form.value)
+      .subscribe();
   }
 }

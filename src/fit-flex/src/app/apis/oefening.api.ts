@@ -24,8 +24,8 @@ export class OefeningApi {
 		return this.http.post<Oefening>('http://localhost:3000/oefeningen', oefening);
     }
     
-    addPrestatie(oefening: Oefening, prestatie: Prestatie) {
+    addPrestatie(oefening: Oefening, prestatie: Prestatie): Observable<any> {
 		prestatie.oefeningId = oefening.id;
-        this.http.post<Prestatie>('http://localhost:3000/prestaties', prestatie);
+        return this.http.post<Prestatie>('http://localhost:3000/prestaties', prestatie);
 	}
 }

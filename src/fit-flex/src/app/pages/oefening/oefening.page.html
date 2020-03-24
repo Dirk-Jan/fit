@@ -5,7 +5,8 @@
     <div class="card-body">
         <h5 class="card-title">{{oefening.naam}}</h5>
         <p class="card-text">
-            <app-read-more-read-less [text]="oefening.omschrijving"></app-read-more-read-less>
+            <!-- <app-read-more-read-less [text]="oefening.omschrijving"></app-read-more-read-less> -->
+            {{oefening.omschrijving}}
         </p>
 
         <app-prestatie-form [oefening]="oefening"></app-prestatie-form>

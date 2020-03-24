@@ -5,3 +5,13 @@
 .set-container {
     max-width: 69%;
 }
+
+.timestamp {
+    text-align: end;
+    font-size: .75em;
+    -moz-user-select: none;
+}
+
+p {
+    font-size: .9em;
+}
