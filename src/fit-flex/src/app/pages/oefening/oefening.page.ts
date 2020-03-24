@@ -21,7 +21,11 @@ export class OefeningPage implements OnInit {
   ngOnInit(): void {
     console.log('nginit called');
     this.route.params.pipe(switchMap(params => this.oefeningApi.getById(params['id'])))
-    .subscribe(oefening => this.oefening = oefening);
+    .subscribe(oefening => 
+      {
+        console.log(oefening);
+        this.oefening = oefening;
+      });
   }
 
 }

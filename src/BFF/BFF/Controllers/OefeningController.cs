@@ -41,16 +41,17 @@ namespace BFF.Controllers
             };
 
             var prestaties = _prestatieRepository.GetByOefeningId(id);
-            var result = prestaties.GroupBy(x => x.Datum.Date);
+            // var groupedPrestaties = prestaties.GroupBy(x => x.Datum.Date);
+            if (prestaties.Count() > 0)
+            {
+                var latestDate = prestaties.Max(x => x.Datum).Date;
+                var filteredPrestaties = prestaties.Where(x => x.Datum.Date == latestDate);
 
-            foreach (var hi in result)
-            {
-                
-            }
-            
-            if (result.Count() > 0)
-            {
-                result[0]
+                oefeningViewModel.PrestatieDagen.Add(new PrestatieDag
+                {
+                    Datum = latestDate,
+                    Prestaties = filteredPrestaties
+                });
             }
             
             return Json(oefeningViewModel);

@@ -2,3 +2,7 @@ img {
     background-color: red;
     height: 15em;
 }
+
+h6, h5 {
+    font-weight: bold;
+}

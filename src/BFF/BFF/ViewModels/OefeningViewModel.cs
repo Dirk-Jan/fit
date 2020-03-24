@@ -8,6 +8,6 @@ namespace BFF.ViewModels
         public Guid Id { get; set; }
         public string Naam { get; set; }
         public string Omschrijving { get; set; }
-        public ICollection<PrestatieDag> PrestatieDagen { get; set; }
+        public ICollection<PrestatieDag> PrestatieDagen { get; set; } = new List<PrestatieDag>();
     }
 }
