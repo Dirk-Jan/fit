@@ -1,0 +1,9 @@
+version: '3.7'
+
+services:
+  bff:
+    build:
+      context: ./
+    restart: on-failure
+    ports:
+      - 4000:80

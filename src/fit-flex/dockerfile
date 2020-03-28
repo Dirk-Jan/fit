@@ -1,0 +1,12 @@
+FROM djja/angular as build
+
+WORKDIR /app
+Copy . .
+
+RUN nmp install
+RUN ng build --prod
+
+
+FROM nginx:alpine
+COPY --from=build /app/dist/fit-flex/ /usr/share/nginx/html
+COPY nginxconf /etc/nginx/conf.d/default.conf

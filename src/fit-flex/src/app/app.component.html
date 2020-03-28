@@ -16,10 +16,10 @@
        [ngClass]="{'show': !isCollapsed}">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" routerLink="oefeningen">Oefeningen overzicht</a>
+        <a class="nav-link" (click)="isCollapsed = !isCollapsed" routerLink="oefeningen">Oefeningen overzicht</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="nieuwe-oefening">Nieuwe oefening</a>
+        <a class="nav-link" (click)="isCollapsed = !isCollapsed" routerLink="nieuwe-oefening">Nieuwe oefening</a>
       </li>
     </ul>
   </div>
