@@ -3,8 +3,8 @@ FROM djja/angular as build
 WORKDIR /app
 Copy . .
 
-RUN nmp install
-RUN ng build --prod
+RUN npm install
+RUN ng build --prod --configuration production
 
 
 FROM nginx:alpine

@@ -47,7 +47,7 @@ namespace BFF
             services.AddCors(options =>
             {
                 options.AddPolicy(CorsPolicies.AngularClient,
-                    buillder => { buillder.WithOrigins("http://localhost:4200")
+                    buillder => { buillder.AllowAnyOrigin()
                         .AllowAnyHeader()
                         .AllowAnyMethod(); });
             });
