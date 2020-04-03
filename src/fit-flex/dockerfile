@@ -1,4 +1,4 @@
-FROM djja/angular as build
+FROM djja/angular:20200403 as build
 
 WORKDIR /app
 Copy . .
