@@ -5,6 +5,7 @@ import { Subject, Observable, throwError } from 'rxjs';
 import { Prestatie } from '../models/prestatie';
 import { catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+
 @Injectable()
 export class OefeningApi {
 	private baseUrl: string = environment.baseUrl;

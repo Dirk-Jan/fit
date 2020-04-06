@@ -11,17 +11,21 @@ import { PrestatieFormComponent } from './components/prestatie-form/prestatie-fo
 import { VorigePrestatiesComponent } from './components/vorige-prestaties/vorige-prestaties.component';
 import { OefeningenOverzichtPage } from './pages/oefeningen-overzicht/oefeningen-overzicht.page';
 import { OefeningApi } from './apis/oefening.api';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { OefeningPage } from './pages/oefening/oefening.page';
 import { PrestatieDagComponent } from './components/prestatie-dag/prestatie-dag.component';
 
-import { registerLocaleData } from '@angular/common';
+import { registerLocaleData, CommonModule } from '@angular/common';
 import localeNl from '@angular/common/locales/nl';
+import { AuthGuard } from './guards/auth.guard';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { AuthCallbackPage } from './pages/auth-callback/auth-callback.page';
 registerLocaleData(localeNl, 'nl');
 
 @NgModule({
   declarations: [
     AppComponent,
+    AuthCallbackPage,
     OefeningPage,
     OefeningPrestatieComponent,
     ReadMoreReadLessComponent,
@@ -29,7 +33,8 @@ registerLocaleData(localeNl, 'nl');
     PrestatieFormComponent,
     VorigePrestatiesComponent,
     OefeningenOverzichtPage,
-    PrestatieDagComponent
+    PrestatieDagComponent,
+    // CommonModule
   ],
   imports: [
     BrowserModule,
@@ -39,7 +44,13 @@ registerLocaleData(localeNl, 'nl');
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'nl' },
-    OefeningApi
+    OefeningApi,
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
