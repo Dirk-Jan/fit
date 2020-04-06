@@ -1,11 +1,14 @@
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using BFF.Constants;
 using BFF.DAL;
 using BFF.Repositories;
 using BFF.Repositories.Abstractions;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -43,6 +46,34 @@ namespace BFF
             using var context = serviceScope.ServiceProvider.GetService<BFFContext>();
             context.Database.Migrate();
             // You need to comment this when adding a migration
+            
+            services.AddAuthentication("Bearer").AddJwtBearer(options =>
+            {
+                options.Authority = Environment.GetEnvironmentVariable(EnvNames.AuthenticationServerAddress);
+                options.RequireHttpsMetadata = false;
+                options.Audience = AuthConfig.Audience;
+                
+                options.Events = new JwtBearerEvents
+                {
+                    OnTokenValidated = context =>
+                    {
+                        if (context.SecurityToken is JwtSecurityToken accessToken)
+                        {
+                            var appIdentity = new ClaimsIdentity(accessToken.Claims, JwtBearerDefaults.AuthenticationScheme);
+                            context.Principal.AddIdentity(appIdentity);
+                        }
+            
+                        return Task.CompletedTask;
+                    }
+                };
+            });
+            
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy(AuthPolicies.KanOefeningenZienPolicy, policy => policy.RequireClaim(AuthClaims.KanOefeningenZien, AuthClaims.True));
+                options.AddPolicy(AuthPolicies.KanOefeningenToevoegenPolicy, policy => policy.RequireClaim(AuthClaims.KanOefeningenToevoegen, AuthClaims.True));
+                options.AddPolicy(AuthPolicies.KanPrestatiesToevoegenPolicy, policy => policy.RequireClaim(AuthClaims.KanPrestatiesToevoegen, AuthClaims.True));
+            });
 
             services.AddCors(options =>
             {
@@ -68,6 +99,7 @@ namespace BFF
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });

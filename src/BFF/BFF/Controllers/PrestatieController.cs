@@ -2,6 +2,7 @@ using System;
 using BFF.Constants;
 using BFF.Models;
 using BFF.Repositories.Abstractions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BFF.Controllers
@@ -18,6 +19,7 @@ namespace BFF.Controllers
         }
         
         [HttpPost]
+        [Authorize(Policy = AuthPolicies.KanPrestatiesToevoegenPolicy)]
         public IActionResult Add(Prestatie prestatie)
         {
             prestatie.Datum = DateTime.Now;
@@ -25,12 +27,12 @@ namespace BFF.Controllers
             return Ok(prestatie);
         }
 
-        [HttpGet]
-        [Route("nextday/{oefeningId}/{lastDay}")]
-        public IActionResult GetNextDay(Guid oefeningId, DateTime lastDay)
-        {
-            
-            return Ok();
-        }
+        // [HttpGet]
+        // [Route("nextday/{oefeningId}/{lastDay}")]
+        // public IActionResult GetNextDay(Guid oefeningId, DateTime lastDay)
+        // {
+        //     
+        //     return Ok();
+        // }
     }
 }

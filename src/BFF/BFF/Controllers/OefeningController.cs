@@ -4,6 +4,7 @@ using BFF.Constants;
 using BFF.Models;
 using BFF.Repositories.Abstractions;
 using BFF.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 
@@ -23,6 +24,7 @@ namespace BFF.Controllers
         }
         
         [HttpGet]
+        [Authorize(Policy = AuthPolicies.KanOefeningenZienPolicy)]
         public IActionResult GetAll()
         {
             return Json(_oefeningRepository.GetAll());
@@ -30,6 +32,7 @@ namespace BFF.Controllers
         
         [HttpGet]
         [Route("{id}")]
+        [Authorize(Policy = AuthPolicies.KanOefeningenZienPolicy)]
         public IActionResult GetById(Guid id)
         {
             var oefening = _oefeningRepository.GetById(id);
@@ -58,6 +61,7 @@ namespace BFF.Controllers
         }
 
         [HttpPost]
+        [Authorize(Policy = AuthPolicies.KanOefeningenToevoegenPolicy)]
         public IActionResult Add(Oefening oefening)
         {
             _oefeningRepository.Add(oefening);

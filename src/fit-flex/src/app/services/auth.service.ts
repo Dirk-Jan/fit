@@ -25,6 +25,10 @@ export class AuthService {
         this.manager.signoutRedirect();
     }
 
+    get name() : string {
+        return this.user.profile.name;
+    }
+
     get isUserLoggedIn() : boolean {
         return this.user !== undefined && this.user !== null && !this.user.expired;
     }

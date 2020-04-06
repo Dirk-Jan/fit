@@ -25,22 +25,13 @@
         <a *ngIf="!isUserLoggedIn" class="nav-link hand-cursor" (click)="login()">Log in</a>
       </li>
       <li class="nav-item">
-        <a *ngIf="isUserLoggedIn" class="nav-link hand-cursor" (click)="logout()">Log uit</a>
+        <a *ngIf="isUserLoggedIn" class="nav-link hand-cursor" (click)="logout()">Log uit ({{name}})</a>
       </li>
       <li class="nav-item">
-        <a *ngIf="!isUserLoggedIn" class="nav-link hand-cursor" (click)="register">Registreren</a>
+        <a *ngIf="!isUserLoggedIn" class="nav-link hand-cursor" (click)="register()">Registreren</a>
       </li>
     </ul>
   </div>
 </nav>
-
-<!-- <h1>Presetatie invullen Form</h1>
-<app-prestatie-form></app-prestatie-form>
-
-<h1>Nieuwe Oefening Form</h1>
-<app-oefening-form></app-oefening-form>
-
-<h1>Oefening kaartje</h1>
-<app-oefening></app-oefening> -->
 
 <router-outlet></router-outlet>
