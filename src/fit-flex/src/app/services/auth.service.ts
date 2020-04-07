@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { UserManager, User } from 'oidc-client';
+import { resolve } from 'dns';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -33,6 +34,17 @@ export class AuthService {
         return this.user !== undefined && this.user !== null && !this.user.expired;
     }
 
+    // waitForUserToBeAuthenticated() {
+    //     return new Promise(resolve => {
+    //         setTimeout(() => {
+
+    //         })
+    //     });
+    // }
+
+    // Eeen event zou beter zijn
+    // maar moet misschien sowieso even kijken hoe ik de token ga opslaan, omdat je die anders kwijt bent met een refresh
+
     get token() {
         if (!this.isUserLoggedIn)
             return '';
@@ -43,5 +55,12 @@ export class AuthService {
     async completeLogin() {
         this.user = await this.manager.signinRedirectCallback();
         console.log('[Auth] user: ', this.user);
+    }
+
+    hasAuthClaim(claim: string) : boolean {
+        let result = atob(this.token.split('.')[1])
+
+        let tokenKeyValuePair = `"${claim}":"true"`;
+        return result.includes(tokenKeyValuePair);
     }
 }

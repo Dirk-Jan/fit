@@ -16,19 +16,19 @@
        [ngClass]="{'show': !isCollapsed}">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" (click)="isCollapsed = !isCollapsed" routerLink="oefeningen">Oefeningen overzicht</a>
+        <a *ngIf="showNavOefeningOverzicht" class="nav-link" (click)="isCollapsed = !isCollapsed" routerLink="oefeningen">Oefeningen overzicht</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" (click)="isCollapsed = !isCollapsed" routerLink="nieuwe-oefening">Nieuwe oefening</a>
+        <a *ngIf="showNavNieuweOefeningToevoegen" class="nav-link" (click)="isCollapsed = !isCollapsed" routerLink="nieuwe-oefening">Nieuwe oefening</a>
       </li>
       <li class="nav-item">
-        <a *ngIf="!isUserLoggedIn" class="nav-link hand-cursor" (click)="login()">Log in</a>
+        <a *ngIf="!userAuthenticated" class="nav-link hand-cursor" (click)="login()">Log in</a>
       </li>
       <li class="nav-item">
-        <a *ngIf="isUserLoggedIn" class="nav-link hand-cursor" (click)="logout()">Log uit ({{name}})</a>
+        <a *ngIf="userAuthenticated" class="nav-link hand-cursor" (click)="logout()">Log uit ({{nameOfUser}})</a>
       </li>
       <li class="nav-item">
-        <a *ngIf="!isUserLoggedIn" class="nav-link hand-cursor" (click)="register()">Registreren</a>
+        <a *ngIf="!userAuthenticated" class="nav-link hand-cursor" (click)="register()">Registreren</a>
       </li>
     </ul>
   </div>

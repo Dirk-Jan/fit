@@ -70,9 +70,13 @@ namespace BFF
             
             services.AddAuthorization(options =>
             {
-                options.AddPolicy(AuthPolicies.KanOefeningenZienPolicy, policy => policy.RequireClaim(AuthClaims.KanOefeningenZien, AuthClaims.True));
-                options.AddPolicy(AuthPolicies.KanOefeningenToevoegenPolicy, policy => policy.RequireClaim(AuthClaims.KanOefeningenToevoegen, AuthClaims.True));
-                options.AddPolicy(AuthPolicies.KanPrestatiesToevoegenPolicy, policy => policy.RequireClaim(AuthClaims.KanPrestatiesToevoegen, AuthClaims.True));
+                options.AddPolicy(AuthPolicies.KanOefeningenZienPolicy, policy =>
+                {
+                    policy.RequireClaim(AuthClaims.FitFlexOefeningRead, AuthClaims.True);
+                    policy.RequireClaim(AuthClaims.FitFlexOefeningPrestatieRead, AuthClaims.True);
+                });
+                options.AddPolicy(AuthPolicies.KanOefeningenToevoegenPolicy, policy => policy.RequireClaim(AuthClaims.FitFlexOefeningAdd, AuthClaims.True));
+                options.AddPolicy(AuthPolicies.KanPrestatiesToevoegenPolicy, policy => policy.RequireClaim(AuthClaims.FitFlexOefeningPrestatieAdd, AuthClaims.True));
             });
 
             services.AddCors(options =>
