@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from './services/auth.service';
 import { Router } from '@angular/router';
 import { OefeningReadGuard } from './guards/oefening-read.guard';
@@ -12,18 +12,23 @@ import { AuthPolicy } from './auth/auth-policy';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   isCollapsed: boolean = true;
 
   readonly showNavNieuweOefeningToevoegen: boolean;
   readonly showNavOefeningOverzicht: boolean;
-  readonly userAuthenticated: boolean;
-  readonly nameOfUser: string;
+   userAuthenticated: boolean;
+   nameOfUser: string;
 
   constructor(
     private authService: AuthService, 
     authPolicyValidator: AuthPolicyValidator
     ) {
+      // setTimeout(() => {
+      //   console.log('setting name of user....');
+      //   this.userAuthenticated = this.authService.isUserLoggedIn;
+      //   this.nameOfUser = this.authService.name;
+      // }, 2000);
       console.log('----- Ctor -----');
       this.userAuthenticated = authService.isUserLoggedIn;
       if (this.userAuthenticated) {
@@ -35,13 +40,10 @@ export class AppComponent {
       console.log('----- ctor done -----');
   }
 
-  // get isUserLoggedIn() : boolean {
-  //   return this.authService.isUserLoggedIn;
-  // }
-
-  // get name() : string {
-  //   return this.authService.name;
-  // }
+  ngOnInit(): void {
+    // this.userAuthenticated = true;
+    // this.nameOfUser = this.authService.name;
+  }
 
   login() {
     this.authService.login();
@@ -54,16 +56,4 @@ export class AppComponent {
   register() {
     window.location.href = "http://localhost:5000/Account/Register"
   }
-
-  // get showNavNieuweOefeningToevoegen() {
-  //   console.log('checking toevoegen');
-  //   return true;
-  //   // return this.authPolicyValidator.isAllowed(AuthPolicies.KanOefeningenToevoegenPolicy);
-  // }
-
-  // get showNavOefeningOverzicht() {
-  //   console.log('checking zien');
-  //   // return this.authPolicyValidator.isAllowed(AuthPolicies.KanOefeningenZienPolicy);
-  //   return true;
-  // }
 }

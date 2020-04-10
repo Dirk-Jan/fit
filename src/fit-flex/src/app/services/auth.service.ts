@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
 import { UserManager, User } from 'oidc-client';
-import { resolve } from 'dns';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -53,6 +52,7 @@ export class AuthService {
     }
 
     async completeLogin() {
+        console.log('hi starting complete login...');
         this.user = await this.manager.signinRedirectCallback();
         console.log('[Auth] user: ', this.user);
     }
