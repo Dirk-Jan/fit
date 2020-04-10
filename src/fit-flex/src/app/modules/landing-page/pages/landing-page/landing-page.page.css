@@ -1,0 +1,6 @@
+p {
+    font-size: 3em;
+    font-weight: bold;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}

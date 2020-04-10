@@ -1,37 +1,30 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { OefeningenOverzichtPage } from './pages/oefeningen-overzicht/oefeningen-overzicht.page';
-import { OefeningFormComponent } from './components/oefening-form/oefening-form.component';
-import { OefeningPage } from './pages/oefening/oefening.page';
-import { AuthCallbackPage } from './pages/auth-callback/auth-callback.page';
-import { OefeningReadGuard } from './guards/oefening-read.guard';
-import { OefeningAddGuard } from './guards/oefening-add.guard';
+import { ContentLayout } from './layouts/content-layout/content.layout';
+import { EmptyLayout } from './layouts/empty-layout/empty.layout';
 
 
 const routes: Routes = [
   {
-    path: 'oefeningen/:id',
-    component: OefeningPage,
-    pathMatch: 'full',
-    canActivate: [OefeningReadGuard]
-  },
-  {
-    path: 'oefeningen',
-    component: OefeningenOverzichtPage,
-    canActivate: [OefeningReadGuard]
-  },
-  {
-    path: 'nieuwe-oefening',
-    component: OefeningFormComponent,
-    canActivate: [OefeningAddGuard]
+    path: 'fit',
+    component: ContentLayout,
+    children: [
+      { path: '', loadChildren: () => import('./modules/fit/fit.module').then(m => m.FitModule) }
+    ]
   },
   {
     path: 'auth-callback',
-    component: AuthCallbackPage
+    component: EmptyLayout,
+    children: [
+      { path: '', loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule) }
+    ]
   },
   {
     path: '',
-    component: OefeningenOverzichtPage
+    component: EmptyLayout,
+    children: [
+      { path: '', loadChildren: () => import('./modules/landing-page/landing-page.module').then(m => m.LandingPageModule) }
+    ]
   }
 ];
 

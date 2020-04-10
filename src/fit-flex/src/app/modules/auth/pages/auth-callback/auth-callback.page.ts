@@ -14,9 +14,10 @@ export class AuthCallbackPage implements OnInit {
 
     text: string = 'HALLOO';
     async ngOnInit() {
+        console.log('completing login ....');
         await this.authService.completeLogin();
         this.text = 'INGELOGD';
         console.log('nieuwe text = ', this.text);
-        this.router.navigateByUrl('');
+        this.router.navigateByUrl('/fit');
     }
 }
