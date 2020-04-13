@@ -5,17 +5,18 @@ import { OefeningFormComponent } from './components/oefening-form/oefening-form.
 import { OefeningenOverzichtPage } from './pages/oefeningen-overzicht/oefeningen-overzicht.page';
 import { AuthPolicies } from 'src/app/constants/auth-policies';
 import { ClaimsAuthGuard } from 'src/app/guards/claims-auth.guard';
+import { Endpoints } from 'src/app/constants/endpoints';
 
 const routes: Routes = [
     {
-      path: 'oefeningen/:id',
+      path: Endpoints.OefeningDetails + '/:id',
       component: OefeningPage,
       pathMatch: 'full',
       canActivate: [ClaimsAuthGuard],
       data: { authPolicy: AuthPolicies.KanOefeningenZienPolicy }
     },
     {
-      path: 'oefeningen',
+      path: Endpoints.OefeningenOverzicht,
       component: OefeningenOverzichtPage,
       canActivate: [ClaimsAuthGuard],
       data: { authPolicy: AuthPolicies.KanOefeningenZienPolicy }
@@ -28,7 +29,9 @@ const routes: Routes = [
     },
     {
       path: '',
-      component: OefeningenOverzichtPage
+      component: OefeningenOverzichtPage,
+      canActivate: [ClaimsAuthGuard],
+      data: { authPolicy: AuthPolicies.KanOefeningenZienPolicy }
     }
   ];
   

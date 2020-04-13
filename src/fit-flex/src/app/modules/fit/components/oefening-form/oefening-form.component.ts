@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { OefeningApi } from 'src/app/apis/oefening.api';
 import { Oefening } from 'src/app/models/oefening';
+import { Router } from '@angular/router';
+import { Endpoints } from 'src/app/constants/endpoints';
 
 @Component({
   selector: 'app-oefening-form',
@@ -14,13 +16,16 @@ export class OefeningFormComponent implements OnInit {
     omschrijving: new FormControl()
   });
 
-  constructor(private oefeningApi: OefeningApi) { }
+  constructor(
+    private oefeningApi: OefeningApi,
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
   }
 
   saveOefening() {
     this.oefeningApi.add(this.form.value)
-                    .subscribe();
+                    .subscribe(x => this.router.navigateByUrl('/fit/' + Endpoints.OefeningenOverzicht));
   }
 }

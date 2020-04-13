@@ -3,6 +3,8 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { OefeningApi } from 'src/app/apis/oefening.api';
 import { Oefening } from 'src/app/models/oefening';
 import { Prestatie } from 'src/app/models/prestatie';
+import { Router } from '@angular/router';
+import { Endpoints } from 'src/app/constants/endpoints';
 
 @Component({
   selector: 'app-prestatie-form',
@@ -19,7 +21,10 @@ export class PrestatieFormComponent implements OnInit {
     opmerking: new FormControl()
   });
 
-  constructor(private oefeningApi: OefeningApi) { }
+  constructor(
+    private oefeningApi: OefeningApi,
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
   }
@@ -27,6 +32,6 @@ export class PrestatieFormComponent implements OnInit {
   savePrestatie() {
     console.log('mijn form value ', this.form.value);
     this.oefeningApi.addPrestatie(this.oefening, this.form.value)
-      .subscribe();
+      .subscribe(x => this.router.navigateByUrl('/fit/' + Endpoints.OefeningDetails + '/' + this.oefening.id));
   }
 }
