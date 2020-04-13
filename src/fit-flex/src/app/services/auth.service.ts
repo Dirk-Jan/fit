@@ -15,14 +15,21 @@ export class AuthService {
 
     constructor() {
         this.manager = new UserManager(this.settings);
+        let userInStorage = localStorage.getItem('authenticatedUser');
+        if (userInStorage) {
+            this.user = User.fromStorageString(userInStorage);
+        }
     }
 
     login() {
         this.manager.signinRedirect();
     }
 
-    logout() {
-        this.manager.signoutRedirect();
+    async logout() {
+        await this.manager.signoutRedirect();
+        console.log('uitgelogd...');
+        this.user = undefined;  // Hoeft misschien niet eens...
+        localStorage.removeItem('authenticatedUser');
     }
 
     get name() : string {
@@ -32,17 +39,6 @@ export class AuthService {
     get isUserLoggedIn() : boolean {
         return this.user !== undefined && this.user !== null && !this.user.expired;
     }
-
-    // waitForUserToBeAuthenticated() {
-    //     return new Promise(resolve => {
-    //         setTimeout(() => {
-
-    //         })
-    //     });
-    // }
-
-    // Eeen event zou beter zijn
-    // maar moet misschien sowieso even kijken hoe ik de token ga opslaan, omdat je die anders kwijt bent met een refresh
 
     get token() {
         if (!this.isUserLoggedIn)
@@ -55,6 +51,9 @@ export class AuthService {
         console.log('hi starting complete login...');
         this.user = await this.manager.signinRedirectCallback();
         console.log('[Auth] user: ', this.user);
+
+        localStorage.setItem('authenticatedUser', this.user.toStorageString());
+        console.log('user saved to localstorage');
     }
 
     hasAuthClaim(claim: string) : boolean {

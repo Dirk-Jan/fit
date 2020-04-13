@@ -12,12 +12,10 @@ export class AuthCallbackPage implements OnInit {
         private router: Router
         ) {}
 
-    text: string = 'HALLOO';
+
     async ngOnInit() {
         console.log('completing login ....');
         await this.authService.completeLogin();
-        this.text = 'INGELOGD';
-        console.log('nieuwe text = ', this.text);
         this.router.navigateByUrl('/fit');
     }
 }
