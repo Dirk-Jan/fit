@@ -4,7 +4,7 @@ import { AuthService } from 'src/app/services/auth.service';
 @Component({
     selector: 'app-landing-page',
     templateUrl: './landing-page.page.html',
-    styleUrls: ['./landing-page.page.css']
+    styleUrls: ['./landing-page-dark.page.css']
   })
   export class LandingPagePage implements OnInit {
   
