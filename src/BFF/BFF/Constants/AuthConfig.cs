@@ -2,6 +2,6 @@
 {
     internal static class AuthConfig
     {
-        internal const string Audience = "fitflex.bff";
+        internal const string Audience = "fit.bff";
     }
 }

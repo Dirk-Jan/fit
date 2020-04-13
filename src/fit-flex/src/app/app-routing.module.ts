@@ -3,13 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { ContentLayout } from './layouts/content-layout/content.layout';
 import { EmptyLayout } from './layouts/empty-layout/empty.layout';
 import { UnauthorizedPage } from './layouts/unauthorized/unauthorized.page';
-import { IsAlreadyAthenticatedGuard } from './guards/is-already-authenticated.guard';
+import { ShouldNotBeAthenticatedGuard } from './guards/should-not-be-authenticated.guard';
+import { HasToBeAthenticatedGuard } from './guards/has-to-be-authenticated.guard';
 
 
 const routes: Routes = [
   {
     path: 'fit',
     component: ContentLayout,
+    canActivate: [HasToBeAthenticatedGuard],
     children: [
       { path: '', loadChildren: () => import('./modules/fit/fit.module').then(m => m.FitModule) }
     ]
@@ -28,7 +30,7 @@ const routes: Routes = [
   {
     path: '',
     component: EmptyLayout,
-    canActivate: [IsAlreadyAthenticatedGuard],
+    canActivate: [ShouldNotBeAthenticatedGuard],
     children: [
       { path: '', loadChildren: () => import('./modules/landing-page/landing-page.module').then(m => m.LandingPageModule) }
     ]

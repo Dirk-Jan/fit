@@ -15,8 +15,9 @@ import { ContentLayout } from './layouts/content-layout/content.layout';
 import { EmptyLayout } from './layouts/empty-layout/empty.layout';
 import { AuthModule } from './modules/auth/auth.module';
 import { UnauthorizedPage } from './layouts/unauthorized/unauthorized.page';
-import { IsAlreadyAthenticatedGuard } from './guards/is-already-authenticated.guard';
+import { ShouldNotBeAthenticatedGuard } from './guards/should-not-be-authenticated.guard';
 import { RouterModule } from '@angular/router';
+import { HasToBeAthenticatedGuard } from './guards/has-to-be-authenticated.guard';
 registerLocaleData(localeNl, 'nl');
 
 @NgModule({
@@ -42,7 +43,8 @@ registerLocaleData(localeNl, 'nl');
       useClass: AuthInterceptor,
       multi: true
     },
-    IsAlreadyAthenticatedGuard
+    ShouldNotBeAthenticatedGuard,
+    HasToBeAthenticatedGuard
   ],
   bootstrap: [AppComponent]
 })

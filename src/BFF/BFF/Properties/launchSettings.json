@@ -6,7 +6,8 @@
       "applicationUrl": "http://localhost:3000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "DB_CONNECTION_STRING": "Server=localhost;Database=BFF;User Id=sa;Password=Geheim_101"
+        "DB_CONNECTION_STRING": "Server=localhost;Database=BFF;User Id=sa;Password=Geheim_101",
+        "AUTH_AUTHORITY": "http://localhost:5000"
       }
     }
   }
