@@ -11,7 +11,8 @@ export const AuthPolicies = {
     },
     KanOefeningenToevoegenPolicy: {
         requiredClaims: [
-            AuthClaims.FitFlexOefeningAdd
+            AuthClaims.FitFlexOefeningAdd,
+            'fuckyou'
         ]
     }
 }

@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ContentLayout } from './layouts/content-layout/content.layout';
 import { EmptyLayout } from './layouts/empty-layout/empty.layout';
+import { UnauthorizedPage } from './layouts/unauthorized/unauthorized.page';
+import { IsAlreadyAthenticatedGuard } from './guards/is-already-authenticated.guard';
 
 
 const routes: Routes = [
@@ -20,8 +22,13 @@ const routes: Routes = [
     ]
   },
   {
+    path: 'unauthorized',
+    component: UnauthorizedPage
+  },
+  {
     path: '',
     component: EmptyLayout,
+    canActivate: [IsAlreadyAthenticatedGuard],
     children: [
       { path: '', loadChildren: () => import('./modules/landing-page/landing-page.module').then(m => m.LandingPageModule) }
     ]

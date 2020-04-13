@@ -14,20 +14,25 @@ import { LandingPageModule } from './modules/landing-page/landing-page.module';
 import { ContentLayout } from './layouts/content-layout/content.layout';
 import { EmptyLayout } from './layouts/empty-layout/empty.layout';
 import { AuthModule } from './modules/auth/auth.module';
+import { UnauthorizedPage } from './layouts/unauthorized/unauthorized.page';
+import { IsAlreadyAthenticatedGuard } from './guards/is-already-authenticated.guard';
+import { RouterModule } from '@angular/router';
 registerLocaleData(localeNl, 'nl');
 
 @NgModule({
   declarations: [
     AppComponent,
     ContentLayout,
-    EmptyLayout
+    EmptyLayout,
+    UnauthorizedPage
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FitModule,
     LandingPageModule,
-    AuthModule
+    AuthModule,
+    RouterModule
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'nl' },
@@ -36,7 +41,8 @@ registerLocaleData(localeNl, 'nl');
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
-    }
+    },
+    IsAlreadyAthenticatedGuard
   ],
   bootstrap: [AppComponent]
 })

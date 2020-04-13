@@ -19,14 +19,10 @@ import { AuthPolicies } from 'src/app/constants/auth-policies';
       private authService: AuthService, 
       authPolicyValidator: AuthPolicyValidator
       ) {
-        console.log('----- Ctor -----');
-
-        console.log('authenticated');
         this.nameOfUser = authService.name;
         this.showNavOefeningOverzicht = authPolicyValidator.isAllowed(AuthPolicies.KanOefeningenZienPolicy);
         this.showNavNieuweOefeningToevoegen = authPolicyValidator.isAllowed(AuthPolicies.KanOefeningenToevoegenPolicy);
-
-        console.log('----- ctor done -----');
+        this.showNavNieuweOefeningToevoegen = true;
     }
   
     ngOnInit(): void {}

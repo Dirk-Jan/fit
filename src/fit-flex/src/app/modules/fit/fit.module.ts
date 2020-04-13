@@ -10,10 +10,9 @@ import { OefeningenOverzichtPage } from './pages/oefeningen-overzicht/oefeningen
 import { PrestatieDagComponent } from './components/prestatie-dag/prestatie-dag.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { OefeningReadGuard } from 'src/app/guards/oefening-read.guard';
-import { OefeningAddGuard } from 'src/app/guards/oefening-add.guard';
 import { AuthPolicyValidator } from 'src/app/auth/auth-policy-validator';
 import { CommonModule } from '@angular/common';
+import { ClaimsAuthGuard } from 'src/app/guards/claims-auth.guard';
 
 @NgModule({
   declarations: [
@@ -33,8 +32,7 @@ import { CommonModule } from '@angular/common';
     HttpClientModule
   ],
   providers: [
-    OefeningReadGuard,
-    OefeningAddGuard,
+    ClaimsAuthGuard,
     AuthPolicyValidator
   ]
 })
