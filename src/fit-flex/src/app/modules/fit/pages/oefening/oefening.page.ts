@@ -3,6 +3,7 @@ import { Oefening } from 'src/app/models/oefening';
 import { ActivatedRoute } from '@angular/router';
 import { OefeningApi } from 'src/app/apis/oefening.api';
 import { switchMap } from 'rxjs/operators';
+import { InternalEndpoints } from 'src/app/constants/internal-endpoints';
 
 @Component({
   selector: 'app-oefening',
@@ -10,6 +11,7 @@ import { switchMap } from 'rxjs/operators';
   styleUrls: ['./oefening.page.css']
 })
 export class OefeningPage implements OnInit {
+  readonly oefeningOverzichtUrl: string = InternalEndpoints.OefeningenOverzicht;
 
   oefening: Oefening = new Oefening();
 

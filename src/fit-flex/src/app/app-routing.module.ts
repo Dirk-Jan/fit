@@ -5,11 +5,13 @@ import { EmptyLayout } from './layouts/empty-layout/empty.layout';
 import { UnauthorizedPage } from './layouts/unauthorized/unauthorized.page';
 import { ShouldNotBeAthenticatedGuard } from './guards/should-not-be-authenticated.guard';
 import { HasToBeAthenticatedGuard } from './guards/has-to-be-authenticated.guard';
+import { RouterPaths } from './constants/router-paths';
+import { RouterModulePaths } from './constants/router-module-paths';
 
 
 const routes: Routes = [
   {
-    path: 'fit',
+    path: RouterModulePaths.FitModulePrefix,
     component: ContentLayout,
     canActivate: [HasToBeAthenticatedGuard],
     children: [
@@ -17,14 +19,14 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'auth-callback',
+    path: RouterModulePaths.AuthModulePrefix,
     component: EmptyLayout,
     children: [
       { path: '', loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule) }
     ]
   },
   {
-    path: 'unauthorized',
+    path: RouterPaths.Unauthorized,
     component: UnauthorizedPage
   },
   {

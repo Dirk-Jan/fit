@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { AuthPolicyValidator } from 'src/app/auth/auth-policy-validator';
 import { AuthPolicies } from 'src/app/constants/auth-policies';
+import { InternalEndpoints } from 'src/app/constants/internal-endpoints';
 
 @Component({
     selector: 'app-content-layout',
@@ -9,6 +10,10 @@ import { AuthPolicies } from 'src/app/constants/auth-policies';
     styleUrls: ['./content.layout.css']
   })
   export class ContentLayout implements OnInit {
+    readonly fitModuleUrl: string = InternalEndpoints.FitModule;
+    readonly oefeningOverzichtUrl: string = InternalEndpoints.OefeningenOverzicht;
+    readonly nieuweOefeningUrl: string = InternalEndpoints.NieuweOefening;
+
     isCollapsed: boolean = true;
   
     readonly showNavNieuweOefeningToevoegen: boolean;

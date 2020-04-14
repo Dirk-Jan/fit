@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" routerLink="/fit">Fit 💪</a>
+    <a class="navbar-brand" [routerLink]="fitModuleUrl">Fit 💪</a>
     <button class="navbar-toggler"
             type="button"
             data-toggle="collapse"
@@ -16,10 +16,10 @@
          [ngClass]="{'show': !isCollapsed}">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a *ngIf="showNavOefeningOverzicht" class="nav-link" (click)="isCollapsed = !isCollapsed" routerLink="oefeningen">Oefeningen overzicht</a>
+          <a *ngIf="showNavOefeningOverzicht" class="nav-link" (click)="isCollapsed = !isCollapsed" [routerLink]="oefeningOverzichtUrl">Oefeningen overzicht</a>
         </li>
         <li class="nav-item">
-          <a *ngIf="showNavNieuweOefeningToevoegen" class="nav-link" (click)="isCollapsed = !isCollapsed" routerLink="nieuwe-oefening">Nieuwe oefening</a>
+          <a *ngIf="showNavNieuweOefeningToevoegen" class="nav-link" (click)="isCollapsed = !isCollapsed" [routerLink]="nieuweOefeningUrl">Nieuwe oefening</a>
         </li>
         <li class="nav-item">
           <a class="nav-link hand-cursor" (click)="logout()">Log uit ({{nameOfUser}})</a>

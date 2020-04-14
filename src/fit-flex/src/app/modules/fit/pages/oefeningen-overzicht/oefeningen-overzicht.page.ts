@@ -3,6 +3,7 @@ import { Prestatie } from 'src/app/models/prestatie';
 import { Oefening } from 'src/app/models/oefening';
 import { ThrowStmt } from '@angular/compiler';
 import { OefeningApi } from 'src/app/apis/oefening.api';
+import { InternalEndpoints } from 'src/app/constants/internal-endpoints';
 
 @Component({
   selector: 'app-oefeningen-overzicht.page',
@@ -10,6 +11,7 @@ import { OefeningApi } from 'src/app/apis/oefening.api';
   styleUrls: ['./oefeningen-overzicht.page.css']
 })
 export class OefeningenOverzichtPage implements OnInit {
+  readonly oefeningDetailsUrl: string = InternalEndpoints.OefeningDetails;
 
   oefeningen: Oefening[];
   

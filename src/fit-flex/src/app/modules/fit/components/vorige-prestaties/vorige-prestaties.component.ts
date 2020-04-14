@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Prestatie } from 'src/app/models/prestatie';
 import { PrestatieDag } from 'src/app/models/prestatie-dag';
 
 @Component({
@@ -10,18 +9,6 @@ import { PrestatieDag } from 'src/app/models/prestatie-dag';
 export class VorigePrestatiesComponent implements OnInit {
 
   @Input() prestatieDagen: PrestatieDag[];
-  // private _pres;
-
-  // @Input() prestaties: Prestatie[];
-  // @Input()
-  // set prestaties(val: Prestatie[]) {
-  //   console.log(this.prestaties);
-  //   this._pres = this.prestaties;
-  //   let prestatieDag = new PrestatieDag();
-  //   prestatieDag.datum = new Date();
-  //   prestatieDag.prestaties = val;
-  //   this.prestatieDagen = [prestatieDag];
-  // }
 
   constructor() { }
 

@@ -5,24 +5,25 @@ import { OefeningFormComponent } from './components/oefening-form/oefening-form.
 import { OefeningenOverzichtPage } from './pages/oefeningen-overzicht/oefeningen-overzicht.page';
 import { AuthPolicies } from 'src/app/constants/auth-policies';
 import { ClaimsAuthGuard } from 'src/app/guards/claims-auth.guard';
-import { Endpoints } from 'src/app/constants/endpoints';
+import { RouterPaths } from 'src/app/constants/router-paths';
 
 const routes: Routes = [
     {
-      path: Endpoints.OefeningDetails + '/:id',
+      path: `${RouterPaths.OefeningDetails}/:id`,
+      // path: `fit/oefeningen/:id`,
       component: OefeningPage,
       pathMatch: 'full',
       canActivate: [ClaimsAuthGuard],
       data: { authPolicy: AuthPolicies.KanOefeningenZienPolicy }
     },
     {
-      path: Endpoints.OefeningenOverzicht,
+      path: RouterPaths.OefeningenOverzicht,
       component: OefeningenOverzichtPage,
       canActivate: [ClaimsAuthGuard],
       data: { authPolicy: AuthPolicies.KanOefeningenZienPolicy }
     },
     {
-      path: 'nieuwe-oefening',
+      path: RouterPaths.NieuweOefening,
       component: OefeningFormComponent,
       canActivate: [ClaimsAuthGuard],
       data: { authPolicy: AuthPolicies.KanOefeningenToevoegenPolicy }
@@ -32,6 +33,12 @@ const routes: Routes = [
       component: OefeningenOverzichtPage,
       canActivate: [ClaimsAuthGuard],
       data: { authPolicy: AuthPolicies.KanOefeningenZienPolicy }
+    },
+    // Fallback when no prior routes is matched
+    { 
+      path: '**', 
+      redirectTo: '', 
+      pathMatch: 'full' 
     }
   ];
   

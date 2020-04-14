@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { OefeningApi } from 'src/app/apis/oefening.api';
-import { Oefening } from 'src/app/models/oefening';
 import { Router } from '@angular/router';
-import { Endpoints } from 'src/app/constants/endpoints';
+import { InternalEndpoints } from 'src/app/constants/internal-endpoints';
 
 @Component({
   selector: 'app-oefening-form',
@@ -26,6 +25,6 @@ export class OefeningFormComponent implements OnInit {
 
   saveOefening() {
     this.oefeningApi.add(this.form.value)
-                    .subscribe(x => this.router.navigateByUrl('/fit/' + Endpoints.OefeningenOverzicht));
+      .subscribe(x => this.router.navigateByUrl(InternalEndpoints.OefeningenOverzicht));
   }
 }
