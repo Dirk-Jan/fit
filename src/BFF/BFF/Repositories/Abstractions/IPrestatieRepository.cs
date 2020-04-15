@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using BFF.Models;
+using BFF.ViewModels;
 
 namespace BFF.Repositories.Abstractions
 {
@@ -8,5 +9,6 @@ namespace BFF.Repositories.Abstractions
     {
         void Add(Prestatie prestatie);
         IEnumerable<Prestatie> GetByOefeningId(Guid oefeningId);
+        IEnumerable<PrestatieDag> GetLatestsXDays(Guid oefeningId, int dayAmount);
     }
 }

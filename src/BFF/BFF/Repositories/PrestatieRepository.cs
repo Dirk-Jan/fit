@@ -4,6 +4,7 @@ using System.Linq;
 using BFF.DAL;
 using BFF.Models;
 using BFF.Repositories.Abstractions;
+using BFF.ViewModels;
 
 namespace BFF.Repositories
 {
@@ -27,6 +28,27 @@ namespace BFF.Repositories
             var query = _context.Prestaties.Where(x => x.OefeningId == oefeningId)
                 .OrderByDescending(x => x.Datum);
             return query.ToList();
+        }
+
+        public IEnumerable<PrestatieDag> GetLatestsXDays(Guid oefeningId, int dayAmount)
+        {
+            var query = _context.Prestaties.Where(x => x.OefeningId == oefeningId)
+                .ToList()
+                .GroupBy(x => x.Datum.Date)
+                .OrderByDescending(group => group.Key)
+                .Take(dayAmount);
+
+            var prestatieDagen = new List<PrestatieDag>();
+            foreach (var group in query)
+            {
+                prestatieDagen.Add(new PrestatieDag
+                {
+                    Datum = group.Key,
+                    Prestaties = group
+                });
+            }
+
+            return prestatieDagen;
         }
     }
 }

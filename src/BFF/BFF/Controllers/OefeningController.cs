@@ -24,7 +24,7 @@ namespace BFF.Controllers
         }
         
         [HttpGet]
-        // [Authorize(Policy = AuthPolicies.KanOefeningenZienPolicy)]
+        [Authorize(Policy = AuthPolicies.KanOefeningenZienPolicy)]
         public IActionResult GetAll()
         {
             return Json(_oefeningRepository.GetAll());
@@ -43,19 +43,9 @@ namespace BFF.Controllers
                 Omschrijving = oefening.Omschrijving
             };
 
-            var prestaties = _prestatieRepository.GetByOefeningId(id);
-            // var groupedPrestaties = prestaties.GroupBy(x => x.Datum.Date);
-            if (prestaties.Count() > 0)
-            {
-                var latestDate = prestaties.Max(x => x.Datum).Date;
-                var filteredPrestaties = prestaties.Where(x => x.Datum.Date == latestDate);
+            var prestatieDagen = _prestatieRepository.GetLatestsXDays(oefening.Id, 3);
 
-                oefeningViewModel.PrestatieDagen.Add(new PrestatieDag
-                {
-                    Datum = latestDate,
-                    Prestaties = filteredPrestaties
-                });
-            }
+            oefeningViewModel.PrestatieDagen = prestatieDagen.ToList();
             
             return Json(oefeningViewModel);
         }
