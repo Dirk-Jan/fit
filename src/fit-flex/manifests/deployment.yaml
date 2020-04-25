@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: fit-frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+        app: fit-frontend
+  template:
+    metadata:
+      labels:
+        app: fit-frontend
+    spec:
+      containers:
+        - name: fit-frontend
+          image: djja/fitflex-frontend:10
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          resources:
+            limits:
+              cpu: 250m
+              memory: 256Mi
+            requests:
+              cpu: 50m
+              memory: 50Mi
