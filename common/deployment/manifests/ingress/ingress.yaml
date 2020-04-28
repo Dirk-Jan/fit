@@ -11,12 +11,12 @@ metadata:
     certmanager.k8s.io/issuer: "letsencrypt-production"
 spec:
   rules:
-    - host: fit.djja.nl
+    - host: bff.fit.dirk-jan.eu
       http:
         paths:
-          - path: /
+          - path: /(.*)
             backend:
-              serviceName: fit-frontend
+              serviceName: bff
               servicePort: 80
     - host: fit.dirk-jan.eu
       http:
@@ -25,17 +25,10 @@ spec:
             backend:
               serviceName: fit-frontend
               servicePort: 80
-    - host: dirk-jan.eu
+    - host: identity.dirk-jan.eu
       http:
         paths:
           - path: /(.*)
             backend:
-              serviceName: fit-frontend
-              servicePort: 80
-    - host: fit.kubernetes
-      http:
-        paths:
-          - path: /(.*)
-            backend:
-              serviceName: fit-frontend
+              serviceName: identity
               servicePort: 80

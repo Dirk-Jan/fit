@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-    name: fit-frontend
+    name: bff
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
-        app: fit-frontend
+        app: bff
   template:
     metadata:
       labels:
-        app: fit-frontend
+        app: bff
     spec:
       containers:
-        - name: fit-frontend
-          image: djja/fitflex-frontend
+        - name: bff
+          image: djja/fitflex-bff
           imagePullPolicy: Always
           ports:
             - containerPort: 80
@@ -25,3 +25,8 @@ spec:
             requests:
               cpu: 50m
               memory: 50Mi
+          env:
+            - name: DB_CONNECTION_STRING
+              value: 'Server=mssql;Database=fit;User ID=sa;Password=Your(!)Strongpassword'
+            - name: AUTH_AUTHORITY
+              value: 'https://identity.dirk-jan.eu'
