@@ -30,5 +30,5 @@ spec:
               value: 'Server=mssql;Database=identity;User ID=sa;Password=Your(!)Strongpassword'
             - name: REGISTER_ENABLED
               value: 'true'
-            # - name: ASPNETCORE_URLS
-            #   value: http://*:5000/
+            - name: ASPNETCORE_URLS
+              value: http://*:80/

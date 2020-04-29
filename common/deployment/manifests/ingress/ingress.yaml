@@ -18,6 +18,13 @@ spec:
             backend:
               serviceName: bff
               servicePort: 80
+    - host: bff.fit.djja.nl
+      http:
+        paths:
+          - path: /(.*)
+            backend:
+              serviceName: bff
+              servicePort: 80
     - host: fit.dirk-jan.eu
       http:
         paths:
@@ -25,7 +32,21 @@ spec:
             backend:
               serviceName: fit-frontend
               servicePort: 80
+    - host: fit.djja.nl
+      http:
+        paths:
+          - path: /(.*)
+            backend:
+              serviceName: fit-frontend
+              servicePort: 80
     - host: identity.dirk-jan.eu
+      http:
+        paths:
+          - path: /(.*)
+            backend:
+              serviceName: identity
+              servicePort: 80
+    - host: identity.djja.nl
       http:
         paths:
           - path: /(.*)
