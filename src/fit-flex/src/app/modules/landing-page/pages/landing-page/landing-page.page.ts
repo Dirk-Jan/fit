@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-landing-page',
@@ -20,6 +21,6 @@ import { AuthService } from 'src/app/services/auth.service';
     }
 
     register() {
-        window.location.href = "http://localhost:5000/Account/Register"
+        window.location.href = `${environment.authUrl}/Account/Register`
     }
   }

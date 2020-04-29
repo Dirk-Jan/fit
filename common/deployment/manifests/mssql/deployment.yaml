@@ -12,10 +12,10 @@ spec:
       labels:
         app: mssql
     spec:
-      volumes:
-        - name: mssql-pvc
-          persistentVolumeClaim:
-            claimName: mssql-pvc
+      # volumes:
+      #   - name: mssql-pvc
+      #     persistentVolumeClaim:
+      #       claimName: mssql-pvc
       containers:
         - name: mssql
           image: mcr.microsoft.com/mssql/server:2019-CU4-ubuntu-18.04
@@ -23,8 +23,8 @@ spec:
           ports:
             - containerPort: 1433
           volumeMounts:
-            - mountPath: /var/opt/mssql
-              name: mssql-pvc
+            # - mountPath: /var/opt/mssql
+            #   name: mssql-pvc
         #   resources:
         #     limits:
         #       cpu: 500m
