@@ -1,12 +1,13 @@
 import { Injectable } from "@angular/core";
 import { UserManager, User } from 'oidc-client';
+import { environment } from 'src/environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
     private settings = {
-        authority: 'http://localhost:5000',
+        authority: environment.authUrl,
         client_id: 'fit.frontend',
-        redirect_uri: 'http://localhost:4200/auth-callback',
+        redirect_uri: environment.authCallbackUrl,
         response_type: 'id_token token',
         scope: 'openid profile fit.bff'
     };

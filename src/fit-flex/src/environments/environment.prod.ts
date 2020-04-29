@@ -1,4 +1,6 @@
 export const environment = {
   production: true,
-  baseUrl: 'http://10.1.10.180:3000'
+  baseUrl: 'https://bff.fit.dirk-jan.eu',
+  authUrl: 'https://identity.dirk-jan.eu',
+  authCallbackUrl: 'https://fit.dirk-jan.eu/auth-callback'
 };
