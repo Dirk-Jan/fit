@@ -1,0 +1,155 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: identity-configmap
+data:
+  apis.json: |
+    [
+      {
+        "ApiSecrets":[
+        ],
+        "Scopes":[
+            {
+            "Name":"fit.bff",
+            "DisplayName":"Fit 💪",
+            "Description":null,
+            "Required":false,
+            "Emphasize":false,
+            "ShowInDiscoveryDocument":true,
+            "UserClaims":[
+    
+            ]
+            }
+        ],
+        "Enabled":true,
+        "Name":"fit.bff",
+        "DisplayName":"Fit 💪",
+        "Description":null,
+        "UserClaims":[
+            "FitFlex.Oefening.Read",
+            "FitFlex.Oefening.Add",
+            "FitFlex.Oefening.Prestatie.Add",
+            "FitFlex.Oefening.Prestatie.Read"
+        ],
+        "Properties":{
+    
+        }
+      }
+    ]
+  ids.json: |
+    [
+      {
+        "Required":true,
+        "Emphasize":false,
+        "ShowInDiscoveryDocument":true,
+        "Enabled":true,
+        "Name":"openid",
+        "DisplayName":"Your user identifier",
+        "Description":null,
+        "UserClaims":[
+            "sub"
+        ],
+        "Properties":{
+    
+        }
+      },
+        {
+        "Required":false,
+        "Emphasize":true,
+        "ShowInDiscoveryDocument":true,
+        "Enabled":true,
+        "Name":"profile",
+        "DisplayName":"User profile",
+        "Description":"Your user profile information (first name, last name, etc.)",
+        "UserClaims":[
+            "name",
+            "family_name",
+            "given_name",
+            "middle_name",
+            "nickname",
+            "preferred_username",
+            "profile",
+            "picture",
+            "website",
+            "gender",
+            "birthdate",
+            "zoneinfo",
+            "locale",
+            "updated_at"
+        ],
+        "Properties":{
+    
+        }
+      }
+    ]
+  clients.json: |
+    [
+        {
+        "Enabled":true,
+        "ClientId":"fit.frontend",
+        "ProtocolType":"oidc",
+        "ClientSecrets":[
+    
+        ],
+        "RequireClientSecret":false,
+        "ClientName":"Fit 💪 (Frontend)",
+        "Description":null,
+        "ClientUri":"https://fit.dirk-jan.eu",
+        "LogoUri":null,
+        "RequireConsent":false,
+        "AllowRememberConsent":true,
+        "AllowedGrantTypes":[
+            "implicit"
+        ],
+        "RequirePkce":true,
+        "AllowPlainTextPkce":false,
+        "AllowAccessTokensViaBrowser":true,
+        "RedirectUris":[
+            "https://fit.dirk-jan.eu/auth-callback"
+        ],
+        "PostLogoutRedirectUris":[
+            "https://fit.dirk-jan.eu"
+        ],
+        "FrontChannelLogoutUri":null,
+        "FrontChannelLogoutSessionRequired":true,
+        "BackChannelLogoutUri":null,
+        "BackChannelLogoutSessionRequired":true,
+        "AllowOfflineAccess":false,
+        "AllowedScopes":[
+            "openid",
+            "profile",
+            "fit.bff"
+        ],
+        "AlwaysIncludeUserClaimsInIdToken":false,
+        "IdentityTokenLifetime":300,
+        "AccessTokenLifetime":3600,
+        "AuthorizationCodeLifetime":300,
+        "AbsoluteRefreshTokenLifetime":2592000,
+        "SlidingRefreshTokenLifetime":1296000,
+        "ConsentLifetime":null,
+        "RefreshTokenUsage":1,
+        "UpdateAccessTokenClaimsOnRefresh":false,
+        "RefreshTokenExpiration":1,
+        "AccessTokenType":0,
+        "EnableLocalLogin":true,
+        "IdentityProviderRestrictions":[
+    
+        ],
+        "IncludeJwtId":false,
+        "Claims":[
+    
+        ],
+        "AlwaysSendClientClaims":false,
+        "ClientClaimsPrefix":"client_",
+        "PairWiseSubjectSalt":null,
+        "UserSsoLifetime":null,
+        "UserCodeType":null,
+        "DeviceCodeLifetime":300,
+        "AllowedCorsOrigins":[
+            "https://fit.dirk-jan.eu"
+        ],
+        "Properties":{
+    
+        }
+        }
+    ]

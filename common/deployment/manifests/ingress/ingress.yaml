@@ -8,16 +8,23 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-buffering: "on"
     nginx.ingress.kubernetes.io/proxy-buffer-size: "128k"
     nginx.ingress.kubernetes.io/proxy-buffers-number: "4"
-    certmanager.k8s.io/issuer: "letsencrypt-production"
+    # certmanager.k8s.io/issuer: "letsencrypt-production"
 spec:
+  tls:
+    - secretName: djja-nl-tls
+      hosts:
+        - djja.nl
+        - bff.fit.djja.nl
+        - fit.djja.nl
+        - identity.djja.nl
   rules:
-    - host: bff.fit.dirk-jan.eu
-      http:
-        paths:
-          - path: /(.*)
-            backend:
-              serviceName: bff
-              servicePort: 80
+    # - host: bff.fit.dirk-jan.eu
+    #   http:
+    #     paths:
+    #       - path: /(.*)
+    #         backend:
+    #           serviceName: bff
+    #           servicePort: 80
     - host: bff.fit.djja.nl
       http:
         paths:
@@ -25,13 +32,13 @@ spec:
             backend:
               serviceName: bff
               servicePort: 80
-    - host: fit.dirk-jan.eu
-      http:
-        paths:
-          - path: /(.*)
-            backend:
-              serviceName: fit-frontend
-              servicePort: 80
+    # - host: fit.dirk-jan.eu
+    #   http:
+    #     paths:
+    #       - path: /(.*)
+    #         backend:
+    #           serviceName: fit-frontend
+    #           servicePort: 80
     - host: fit.djja.nl
       http:
         paths:
@@ -39,13 +46,13 @@ spec:
             backend:
               serviceName: fit-frontend
               servicePort: 80
-    - host: identity.dirk-jan.eu
-      http:
-        paths:
-          - path: /(.*)
-            backend:
-              serviceName: identity
-              servicePort: 80
+    # - host: identity.dirk-jan.eu
+    #   http:
+    #     paths:
+    #       - path: /(.*)
+    #         backend:
+    #           serviceName: identity
+    #           servicePort: 80
     - host: identity.djja.nl
       http:
         paths:

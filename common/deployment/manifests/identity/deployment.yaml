@@ -12,6 +12,10 @@ spec:
       labels:
         app: identity
     spec:
+      volumes:
+        - name: config-volume
+          configMap:
+            name: identity-configmap
       containers:
         - name: identity
           image: djja/fitflex-identity
@@ -25,6 +29,9 @@ spec:
             requests:
               cpu: 50m
               memory: 50Mi
+          volumeMounts:
+            - name: config-volume
+              mountPath: /app/Data
           env:
             - name: DB_CONNECTION_STRING
               value: 'Server=mssql;Database=identity;User ID=sa;Password=Your(!)Strongpassword'
@@ -32,3 +39,9 @@ spec:
               value: 'true'
             - name: ASPNETCORE_URLS
               value: http://*:80/
+            - name: CONFIG_PATH_CLIENTS
+              value: /app/Data/clients.json
+            - name: CONFIG_PATH_IDS
+              value: /app/Data/ids.json
+            - name: CONFIG_PATH_APIS
+              value: /app/Data/apis.json
