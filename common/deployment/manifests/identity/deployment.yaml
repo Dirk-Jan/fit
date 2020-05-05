@@ -45,3 +45,5 @@ spec:
               value: /app/Data/ids.json
             - name: CONFIG_PATH_APIS
               value: /app/Data/apis.json
+            - name: PUBLIC_ORIGIN
+              value: https://identity.dirk-jan.eu
