@@ -84,7 +84,7 @@ namespace BFF
                 options.AddPolicy(CorsPolicies.AngularClient,
                     buillder => { 
                         buillder.WithOrigins("https://fit.djja.nl")
-                            .WithOrigins("fit.dirk-jan.eu")
+                            .WithOrigins("https://fit.dirk-jan.eu")
                             .AllowAnyHeader()
                             .AllowAnyMethod(); 
                     });
