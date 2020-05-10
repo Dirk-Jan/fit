@@ -83,10 +83,13 @@ namespace BFF
             {
                 options.AddPolicy(CorsPolicies.AngularClient,
                     buillder => { 
-                        buillder.WithOrigins("https://fit.djja.nl")
-                            .WithOrigins("https://fit.dirk-jan.eu")
+                        buillder
+                            // .WithOrigins("https://fit.djja.nl")
+                            // .WithOrigins("https://fit.dirk-jan.eu")
+                            .AllowAnyOrigin()
                             .AllowAnyHeader()
-                            .AllowAnyMethod(); 
+                            .AllowAnyMethod()
+                            .AllowCredentials(); 
                     });
             });
             services.AddControllers();
