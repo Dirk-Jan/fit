@@ -82,9 +82,12 @@ namespace BFF
             services.AddCors(options =>
             {
                 options.AddPolicy(CorsPolicies.AngularClient,
-                    buillder => { buillder.AllowAnyOrigin()
-                        .AllowAnyHeader()
-                        .AllowAnyMethod(); });
+                    buillder => { 
+                        buillder.WithOrigins("https://fit.djja.nl")
+                            .WithOrigins("fit.dirk-jan.eu")
+                            .AllowAnyHeader()
+                            .AllowAnyMethod(); 
+                    });
             });
             services.AddControllers();
         }
