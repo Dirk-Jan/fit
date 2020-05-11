@@ -86,6 +86,7 @@ namespace BFF
                         buillder
                             .WithOrigins("https://fit.djja.nl")
                             .WithOrigins("https://fit.dirk-jan.eu")
+                            .WithOrigins("https://fit.djja.nl:30009")
                             // .AllowAnyOrigin()
                             .AllowAnyHeader()
                             .AllowAnyMethod()
