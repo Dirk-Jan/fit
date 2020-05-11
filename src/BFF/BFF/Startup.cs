@@ -91,6 +91,7 @@ namespace BFF
                             .WithOrigins("https://dirk-jan.eu")
                             .WithOrigins("https://djja.nl:30009")
                             .WithOrigins("https://fit-frontend")
+                            .WithOrigins("https://localhost")
                             // HTTP
                             .WithOrigins("http://fit.djja.nl")
                             .WithOrigins("http://fit.dirk-jan.eu")
@@ -99,6 +100,7 @@ namespace BFF
                             .WithOrigins("http://dirk-jan.eu")
                             .WithOrigins("http://djja.nl:30008")
                             .WithOrigins("http://fit-frontend")
+                            .WithOrigins("http://localhost")
                             // .AllowAnyOrigin()
                             .AllowAnyHeader()
                             .AllowAnyMethod()
