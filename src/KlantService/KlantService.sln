@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlantService", "KlantService\KlantService.csproj", "{CD4C7E0B-5FF5-431F-AE72-86F0A71A9C31}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlantService.Test", "KlantService.Test\KlantService.Test.csproj", "{78597E56-E5D6-4E49-A401-06950AC7DF24}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CD4C7E0B-5FF5-431F-AE72-86F0A71A9C31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD4C7E0B-5FF5-431F-AE72-86F0A71A9C31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD4C7E0B-5FF5-431F-AE72-86F0A71A9C31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD4C7E0B-5FF5-431F-AE72-86F0A71A9C31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78597E56-E5D6-4E49-A401-06950AC7DF24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78597E56-E5D6-4E49-A401-06950AC7DF24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78597E56-E5D6-4E49-A401-06950AC7DF24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78597E56-E5D6-4E49-A401-06950AC7DF24}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
