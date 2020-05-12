@@ -24,7 +24,7 @@ namespace BFF.Controllers
         }
         
         [HttpGet]
-        // [Authorize(Policy = AuthPolicies.KanOefeningenZienPolicy)]
+        [Authorize(Policy = AuthPolicies.KanOefeningenZienPolicy)]
         public IActionResult GetAll()
         {
             return Json(_oefeningRepository.GetAll());
