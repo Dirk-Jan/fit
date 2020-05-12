@@ -47,3 +47,5 @@ spec:
               value: /app/Data/apis.json
             - name: PUBLIC_ORIGIN
               value: https://identity.dirk-jan.eu
+            - name: REGISTER_REDIRECT_URL
+              value: https://fit.dirk-jan.eu/fit
