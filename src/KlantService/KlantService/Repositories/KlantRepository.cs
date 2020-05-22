@@ -1,12 +1,22 @@
-﻿using KlantService.Repositories.Abstractions;
+﻿using KlantService.DAL;
+using KlantService.Models;
+using KlantService.Repositories.Abstractions;
 
 namespace KlantService.Repositories
 {
     public class KlantRepository : IKlantRepository
     {
-        public void AddKlant()
+        private readonly KlantContext _klantContext;
+
+        public KlantRepository(KlantContext klantContext)
         {
-            throw new System.NotImplementedException();
+            _klantContext = klantContext;
+        }
+        
+        public void AddKlant(Klant klant)
+        {
+            _klantContext.Klanten.Add(klant);
+            _klantContext.SaveChanges();
         }
     }
 }
