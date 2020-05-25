@@ -19,6 +19,9 @@
           <a *ngIf="showNavOefeningOverzicht" class="nav-link" (click)="isCollapsed = !isCollapsed" [routerLink]="oefeningOverzichtUrl">Oefeningen overzicht</a>
         </li>
         <li class="nav-item">
+          <a *ngIf="showNavWorkoutOverzicht" class="nav-link" (click)="isCollapsed = !isCollapsed" [routerLink]="workoutOverzichtUrl">Workout overzicht</a>
+        </li>
+        <li class="nav-item">
           <a *ngIf="showNavNieuweOefeningToevoegen" class="nav-link" (click)="isCollapsed = !isCollapsed" [routerLink]="nieuweOefeningUrl">Nieuwe oefening</a>
         </li>
         <li class="nav-item">

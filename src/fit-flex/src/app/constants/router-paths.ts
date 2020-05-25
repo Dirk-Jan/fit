@@ -7,5 +7,7 @@ export const RouterPaths = {
     // Fit Module
     OefeningenOverzicht: `oefeningen`,
     OefeningDetails: `oefeningen`, // /:id
-    NieuweOefening: `nieuwe-oefening`
+    NieuweOefening: `nieuwe-oefening`,
+    WorkoutDetails: `workouts`, // /:id
+    WorkoutOverzicht: `workouts`
 }

@@ -1,0 +1,4 @@
+<a [routerLink]="workoutOverzichtUrl" class="btn btn-primary">&lt;&lt; Terug naar workouts</a>
+
+hier alle workout items
+<app-workout-item *ngFor="let workoutItem of workout.workoutItems" [workoutItem]="workoutItem"></app-workout-item>

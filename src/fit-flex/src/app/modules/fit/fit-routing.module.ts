@@ -6,6 +6,8 @@ import { OefeningenOverzichtPage } from './pages/oefeningen-overzicht/oefeningen
 import { AuthPolicies } from 'src/app/constants/auth-policies';
 import { ClaimsAuthGuard } from 'src/app/guards/claims-auth.guard';
 import { RouterPaths } from 'src/app/constants/router-paths';
+import { WorkoutOverzichtPage } from './pages/workout-overzicht/workout-overzicht.page';
+import { WorkoutPage } from './pages/workout/workout.page';
 
 const routes: Routes = [
     {
@@ -33,6 +35,19 @@ const routes: Routes = [
       component: OefeningenOverzichtPage,
       canActivate: [ClaimsAuthGuard],
       data: { authPolicy: AuthPolicies.KanOefeningenZienPolicy }
+    },
+    {
+      path: `${RouterPaths.WorkoutDetails}/:workoutDag`,
+      component: WorkoutPage,
+      pathMatch: 'full',
+      // canActivate: [ClaimsAuthGuard],
+      // data: { authPolicy: AuthPolicies.KanOefeningenZienPolicy }
+    },
+    {
+      path: RouterPaths.WorkoutOverzicht,
+      component: WorkoutOverzichtPage,
+      // canActivate: [ClaimsAuthGuard],
+      // data: { authPolicy: AuthPolicies.KanOefeningenZienPolicy }
     },
     // Fallback when no prior routes is matched
     { 

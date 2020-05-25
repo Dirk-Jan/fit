@@ -13,6 +13,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthPolicyValidator } from 'src/app/auth/auth-policy-validator';
 import { CommonModule } from '@angular/common';
 import { ClaimsAuthGuard } from 'src/app/guards/claims-auth.guard';
+import { WorkoutItemComponent } from './components/workout-item/workout-item.component';
+import { WorkoutOverzichtPage } from './pages/workout-overzicht/workout-overzicht.page';
+import { OefeningApi } from 'src/app/apis/oefening.api';
+import { WorkoutApi } from 'src/app/apis/workout.api';
+import { WorkoutPage } from './pages/workout/workout.page';
 
 @NgModule({
   declarations: [
@@ -23,7 +28,10 @@ import { ClaimsAuthGuard } from 'src/app/guards/claims-auth.guard';
     PrestatieFormComponent,
     VorigePrestatiesComponent,
     OefeningenOverzichtPage,
-    PrestatieDagComponent
+    PrestatieDagComponent,
+    WorkoutItemComponent,
+    WorkoutOverzichtPage,
+    WorkoutPage
   ],
   imports: [
     CommonModule,
@@ -33,7 +41,9 @@ import { ClaimsAuthGuard } from 'src/app/guards/claims-auth.guard';
   ],
   providers: [
     ClaimsAuthGuard,
-    AuthPolicyValidator
+    AuthPolicyValidator,
+    // OefeningApi,
+    // WorkoutApi
   ]
 })
 export class FitModule {}

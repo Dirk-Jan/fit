@@ -13,11 +13,13 @@ import { InternalEndpoints } from 'src/app/constants/internal-endpoints';
     readonly fitModuleUrl: string = InternalEndpoints.FitModule;
     readonly oefeningOverzichtUrl: string = InternalEndpoints.OefeningenOverzicht;
     readonly nieuweOefeningUrl: string = InternalEndpoints.NieuweOefening;
+    readonly workoutOverzichtUrl: string = InternalEndpoints.workoutOverzicht;
 
     isCollapsed: boolean = true;
   
     readonly showNavNieuweOefeningToevoegen: boolean;
     readonly showNavOefeningOverzicht: boolean;
+    readonly showNavWorkoutOverzicht: boolean;
     readonly nameOfUser: string;
   
     constructor(
@@ -27,6 +29,7 @@ import { InternalEndpoints } from 'src/app/constants/internal-endpoints';
         this.nameOfUser = authService.name;
         this.showNavOefeningOverzicht = authPolicyValidator.isAllowed(AuthPolicies.KanOefeningenZienPolicy);
         this.showNavNieuweOefeningToevoegen = authPolicyValidator.isAllowed(AuthPolicies.KanOefeningenToevoegenPolicy);
+        this.showNavWorkoutOverzicht = true;
     }
   
     ngOnInit(): void {}

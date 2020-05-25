@@ -35,6 +35,7 @@ namespace BFF
         {
             services.AddScoped<IOefeningRepository, OefeningRepository>();
             services.AddScoped<IPrestatieRepository, PrestatieRepository>();
+            services.AddScoped<IWorkoutRepository, WorkoutRepository>();
             services.AddDbContext<BFFContext>(e =>
             {
                 e.UseSqlServer(Environment.GetEnvironmentVariable(EnvNames.DbConnectionString));
@@ -100,7 +101,7 @@ namespace BFF
                             // .WithOrigins("http://dirk-jan.eu")
                             // .WithOrigins("http://djja.nl:30008")
                             // .WithOrigins("http://fit-frontend")
-                            // .WithOrigins("http://localhost")
+                            .WithOrigins("http://localhost:4200")
                             // .AllowAnyOrigin()
                             .AllowAnyHeader()
                             .AllowAnyMethod()

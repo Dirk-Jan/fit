@@ -1,0 +1,1 @@
+<a *ngFor="let workoutDatum of workoutsDatums" class="btn btn-primary block" [routerLink]="[workoutDetailsUrl, workoutDatum]" router>{{workoutDatum | date:'EEEE dd LLLL yyyy'}}</a>

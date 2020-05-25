@@ -4,5 +4,6 @@ namespace BFF.Constants
     {
         internal const string Oefeningen = "oefeningen";
         internal const string Prestaties = "prestaties";
+        internal const string Workouts = "workouts";
     }
 }

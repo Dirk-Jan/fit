@@ -18,6 +18,7 @@ import { UnauthorizedPage } from './layouts/unauthorized/unauthorized.page';
 import { ShouldNotBeAthenticatedGuard } from './guards/should-not-be-authenticated.guard';
 import { RouterModule } from '@angular/router';
 import { HasToBeAthenticatedGuard } from './guards/has-to-be-authenticated.guard';
+import { WorkoutApi } from './apis/workout.api';
 registerLocaleData(localeNl, 'nl');
 
 @NgModule({
@@ -37,14 +38,15 @@ registerLocaleData(localeNl, 'nl');
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'nl' },
-    OefeningApi,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
     },
     ShouldNotBeAthenticatedGuard,
-    HasToBeAthenticatedGuard
+    HasToBeAthenticatedGuard,
+    OefeningApi,
+    WorkoutApi
   ],
   bootstrap: [AppComponent]
 })
