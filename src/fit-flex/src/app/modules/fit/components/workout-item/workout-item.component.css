@@ -1,3 +1,4 @@
 .badge {
     width: 100%;
+    -moz-user-select: none;
 }

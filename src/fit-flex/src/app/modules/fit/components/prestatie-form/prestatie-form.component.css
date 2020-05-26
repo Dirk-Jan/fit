@@ -17,3 +17,11 @@ input::-webkit-inner-spin-button {
 input[type=number] {
     -moz-appearance:textfield; /* Firefox */
 }
+
+.kg-container {
+    max-width: 45%;
+}
+
+.rep-container {
+    max-width: 55%;
+}

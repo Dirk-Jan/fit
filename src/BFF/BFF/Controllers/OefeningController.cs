@@ -43,7 +43,7 @@ namespace BFF.Controllers
                 Omschrijving = oefening.Omschrijving
             };
 
-            var prestatieDagen = _prestatieRepository.GetLatestsXDays(oefening.Id, 3);
+            var prestatieDagen = _prestatieRepository.GetLatestsXDays(oefening.Id, 1000);
 
             oefeningViewModel.PrestatieDagen = prestatieDagen.ToList();
             

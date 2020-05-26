@@ -26,8 +26,10 @@ input {
     text-align: end;
     padding: .175rem .75rem;
     font-size: .95em;
+    -moz-user-select: none;
 }
 
 .input-group-text {
     font-size: .75em;
+    -moz-user-select: none;
 }
