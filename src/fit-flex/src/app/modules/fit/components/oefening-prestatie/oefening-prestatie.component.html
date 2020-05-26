@@ -7,10 +7,19 @@
     </div>
     <div class="input-group set-container">    
         <input disabled type="text" inputmode="numeric" pattern="[0-9]*" min="0" max="99" class="form-control" id="herhalingen" name="herhalingen" placeholder="Herhalingen" [value]="prestatie.herhalingen">
+        <div class="input-group-append">
+            <span class="input-group-text">Reps</span>
+        </div>
     </div>
 </div>
+
+<!-- <textarea class="form-control">{{prestatie.opmerking}}</textarea> -->
+<input *ngIf="prestatie.opmerking" disabled type="text" [value]="prestatie.opmerking" class="form-control opmerking">
+
 <div class="timestamp">{{prestatie.datum | date:'HH:mm:ss'}}</div>
 
-<p>
+
+
+<!-- <p>
     <app-read-more-read-less [text]="prestatie.opmerking"></app-read-more-read-less>
-</p>
+</p> -->
