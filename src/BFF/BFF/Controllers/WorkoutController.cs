@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using BFF.Constants;
 using BFF.Repositories.Abstractions;
 using BFF.ViewModels;
@@ -27,9 +28,10 @@ namespace BFF.Controllers
         }
 
         [HttpGet]
-        [Route("{workoutDatum}")]
-        public IActionResult GetWorkoutByDate(DateTime date)
+        [Route("{workoutDatumString}")]
+        public IActionResult GetWorkoutByDate(string workoutDatumString)
         {
+            var date = DateTime.ParseExact(workoutDatumString, "yyyy-MM-dd", CultureInfo.InvariantCulture);
             var workout = _workoutRepository.GetWorkoutByDate(date);
             return Json(workout);
         }

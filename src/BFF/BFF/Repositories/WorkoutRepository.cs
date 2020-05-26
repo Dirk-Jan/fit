@@ -30,7 +30,7 @@ namespace BFF.Repositories
         public WorkoutViewModel GetWorkoutByDate(DateTime date)
         {
             var query = from oefening in _context.Oefeningen
-                join prestatie in _context.Prestaties on oefening.Id equals prestatie.Id
+                join prestatie in _context.Prestaties on oefening.Id equals prestatie.OefeningId
                 where prestatie.Datum.Date == date.Date
                 orderby prestatie.Datum.Date descending
                 select new WorkoutItemViewModel
