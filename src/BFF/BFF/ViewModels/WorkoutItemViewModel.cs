@@ -1,10 +1,11 @@
-﻿using BFF.Models;
+﻿using System.Collections.Generic;
+using BFF.Models;
 
 namespace BFF.ViewModels
 {
     public class WorkoutItemViewModel
     {
         public string OefeningNaam { get; set; }
-        public Prestatie Prestatie { get; set; }
+        public ICollection<Prestatie> Prestaties { get; set; }
     }
 }

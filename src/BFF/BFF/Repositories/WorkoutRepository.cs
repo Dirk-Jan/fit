@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using BFF.DAL;
+using BFF.Models;
 using BFF.Repositories.Abstractions;
 using BFF.ViewModels;
 using Microsoft.EntityFrameworkCore;
@@ -33,16 +34,39 @@ namespace BFF.Repositories
                 join prestatie in _context.Prestaties on oefening.Id equals prestatie.OefeningId
                 where prestatie.Datum.Date == date.Date
                 orderby prestatie.Datum.Date descending
-                select new WorkoutItemViewModel
+                select new
                 {
-                    OefeningNaam = oefening.Naam,
+                    Oefening = oefening,
                     Prestatie = prestatie
                 };
+
+            var workoutItems = new List<WorkoutItemViewModel>();
+            var results = query.ToList();
+            Oefening lastOefening = null;
+            foreach (var result in results)
+            {
+                if (lastOefening != null && lastOefening.Id == result.Oefening.Id)
+                {
+                    workoutItems.Last().Prestaties.Add(result.Prestatie);
+                }
+                else
+                {
+                    workoutItems.Add(new WorkoutItemViewModel
+                    {
+                        OefeningNaam = result.Oefening.Naam,
+                        Prestaties = new List<Prestatie>
+                        {
+                            result.Prestatie
+                        }
+                    });
+                    lastOefening = result.Oefening;
+                }
+            }
 
             return new WorkoutViewModel
             {
                 Datum = date.Date,
-                WorkoutItems = query.ToList()
+                WorkoutItems = workoutItems
             };
         }
     }
