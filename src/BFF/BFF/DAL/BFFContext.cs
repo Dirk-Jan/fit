@@ -22,5 +22,6 @@ namespace BFF.DAL
 
         public DbSet<Oefening> Oefeningen { get; set; }
         public DbSet<Prestatie> Prestaties { get; set; }
+        public DbSet<Klant> Klanten { get; set; }
     }
 }

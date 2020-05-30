@@ -6,9 +6,11 @@
       "applicationUrl": "http://localhost:3000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-//        "DB_CONNECTION_STRING": "Server=localhost;Database=BFF;User Id=sa;Password=Geheim_101",
-        "DB_CONNECTION_STRING": "Server=djja.nl;Database=BFF;User Id=sa;Password=Geheim_101F9qGnxoe5gx9",
-        "AUTH_AUTHORITY": "http://localhost:5000"
+        "DB_CONNECTION_STRING": "Server=localhost;Database=FrontendService;User Id=sa;Password=Geheim_101",
+//        "DB_CONNECTION_STRING": "Server=djja.nl;Database=BFF;User Id=sa;Password=Geheim_101F9qGnxoe5gx9",
+        "AUTH_AUTHORITY": "http://localhost:5000",
+        "BROKER_EXCHANGE_NAME": "Fit.Messagebus",
+        "BROKER_CONNECTION_STRING": "amqp://guest:guest@localhost:5672"
       }
     }
   }

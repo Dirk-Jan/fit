@@ -41,13 +41,6 @@ namespace BFF
                 e.UseSqlServer(Environment.GetEnvironmentVariable(EnvNames.DbConnectionString));
             });
 
-            // You need to comment this when adding a migration
-            using var serviceScope = services.BuildServiceProvider().GetRequiredService<IServiceScopeFactory>()
-                .CreateScope();
-            using var context = serviceScope.ServiceProvider.GetService<BFFContext>();
-            context.Database.Migrate();
-            // You need to comment this when adding a migration
-            
             services.AddAuthentication("Bearer").AddJwtBearer(options =>
             {
                 options.Authority = Environment.GetEnvironmentVariable(EnvNames.AuthenticationServerAddress);
@@ -83,26 +76,10 @@ namespace BFF
             services.AddCors(options =>
             {
                 options.AddPolicy(CorsPolicies.AngularClient,
-                    buillder => { 
-                        buillder
-                            // .WithOrigins("https://fit.djja.nl")
+                    builder => { 
+                        builder
                             .WithOrigins("https://fit.dirk-jan.eu")
-                            // .WithOrigins("https://fit.djja.nl:30009")
-                            // .WithOrigins("https://djja.nl")
-                            // .WithOrigins("https://dirk-jan.eu")
-                            // .WithOrigins("https://djja.nl:30009")
-                            // .WithOrigins("https://fit-frontend")
-                            // .WithOrigins("https://localhost")
-                            // // HTTP
-                            // .WithOrigins("http://fit.djja.nl")
-                            // .WithOrigins("http://fit.dirk-jan.eu")
-                            // .WithOrigins("http://fit.djja.nl:30008")
-                            // .WithOrigins("http://djja.nl")
-                            // .WithOrigins("http://dirk-jan.eu")
-                            // .WithOrigins("http://djja.nl:30008")
-                            // .WithOrigins("http://fit-frontend")
                             .WithOrigins("http://localhost:4200")
-                            // .AllowAnyOrigin()
                             .AllowAnyHeader()
                             .AllowAnyMethod()
                             .AllowCredentials(); 
