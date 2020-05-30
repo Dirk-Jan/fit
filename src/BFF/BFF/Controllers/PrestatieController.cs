@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using BFF.Commands;
 using BFF.Constants;
@@ -29,6 +30,7 @@ namespace BFF.Controllers
         {
             prestatie.Datum = DateTime.Now;
             // _prestatieRepository.Add(prestatie);
+            var claim = HttpContext.User.Identities.First().Claims.First(x => x.Type == "KlantId");
 
             var command = new RegistreerPrestatieCommand
             {
