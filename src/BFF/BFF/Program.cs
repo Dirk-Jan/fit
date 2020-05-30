@@ -72,6 +72,7 @@ namespace BFF
             IServiceCollection serviceCollection = new ServiceCollection();
             serviceCollection.AddTransient<IKlantRepository, KlantRepository>();
             serviceCollection.AddTransient<IOefeningRepository, OefeningRepository>();
+            serviceCollection.AddTransient<IPrestatieRepository, PrestatieRepository>();
             serviceCollection.AddDbContext<BFFContext>(e =>
             {
                 e.UseSqlServer(Environment.GetEnvironmentVariable(EnvNames.DbConnectionString));

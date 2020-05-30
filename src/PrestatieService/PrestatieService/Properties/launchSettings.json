@@ -1,10 +1,10 @@
 ﻿{
   "profiles": {
-    "OefeningService": {
+    "PrestatieService": {
       "commandName": "Project",
       "launchBrowser": false,
       "environmentVariables": {
-        "DB_CONNECTION_STRING": "Server=localhost;Database=OefeningService;User Id=sa;Password=Geheim_101",
+        "DB_CONNECTION_STRING": "Server=localhost;Database=PrestatieService;User Id=sa;Password=Geheim_101",
         "BROKER_EXCHANGE_NAME": "Fit.Messagebus",
         "BROKER_CONNECTION_STRING": "amqp://guest:guest@localhost:5672",
         "ASPNETCORE_ENVIRONMENT": "Development"

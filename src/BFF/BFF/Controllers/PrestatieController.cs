@@ -1,9 +1,12 @@
 using System;
+using System.Threading.Tasks;
+using BFF.Commands;
 using BFF.Constants;
 using BFF.Models;
 using BFF.Repositories.Abstractions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Minor.Miffy.MicroServices.Commands;
 
 namespace BFF.Controllers
 {
@@ -12,19 +15,28 @@ namespace BFF.Controllers
     public class PrestatieController : Controller
     {
         private readonly IPrestatieRepository _prestatieRepository;
+        private readonly ICommandPublisher _commandPublisher;
 
-        public PrestatieController(IPrestatieRepository prestatieRepository)
+        public PrestatieController(IPrestatieRepository prestatieRepository, ICommandPublisher commandPublisher)
         {
             _prestatieRepository = prestatieRepository;
+            _commandPublisher = commandPublisher;
         }
         
         [HttpPost]
         [Authorize(Policy = AuthPolicies.KanPrestatiesToevoegenPolicy)]
-        public IActionResult Add(Prestatie prestatie)
+        public async Task<IActionResult> Add(Prestatie prestatie)
         {
             prestatie.Datum = DateTime.Now;
-            _prestatieRepository.Add(prestatie);
-            return Ok(prestatie);
+            // _prestatieRepository.Add(prestatie);
+
+            var command = new RegistreerPrestatieCommand
+            {
+                Prestatie = prestatie
+            };
+            var result = await _commandPublisher.PublishAsync<RegistreerPrestatieCommand>(command);
+
+            return Ok(result.Prestatie);
         }
 
         // [HttpGet]
