@@ -16,7 +16,7 @@ namespace KlantService
 {
     class Program
     {
-        private const string QueueName = "KlantService.Queue";
+        private const string QueueName = "Fit.KlantService.Queue";
         
         static void Main(string[] args)
         {

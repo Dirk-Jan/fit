@@ -20,7 +20,7 @@ namespace KlantService.Listeners
         }
 
         [CommandListener(QueueNames.MaakKlantAan)]
-        public Klant HandleMaakKlantAanCommand(MaakKlantAanCommand command)    // TODO: Niet zeker of ik hier zomaar klant mag teruggeven
+        public MaakKlantAanCommand HandleMaakKlantAanCommand(MaakKlantAanCommand command)
         {
             _klantRepository.AddKlant(command.Klant);
 
@@ -29,7 +29,7 @@ namespace KlantService.Listeners
                 Klant = command.Klant
             });
             
-            return command.Klant;
+            return command;
         }
     }
 }
