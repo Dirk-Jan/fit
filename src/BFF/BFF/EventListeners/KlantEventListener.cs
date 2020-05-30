@@ -16,7 +16,7 @@ namespace BFF.EventListeners
 
         [EventListener]
         [Topic(TopicNames.KlantAangemaakt)]
-        public void HandleNKlantAangemaaktEvent(KlantAangemaaktEvent e)
+        public void HandleKlantAangemaaktEvent(KlantAangemaaktEvent e)
         {
             _klantRepository.AddKlant(e.Klant);
         }

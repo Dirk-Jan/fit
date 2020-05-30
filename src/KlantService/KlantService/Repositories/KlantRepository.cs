@@ -13,7 +13,7 @@ namespace KlantService.Repositories
             _klantContext = klantContext;
         }
         
-        public void AddKlant(Klant klant)
+        public void Add(Klant klant)
         {
             _klantContext.Klanten.Add(klant);
             _klantContext.SaveChanges();

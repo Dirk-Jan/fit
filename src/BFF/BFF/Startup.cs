@@ -18,6 +18,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Minor.Miffy.MicroServices.Commands;
 
 namespace BFF
 {
@@ -33,6 +34,8 @@ namespace BFF
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton(Program.BusContext);
+            services.AddTransient<ICommandPublisher, CommandPublisher>();
             services.AddScoped<IOefeningRepository, OefeningRepository>();
             services.AddScoped<IPrestatieRepository, PrestatieRepository>();
             services.AddScoped<IWorkoutRepository, WorkoutRepository>();

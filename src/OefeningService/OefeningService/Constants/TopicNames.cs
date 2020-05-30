@@ -1,8 +1,7 @@
-﻿namespace BFF.Constants
+﻿namespace OefeningService.Constants
 {
     internal static class TopicNames
     {
-        internal const string KlantAangemaakt = "Fit.KlantService.KlantAangemaakt";
         internal const string OefeningAangemaakt = "Fit.OefeningService.OefeningAangemaakt";
     }
 }

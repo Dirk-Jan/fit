@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Linq;
+using System.Threading.Tasks;
+using BFF.Commands;
 using BFF.Constants;
 using BFF.Models;
 using BFF.Repositories.Abstractions;
@@ -7,6 +9,7 @@ using BFF.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
+using Minor.Miffy.MicroServices.Commands;
 
 namespace BFF.Controllers
 {
@@ -16,11 +19,16 @@ namespace BFF.Controllers
     {
         private readonly IOefeningRepository _oefeningRepository;
         private readonly IPrestatieRepository _prestatieRepository;
+        private readonly ICommandPublisher _commandPublisher;
 
-        public OefeningController(IOefeningRepository oefeningRepository, IPrestatieRepository prestatieRepository)
+        public OefeningController(
+            IOefeningRepository oefeningRepository, 
+            IPrestatieRepository prestatieRepository, 
+            ICommandPublisher commandPublisher)
         {
             _oefeningRepository = oefeningRepository;
             _prestatieRepository = prestatieRepository;
+            _commandPublisher = commandPublisher;
         }
         
         [HttpGet]
@@ -52,9 +60,15 @@ namespace BFF.Controllers
 
         [HttpPost]
         [Authorize(Policy = AuthPolicies.KanOefeningenToevoegenPolicy)]
-        public IActionResult Add(Oefening oefening)
+        public async Task<IActionResult> Add(Oefening oefening)
         {
-            _oefeningRepository.Add(oefening);
+            // _oefeningRepository.Add(oefening);
+            var command = new MaakOefeningAanCommand
+            {
+                Oefening = oefening
+            };
+            await _commandPublisher.PublishAsync<MaakOefeningAanCommand>(command);
+            
             return Ok();
         }
     }

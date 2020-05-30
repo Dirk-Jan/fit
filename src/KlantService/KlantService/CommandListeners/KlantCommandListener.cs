@@ -6,7 +6,7 @@ using KlantService.Repositories.Abstractions;
 using Minor.Miffy.MicroServices.Commands;
 using Minor.Miffy.MicroServices.Events;
 
-namespace KlantService.Listeners
+namespace KlantService.CommandListeners
 {
     public class KlantCommandListener
     {
@@ -22,7 +22,7 @@ namespace KlantService.Listeners
         [CommandListener(QueueNames.MaakKlantAan)]
         public MaakKlantAanCommand HandleMaakKlantAanCommand(MaakKlantAanCommand command)
         {
-            _klantRepository.AddKlant(command.Klant);
+            _klantRepository.Add(command.Klant);
 
             _eventPublisher.PublishAsync(new KlantAangemaaktEvent
             {

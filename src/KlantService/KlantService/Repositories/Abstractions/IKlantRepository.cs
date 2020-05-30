@@ -4,6 +4,6 @@ namespace KlantService.Repositories.Abstractions
 {
     public interface IKlantRepository
     {
-        void AddKlant(Klant klant);
+        void Add(Klant klant);
     }
 }

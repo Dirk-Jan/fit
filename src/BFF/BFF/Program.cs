@@ -15,12 +15,15 @@ using Microsoft.Extensions.Logging;
 using Minor.Miffy;
 using Minor.Miffy.MicroServices.Host;
 using Minor.Miffy.RabbitMQBus;
+using RabbitMQ.Client;
 
 namespace BFF
 {
     public class Program
     {
         private const string QueueName = "Fit.FrontendService.Queue";
+        
+        public static IBusContext<IConnection> BusContext { get; set; }
         
         public static void Main(string[] args)
         {
@@ -37,6 +40,8 @@ namespace BFF
             using var context = new RabbitMqContextBuilder()
                 .ReadFromEnvironmentVariables()
                 .CreateContext();
+            
+            BusContext = context;
 
             using var host = new MicroserviceHostBuilder()
                 .SetLoggerFactory(loggerFactory)
@@ -66,6 +71,7 @@ namespace BFF
         {
             IServiceCollection serviceCollection = new ServiceCollection();
             serviceCollection.AddTransient<IKlantRepository, KlantRepository>();
+            serviceCollection.AddTransient<IOefeningRepository, OefeningRepository>();
             serviceCollection.AddDbContext<BFFContext>(e =>
             {
                 e.UseSqlServer(Environment.GetEnvironmentVariable(EnvNames.DbConnectionString));
