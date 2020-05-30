@@ -29,6 +29,6 @@ export class PrestatieFormComponent implements OnInit {
 
   savePrestatie() {
     this.oefeningApi.addPrestatie(this.oefening, this.form.value)
-      .subscribe();
+      .subscribe(x => window.location.reload());
   }
 }
