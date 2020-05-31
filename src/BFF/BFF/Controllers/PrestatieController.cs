@@ -5,6 +5,7 @@ using BFF.Commands;
 using BFF.Constants;
 using BFF.Models;
 using BFF.Repositories.Abstractions;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Minor.Miffy.MicroServices.Commands;
@@ -13,7 +14,7 @@ namespace BFF.Controllers
 {
     [ApiController]
     [Route(Routes.Prestaties)]
-    public class PrestatieController : Controller
+    public class PrestatieController : BaseController
     {
         private readonly IPrestatieRepository _prestatieRepository;
         private readonly ICommandPublisher _commandPublisher;
@@ -29,8 +30,7 @@ namespace BFF.Controllers
         public async Task<IActionResult> Add(Prestatie prestatie)
         {
             prestatie.Datum = DateTime.Now;
-            // _prestatieRepository.Add(prestatie);
-            var claim = HttpContext.User.Identities.First().Claims.First(x => x.Type == "KlantId");
+            prestatie.KlantId = GetKlantIdFromToken();
 
             var command = new RegistreerPrestatieCommand
             {

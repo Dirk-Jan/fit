@@ -9,6 +9,6 @@ namespace BFF.Repositories.Abstractions
     {
         void Add(Prestatie prestatie);
         IEnumerable<Prestatie> GetByOefeningId(Guid oefeningId);
-        IEnumerable<PrestatieDag> GetLatestsXDays(Guid oefeningId, int dayAmount);
+        IEnumerable<PrestatieDag> GetLatestsXDays(Guid oefeningId, Guid klantId, int dayAmount);
     }
 }

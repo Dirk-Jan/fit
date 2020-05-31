@@ -6,7 +6,7 @@ namespace BFF.Repositories.Abstractions
 {
     public interface IWorkoutRepository
     {
-        IEnumerable<DateTime> GetAllWorkoutDays();
-        WorkoutViewModel GetWorkoutByDate(DateTime date);
+        IEnumerable<DateTime> GetAllWorkoutDays(Guid klantId);
+        WorkoutViewModel GetWorkoutByDate(Guid klantId, DateTime date);
     }
 }

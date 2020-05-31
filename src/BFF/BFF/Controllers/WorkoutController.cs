@@ -11,7 +11,7 @@ namespace BFF.Controllers
 {
     [ApiController]
     [Route(Routes.Workouts)]
-    public class WorkoutController : Controller
+    public class WorkoutController : BaseController
     {
         private readonly IWorkoutRepository _workoutRepository;
         
@@ -23,7 +23,8 @@ namespace BFF.Controllers
         [HttpGet]
         public IActionResult GetAllWorkoutDatums()
         {
-            var workoutDatums = _workoutRepository.GetAllWorkoutDays();
+            var klantId = GetKlantIdFromToken();
+            var workoutDatums = _workoutRepository.GetAllWorkoutDays(klantId);
             return Json(workoutDatums);
         }
 
@@ -32,7 +33,8 @@ namespace BFF.Controllers
         public IActionResult GetWorkoutByDate(string workoutDatumString)
         {
             var date = DateTime.ParseExact(workoutDatumString, "yyyy-MM-dd", CultureInfo.InvariantCulture);
-            var workout = _workoutRepository.GetWorkoutByDate(date);
+            var klantId = GetKlantIdFromToken();
+            var workout = _workoutRepository.GetWorkoutByDate(klantId, date);
             return Json(workout);
         }
     }

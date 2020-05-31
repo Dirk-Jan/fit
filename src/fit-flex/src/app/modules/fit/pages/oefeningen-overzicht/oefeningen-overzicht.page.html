@@ -1,1 +1,3 @@
 <a *ngFor="let oef of oefeningen" class="btn btn-primary block" [routerLink]="[oefeningDetailsUrl, oef.id]" router>{{oef.naam}}</a>
+
+<p *ngIf="oefeningen.length === 0">Er staan nog geen oefeningen in het systeem.</p>

@@ -19,20 +19,21 @@ namespace BFF.Repositories
             _context = context;
         }
 
-        public IEnumerable<DateTime> GetAllWorkoutDays()
+        public IEnumerable<DateTime> GetAllWorkoutDays(Guid klantId)
         {
             var query = _context.Prestaties
+                .Where(p => p.KlantId == klantId)
                 .GroupBy(p => p.Datum.Date)
                 .OrderByDescending(grp => grp.Key)
                 .Select(grp => grp.Key);
             return query.ToList();
         }
 
-        public WorkoutViewModel GetWorkoutByDate(DateTime date)
+        public WorkoutViewModel GetWorkoutByDate(Guid klantId, DateTime date)
         {
             var query = from oefening in _context.Oefeningen
                 join prestatie in _context.Prestaties on oefening.Id equals prestatie.OefeningId
-                where prestatie.Datum.Date == date.Date
+                where prestatie.Datum.Date == date.Date && prestatie.KlantId == klantId
                 orderby prestatie.Datum.Date descending
                 select new
                 {

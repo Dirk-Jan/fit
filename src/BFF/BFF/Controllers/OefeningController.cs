@@ -15,7 +15,7 @@ namespace BFF.Controllers
 {
     [ApiController]
     [Route(Routes.Oefeningen)]
-    public class OefeningController : Controller
+    public class OefeningController : BaseController
     {
         private readonly IOefeningRepository _oefeningRepository;
         private readonly IPrestatieRepository _prestatieRepository;
@@ -51,7 +51,8 @@ namespace BFF.Controllers
                 Omschrijving = oefening.Omschrijving
             };
 
-            var prestatieDagen = _prestatieRepository.GetLatestsXDays(oefening.Id, 1000);
+            var klantId = GetKlantIdFromToken();
+            var prestatieDagen = _prestatieRepository.GetLatestsXDays(oefening.Id, klantId, 1000);
 
             oefeningViewModel.PrestatieDagen = prestatieDagen.ToList();
             

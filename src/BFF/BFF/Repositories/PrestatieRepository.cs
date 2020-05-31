@@ -30,9 +30,9 @@ namespace BFF.Repositories
             return query.ToList();
         }
 
-        public IEnumerable<PrestatieDag> GetLatestsXDays(Guid oefeningId, int dayAmount)
+        public IEnumerable<PrestatieDag> GetLatestsXDays(Guid oefeningId, Guid klantId, int dayAmount)
         {
-            var query = _context.Prestaties.Where(x => x.OefeningId == oefeningId)
+            var query = _context.Prestaties.Where(x => x.OefeningId == oefeningId && x.KlantId == klantId)
                 .ToList()
                 .GroupBy(x => x.Datum.Date)
                 .OrderByDescending(group => group.Key)
