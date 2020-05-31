@@ -1,0 +1,49 @@
+name: Klant Service
+
+on:
+  push:
+    branches: [ master ]
+    paths: src/KlantService
+  pull_request:
+    branches: [ master ]
+    paths: src/KlantService
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+
+    # Setup dotnet
+    - name: Setup .NET Core SDK
+      uses: actions/setup-dotnet@v1.4.0
+      with:
+        # SDK version to use. Example: 2.2.104
+        dotnet-version: 3.1.x
+
+    # Publish project
+    - name: Dotnet Publish
+      run: dotnet publish src/KlantService/KlantService -c Release -o src/KlantService/KlantService/obj/docker/publish
+
+    # Docker build and publish
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v1.1.0
+      with:
+        # Username used to log in to a Docker registry. If not set then no login will occur
+        username: djja
+        # Password or personal access token used to log in to a Docker registry. If not set then no login will occur
+        password: ${{ secrets.DockerHubToken }}
+        # Docker repository to tag the image with
+        repository: djja/fit-klantservice
+        # Comma-delimited list of tags. These will be added to the registry/repository to form the image's tags
+        tags: latest
+        # Automatically tags the built image with the git reference as per the readme
+        tag_with_ref: true
+        # Automatically tags the built image with the git short SHA as per the readme
+        tag_with_sha: true
