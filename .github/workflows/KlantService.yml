@@ -41,6 +41,8 @@ jobs:
         password: ${{ secrets.DockerHubToken }}
         # Docker repository to tag the image with
         repository: djja/fit-klantservice
+        # Path to the Dockerfile (Default is '{path}/Dockerfile')
+        dockerfile: src/KlantService/KlantService/Dockerfile
         # Comma-delimited list of tags. These will be added to the registry/repository to form the image's tags
         tags: latest
         # Automatically tags the built image with the git reference as per the readme
