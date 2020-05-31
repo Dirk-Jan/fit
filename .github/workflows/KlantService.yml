@@ -3,10 +3,12 @@ name: Klant Service
 on:
   push:
     branches: [ master ]
-    paths: src/KlantService/*
+    paths: 
+      - src/KlantService/*
   pull_request:
     branches: [ master ]
-    paths: src/KlantService/*
+    paths: 
+      - src/KlantService/*
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
