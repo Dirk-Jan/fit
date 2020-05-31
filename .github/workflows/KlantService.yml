@@ -1,4 +1,4 @@
-name: Klant Service
+name: KlantService
 
 on:
   push:
