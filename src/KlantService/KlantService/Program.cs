@@ -50,7 +50,7 @@ namespace KlantService
                         .CreateScope();
 
                     var klantContext = serviceScope.ServiceProvider.GetService<KlantContext>();
-                    klantContext.Database.EnsureCreated();
+                    klantContext.Database.Migrate();
                 })
                 .WithBusContext(context)
                 .WithQueueName(QueueName)

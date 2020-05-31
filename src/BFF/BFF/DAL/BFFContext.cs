@@ -9,8 +9,7 @@ namespace BFF.DAL
     {
         public BFFContext() {}
         public BFFContext(DbContextOptions<BFFContext> options) : base(options) {}
-
-        // Required for migrations (empty ctor probably too)
+        
         // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         // {
         //     // base.OnConfiguring(optionsBuilder);

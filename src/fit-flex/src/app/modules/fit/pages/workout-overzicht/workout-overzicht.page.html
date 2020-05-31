@@ -1,3 +1,3 @@
-<a *ngFor="let workoutDatum of workoutsDatums" class="btn btn-primary block" [routerLink]="[workoutDetailsUrl, workoutDatum | date:'yyyy-MM-dd']" router>{{workoutDatum | date:'EEEE d LLLL yyyy'}}</a>
-<p *ngIf="workoutsDatums.length === 0">Je hebt nog geen workouts gedaan.</p>
-<p *ngIf="workoutsDatums.length === 0">Tijd om te beginnen!!</p>
+<a *ngFor="let workoutDatum of workoutDatums" class="btn btn-primary block" [routerLink]="[workoutDetailsUrl, workoutDatum | date:'yyyy-MM-dd']" router>{{workoutDatum | date:'EEEE d LLLL yyyy'}}</a>
+<p *ngIf="workoutDatums === undefined || workoutDatums.length === 0">Je hebt nog geen workouts gedaan.</p>
+<p *ngIf="workoutDatums === undefined || workoutDatums.length === 0">Tijd om te beginnen!!</p>

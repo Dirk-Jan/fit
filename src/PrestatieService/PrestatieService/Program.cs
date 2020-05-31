@@ -50,7 +50,7 @@ namespace PrestatieService
                         .CreateScope();
 
                     var dbContext = serviceScope.ServiceProvider.GetService<PrestatieContext>();
-                    dbContext.Database.EnsureCreated();
+                    dbContext.Database.Migrate();
                 })
                 .WithBusContext(context)
                 .WithQueueName(QueueName)

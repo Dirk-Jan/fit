@@ -50,7 +50,7 @@ namespace OefeningService
                         .CreateScope();
 
                     var oefeningContext = serviceScope.ServiceProvider.GetService<OefeningContext>();
-                    oefeningContext.Database.EnsureCreated();
+                    oefeningContext.Database.Migrate();
                 })
                 .WithBusContext(context)
                 .WithQueueName(QueueName)

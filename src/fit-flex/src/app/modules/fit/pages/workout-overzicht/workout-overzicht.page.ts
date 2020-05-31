@@ -15,15 +15,15 @@ import { WorkoutApi } from 'src/app/apis/workout.api';
 export class WorkoutOverzichtPage implements OnInit {
   readonly workoutDetailsUrl: string = InternalEndpoints.workoutDetails;
 
-  workoutsDatums: Date[];
+  workoutDatums: Date[];
   
   constructor(private workoutApi: WorkoutApi) { }
 
   ngOnInit(): void {
     console.log('Calling api');
-    this.workoutApi.getAllWorkoutDatums().subscribe(workoutsDatums => {
-      this.workoutsDatums = workoutsDatums;
-      console.log('Nieuwe workouts: ', workoutsDatums);
+    this.workoutApi.getAllWorkoutDatums().subscribe(workoutDatums => {
+      this.workoutDatums = workoutDatums;
+      console.log('Nieuwe workouts: ', workoutDatums);
     });
   }
 
