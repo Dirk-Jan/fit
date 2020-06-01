@@ -40,3 +40,4 @@ jobs:
         echo ${GITHUB__SHA_SHORT}
         echo ${GITHUB__SHASHORT}
         echo ${GITHUB__SHA7}
+        echo ${AAP}
