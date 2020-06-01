@@ -3,8 +3,8 @@ name: Manifests
 on:
   push:
     branches: [ master ]
-    # paths: 
-    # - common/deployment/manifests/**
+    paths: 
+    - common/deployment/manifests/**
   pull_request:
     branches: [ master ]
     paths: 

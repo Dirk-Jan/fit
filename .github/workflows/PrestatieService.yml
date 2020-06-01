@@ -3,8 +3,8 @@ name: Prestatie Service
 on:
   push:
     branches: [ master ]
-    # paths: 
-    # - src/PrestatieService/**
+    paths: 
+    - src/PrestatieService/**
   pull_request:
     branches: [ master ]
     paths: 

@@ -3,8 +3,8 @@ name: BFF
 on:
   push:
     branches: [ master ]
-    # paths: 
-    # - src/BFF/**
+    paths: 
+    - src/BFF/**
   pull_request:
     branches: [ master ]
     paths: 

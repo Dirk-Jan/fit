@@ -3,8 +3,8 @@ name: Oefening Service
 on:
   push:
     branches: [ master ]
-    # paths: 
-    # - src/OefeningService/**
+    paths: 
+    - src/OefeningService/**
   pull_request:
     branches: [ master ]
     paths: 
