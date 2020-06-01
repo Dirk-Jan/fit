@@ -16,7 +16,7 @@ jobs:
   build:
     env:
       TAG: ${GITHUB_SHA}
-      HALLO: '${ ${{ github.sha }}::7 }'
+      HALLO: '${ GITHUB_SHA::7 }'
       HALLO2: "${ ${{ github.sha }}::7 }"
       CON: ${{ github.sha }}
       CON2: ${ "CONCONCON"::7 }
@@ -42,4 +42,4 @@ jobs:
         echo sha-${GITHUB_SHA::7}
         echo djja/fit-klantservice:sha-${GITHUB_SHA::7}
         echo ${HALLO}
-        echo ${{ job.build.steps.env.HALLO2 }}
+        echo ${{ job.build.env.HALLO2 }}
