@@ -60,7 +60,7 @@ jobs:
     runs-on: ubuntu-latest
     # needs: build
     env:
-      TAG: ${{ github.sha::7 }}
+      TAG: ${{ github.sha }}
     steps:
       - uses: actions/checkout@v2
 
