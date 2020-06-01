@@ -21,6 +21,8 @@ jobs:
     outputs:
       Banaan: banaan
       Zin: ik wil een ${{ Banaan }}
+    steps:
+      - name: do nothing
       
   # This workflow contains a single job called "build"
   build:
