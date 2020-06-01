@@ -5,10 +5,12 @@ on:
     branches: [ master ]
     paths: 
     - src/BFF/**
+    - .github/workflows/BFF.yml
   pull_request:
     branches: [ master ]
     paths: 
     - src/BFF/**
+    - .github/workflows/BFF.yml
 
 
 jobs:

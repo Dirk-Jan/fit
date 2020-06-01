@@ -4,11 +4,13 @@ on:
   push:
     branches: [ master ]
     paths: 
-    - src/KlantService/**
+    - src/FrontendService/**
+    - .github/workflows/FrontendService.yml
   pull_request:
     branches: [ master ]
     paths: 
-    - src/KlantService/**
+    - src/FrontendService/**
+    - .github/workflows/FrontendService.yml
 
 
 jobs:
@@ -17,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       DockerImange: djja/fit-frontendservice
-      ProjectPath: src/fit-flex
+      ProjectPath: src/FrontendService
       ManifestsPath: common/deployment/manifests/FrontendService
     steps:
       - name: Setting vars

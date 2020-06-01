@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spekkie", "Spekkie\Spekkie.csproj", "{5FBF74A0-41A3-4AFD-A1E4-96BDD1AD9B1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spekkie.Test", "Spekkie.Test\Spekkie.Test.csproj", "{7FBDBB0D-9A89-4A63-A8B2-4BDFE7DE4D38}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5FBF74A0-41A3-4AFD-A1E4-96BDD1AD9B1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FBF74A0-41A3-4AFD-A1E4-96BDD1AD9B1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FBF74A0-41A3-4AFD-A1E4-96BDD1AD9B1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FBF74A0-41A3-4AFD-A1E4-96BDD1AD9B1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FBDBB0D-9A89-4A63-A8B2-4BDFE7DE4D38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FBDBB0D-9A89-4A63-A8B2-4BDFE7DE4D38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FBDBB0D-9A89-4A63-A8B2-4BDFE7DE4D38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FBDBB0D-9A89-4A63-A8B2-4BDFE7DE4D38}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

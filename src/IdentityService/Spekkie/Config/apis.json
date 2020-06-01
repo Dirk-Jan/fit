@@ -1,0 +1,34 @@
+﻿[
+  {
+    "ApiSecrets":[
+
+    ],
+    "Scopes":[
+      {
+        "Name":"fit.bff",
+        "DisplayName":"Fit 💪",
+        "Description":null,
+        "Required":false,
+        "Emphasize":false,
+        "ShowInDiscoveryDocument":true,
+        "UserClaims":[
+
+        ]
+      }
+    ],
+    "Enabled":true,
+    "Name":"fit.bff",
+    "DisplayName":"Fit 💪",
+    "Description":null,
+    "UserClaims":[
+      "KlantId",
+      "FitFlex.Oefening.Read",
+      "FitFlex.Oefening.Add",
+      "FitFlex.Oefening.Prestatie.Add",
+      "FitFlex.Oefening.Prestatie.Read"
+    ],
+    "Properties":{
+
+    }
+  }
+]

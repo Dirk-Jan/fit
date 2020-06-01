@@ -1,2 +1,0 @@
-# Retrieing URL parameters
-https://medium.com/better-programming/angular-6-url-parameters-860db789db85

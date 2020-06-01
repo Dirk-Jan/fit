@@ -1,0 +1,53 @@
+﻿@model IdentityServer4.Quickstart.UI.AccountManagement.ClaimsManagementViewModel
+
+@{
+    Layout = "_Layout";
+}
+
+<partial name="_ValidationSummary" />
+
+<a asp-action="GetAllAccounts" class="btn btn-primary"><< Back to all accounts</a>
+
+<h1>Claim Management (@Model.Username)</h1>
+
+<h2>Add Claim</h2>
+<form asp-action="AddClaim" method="post">
+    <input type="hidden" asp-for="@Model.UserId" value="@Model.UserId"/>
+    <div class="form-group">
+        <label asp-for="@Model.ClaimType"></label>
+        <input type="text" class="form-control" asp-for="@Model.ClaimType" placeholder="Type"/>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.ClaimValue"></label>
+        <input type="text" class="form-control" asp-for="@Model.ClaimValue" placeholder="Value"/>
+    </div>
+    <button type="submit" class="btn btn-primary">Add</button>
+</form>
+
+<h2>Registered Claims:</h2>
+<table class="table">
+    <thead>
+    <th>Type</th>
+    <th>Value</th>
+    <th>ValueType</th>
+    <th>Actions</th>
+    </thead>
+    <tbody>
+    @foreach (var claim in Model.Claims)
+    {
+        <tr>
+            <td>@claim.Type</td>
+            <td>@claim.Value</td>
+            <td>@claim.ValueType</td>
+            <td>
+                <form asp-action="RemoveClaim" method="post">
+                    <input type="hidden" id="userId" name="userId" value="@Model.UserId">
+                    <input type="hidden" id="claimTypeToRemove" name="claimTypeToRemove" value="@claim.Type">
+                    <input type="hidden" id="claimValueToRemove" name="claimValueToRemove" value="@claim.Value">
+                    <button type="submit" class="btn btn-danger">Remove</button>
+                </form>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

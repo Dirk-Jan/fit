@@ -18,7 +18,7 @@ spec:
             name: identity-configmap
       containers:
         - name: identity
-          image: djja/fitflex-identity
+          image: djja/fit-identityservice
           imagePullPolicy: Always
           ports:
             - containerPort: 80

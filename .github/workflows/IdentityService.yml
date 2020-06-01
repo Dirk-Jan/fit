@@ -1,16 +1,16 @@
-name: Prestatie Service
+name: Identity Service
 
 on:
   push:
     branches: [ master ]
     paths: 
-    - src/PrestatieService/**
-    - .github/workflows/PrestatieService.yml
+    - src/IdentityService/**
+    - .github/workflows/IdentityService.yml
   pull_request:
     branches: [ master ]
     paths: 
-    - src/PrestatieService/**
-    - .github/workflows/PrestatieService.yml
+    - src/IdentityService/**
+    - .github/workflows/IdentityService.yml
 
 
 jobs:
@@ -18,9 +18,9 @@ jobs:
     name: Set variables
     runs-on: ubuntu-latest
     outputs:
-      DockerImange: djja/fit-prestatieservice
-      ProjectPath: src/PrestatieService/PrestatieService
-      ManifestsPath: common/deployment/manifests/PrestatieService
+      DockerImange: djja/fit-identityservice
+      ProjectPath: src/IdentityService/Spekkie
+      ManifestsPath: common/deployment/manifests/IdentityService
     steps:
       - name: Setting vars
         run: echo setting vars...
@@ -70,6 +70,7 @@ jobs:
         with:
           namespace: fit
           manifests: |
+            ${{ needs.vars.outputs.ManifestsPath }}/configmap.yaml
             ${{ needs.vars.outputs.ManifestsPath }}/deployment.yaml
             ${{ needs.vars.outputs.ManifestsPath }}/service.yaml
           images: ${{ needs.vars.outputs.DockerImange }}:${{ github.sha }}

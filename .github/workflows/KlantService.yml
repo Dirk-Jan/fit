@@ -5,10 +5,12 @@ on:
     branches: [ master ]
     paths: 
     - src/KlantService/**
+    - .github/workflows/KlantService.yml
   pull_request:
     branches: [ master ]
     paths: 
     - src/KlantService/**
+    - .github/workflows/KlantService.yml
 
 
 jobs:

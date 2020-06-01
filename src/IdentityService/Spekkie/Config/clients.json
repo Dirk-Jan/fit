@@ -1,0 +1,70 @@
+﻿[
+  {
+    "Enabled":true,
+    "ClientId":"fit.frontend",
+    "ProtocolType":"oidc",
+    "ClientSecrets":[
+
+    ],
+    "RequireClientSecret":false,
+    "ClientName":"Fit 💪 (Frontend)",
+    "Description":null,
+    "ClientUri":"http://identityserver.io",
+    "LogoUri":null,
+    "RequireConsent":true,
+    "AllowRememberConsent":true,
+    "AllowedGrantTypes":[
+      "implicit"
+    ],
+    "RequirePkce":true,
+    "AllowPlainTextPkce":false,
+    "AllowAccessTokensViaBrowser":true,
+    "RedirectUris":[
+      "http://localhost:4200/auth-callback"
+    ],
+    "PostLogoutRedirectUris":[
+      "http://localhost:4200"
+    ],
+    "FrontChannelLogoutUri":null,
+    "FrontChannelLogoutSessionRequired":true,
+    "BackChannelLogoutUri":null,
+    "BackChannelLogoutSessionRequired":true,
+    "AllowOfflineAccess":false,
+    "AllowedScopes":[
+      "openid",
+      "profile",
+      "fit.bff"
+    ],
+    "AlwaysIncludeUserClaimsInIdToken":false,
+    "IdentityTokenLifetime":300,
+    "AccessTokenLifetime":3600,
+    "AuthorizationCodeLifetime":300,
+    "AbsoluteRefreshTokenLifetime":2592000,
+    "SlidingRefreshTokenLifetime":1296000,
+    "ConsentLifetime":null,
+    "RefreshTokenUsage":1,
+    "UpdateAccessTokenClaimsOnRefresh":false,
+    "RefreshTokenExpiration":1,
+    "AccessTokenType":0,
+    "EnableLocalLogin":true,
+    "IdentityProviderRestrictions":[
+
+    ],
+    "IncludeJwtId":false,
+    "Claims":[
+
+    ],
+    "AlwaysSendClientClaims":false,
+    "ClientClaimsPrefix":"client_",
+    "PairWiseSubjectSalt":null,
+    "UserSsoLifetime":null,
+    "UserCodeType":null,
+    "DeviceCodeLifetime":300,
+    "AllowedCorsOrigins":[
+      "http://localhost:4200"
+    ],
+    "Properties":{
+
+    }
+  }
+]

@@ -1,0 +1,17 @@
+﻿@using Spekkie
+
+<h2>Settings</h2>
+
+<h3>Register functionality</h3>
+@if (Startup.RegisterEnabled)
+{
+    <form asp-controller="Settings" asp-action="DisableRegister" method="post">
+        <button class="btn btn-primary" type="submit">Disable Register</button>
+    </form>
+}
+else
+{
+    <form asp-controller="Settings" asp-action="EnableRegister" method="post">
+        <button class="btn btn-primary" type="submit">Enable Register</button>
+    </form>
+}

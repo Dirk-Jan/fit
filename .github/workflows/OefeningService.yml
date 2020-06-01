@@ -5,10 +5,12 @@ on:
     branches: [ master ]
     paths: 
     - src/OefeningService/**
+    - .github/workflows/OefeningService.yml
   pull_request:
     branches: [ master ]
     paths: 
     - src/OefeningService/**
+    - .github/workflows/OefeningService.yml
 
 
 jobs:

@@ -1,0 +1,14 @@
+﻿@model IdentityServer4.Quickstart.UI.AccountManagement.AccountRemoveConformationViewModel
+
+@{
+    Layout = "_Layout";
+}
+
+<h2>Are you sure you want to remove @Model.Name?</h2>
+<form class="dinline" asp-action="RemoveAccount" method="post">
+    <input type="hidden" id="userId" name="userId" value="@Model.UserId">
+    <button type="submit" value="yes" class="btn btn-danger">Yes</button>
+</form>
+<form class="dinline" asp-action="GetAllAccounts" method="get">
+    <button type="submit" value="no" class="btn btn-primary">No</button>
+</form>

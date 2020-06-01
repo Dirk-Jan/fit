@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Spekkie.Models.ApplicationUser>
+
+@{
+    Layout = "_Layout";
+}
+
+<partial name="_ValidationSummary" />
+
+<h1>Registered Users</h1>
+
+<table class="table">
+    <thead>
+    <th>Username</th>
+    <th>Actions</th>
+    </thead>
+    <tbody>
+    @foreach (var user in Model)
+    {
+        <tr>
+            <td>@user.UserName</td>
+            <td>
+                <a class="btn btn-primary" asp-action="ManageClaims" asp-controller="AccountManagement" asp-route-userId="@user.Id">Manage Claims</a>
+                <form class="dinline" asp-action="RemoveAccountConformation" method="post">
+                    <input type="hidden" id="userId" name="userId" value="@user.Id">
+                    <button type="submit" class="btn btn-danger">Remove</button>
+                </form>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

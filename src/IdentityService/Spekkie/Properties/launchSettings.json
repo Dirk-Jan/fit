@@ -1,0 +1,21 @@
+{
+  "profiles": {
+    "SelfHost": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "DB_CONNECTION_STRING": "Server=localhost;Database=IdentityService;User Id=sa;Password=Geheim_101",
+        "CONFIG_PATH_CLIENTS": "Config/clients.json",
+        "CONFIG_PATH_IDS": "Config/ids.json",
+        "CONFIG_PATH_APIS": "Config/apis.json",
+        "REGISTER_ENABLED": "true",
+        "PUBLIC_ORIGIN": "http://localhost:5000",
+        "REGISTER_REDIRECT_URL": "http://localhost:4200",
+        "BROKER_EXCHANGE_NAME": "Fit.Messagebus",
+        "BROKER_CONNECTION_STRING": "amqp://guest:guest@localhost:5672"
+      },
+      "applicationUrl": "http://localhost:5000"
+    }
+  }
+}
