@@ -5,10 +5,12 @@ on:
     branches: [ master ]
     paths: 
     - common/deployment/manifests/**
+    - .github/workflows/Manifests.yml
   pull_request:
     branches: [ master ]
     paths: 
     - common/deployment/manifests/**
+    - .github/workflows/Manifests.yml
 
 
 jobs:
