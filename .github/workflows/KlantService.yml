@@ -83,7 +83,7 @@ jobs:
           # Choose the target Kubernetes namespace. If the namespace is not provided, the commands will run in the default namespace.
           namespace: fit
           # Path to the manifest files which will be used for deployment.
-          manifests: common/deployment/manifests/KlantService
+          manifests: common/deployment/manifests/KlantService/*
           # Fully qualified resource URL of the image(s) to be used for substitutions on the manifest files Example: contosodemo.azurecr.io/helloworld:test
           images: djja/fit-klantservice:${GITHUB_SHA:7} # optional
           
