@@ -23,6 +23,7 @@ jobs:
       Zin: ik wil een ${{ Banaan }}
     steps:
       - name: do nothing
+        run: echo fuck you
       
   # This workflow contains a single job called "build"
   build:
