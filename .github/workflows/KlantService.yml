@@ -58,10 +58,11 @@ jobs:
   deploy:
     name: Deploy on Kubernetes cluster
     runs-on: ubuntu-latest
+    needs: build
 
     steps:
       - uses: actions/checkout@v2
-      
+
       - name: Kubernetes set context
         uses: Azure/k8s-set-context@v1
         with:
