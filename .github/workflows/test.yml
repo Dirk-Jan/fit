@@ -14,12 +14,6 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
-    env:
-      TAG: ${GITHUB_SHA}
-      HALLO: '${ GITHUB_SHA::7 }'
-      HALLO2: "${ ${{ github.sha }}::7 }"
-      CON: ${{ github.sha }}
-      CON2: ${ "CONCONCON"::7 }
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -27,6 +21,9 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
+    
+    - name: Set Short sha
+      run: echo "::set-env AAP=action_state::yellow"
 
     # Runs a single command using the runners shell
     - name: Run a one-line script
@@ -37,9 +34,9 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
-        echo ${TAG}
-        echo ${GITHUB_SHA::7}
-        echo sha-${GITHUB_SHA::7}
-        echo djja/fit-klantservice:sha-${GITHUB_SHA::7}
-        echo ${HALLO}
-        echo ${{ job.build.env.HALLO2 }}
+        echo ${GITHUB_SHA}
+        echo ${GITHUB__SHORT_SHA}
+        echo ${GITHUB__SHORTSHA}
+        echo ${GITHUB__SHA_SHORT}
+        echo ${GITHUB__SHASHORT}
+        echo ${GITHUB__SHA7}
