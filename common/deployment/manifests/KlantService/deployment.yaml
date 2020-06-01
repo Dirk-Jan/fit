@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-    name: bff
+    name: klant-service
 spec:
   replicas: 1
   selector:
     matchLabels:
-        app: bff
+        app: klant-service
   template:
     metadata:
       labels:
-        app: bff
+        app: klant-service
     spec:
       containers:
-        - name: bff
-          image: djja/fitflex-bff
+        - name: klant-service
+          image: djja/fit-klantservice
           imagePullPolicy: Always
           ports:
             - containerPort: 80
@@ -28,5 +28,7 @@ spec:
           env:
             - name: DB_CONNECTION_STRING
               value: 'Server=mssql;Database=fit;User ID=sa;Password=Your(!)Strongpassword'
-            - name: AUTH_AUTHORITY
-              value: 'https://identity.dirk-jan.eu'
+            - name: BROKER_CONNECTION_STRING
+              value: amqp://guest:guest@localhost:5672
+            - name: BROKER_EXCHANGE_NAME
+              value: 'Fit.Messagebus'
