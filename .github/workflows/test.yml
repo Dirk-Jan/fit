@@ -19,7 +19,7 @@ jobs:
       HALLO: '${ ${{ github.sha }}::7 }'
       HALLO2: "${ ${{ github.sha }}::7 }"
       CON: ${{ github.sha }}
-      CON2: ${{ "CONCONCON"::7 }}
+      CON2: ${ "CONCONCON"::7 }
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
