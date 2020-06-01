@@ -36,3 +36,4 @@ jobs:
         echo ${TAG}
         echo ${GITHUB_SHA::7}
         echo sha-${GITHUB_SHA::7}
+        echo djja/fit-klantservice:sha-${GITHUB_SHA::7}
