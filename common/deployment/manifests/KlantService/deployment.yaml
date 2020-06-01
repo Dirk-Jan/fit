@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: bff
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+        app: bff
+  template:
+    metadata:
+      labels:
+        app: bff
+    spec:
+      containers:
+        - name: bff
+          image: djja/fitflex-bff
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          resources:
+            limits:
+              cpu: 250m
+              memory: 256Mi
+            requests:
+              cpu: 50m
+              memory: 50Mi
+          env:
+            - name: DB_CONNECTION_STRING
+              value: 'Server=mssql;Database=fit;User ID=sa;Password=Your(!)Strongpassword'
+            - name: AUTH_AUTHORITY
+              value: 'https://identity.dirk-jan.eu'
