@@ -10,7 +10,7 @@ spec:
   template:
     metadata:
       labels:
-        service: broker
+        app: broker
     spec:
       # volumes:
       #   - name: rabbitmq-pvc
