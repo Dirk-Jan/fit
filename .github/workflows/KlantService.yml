@@ -3,8 +3,8 @@ name: Klant Service
 on:
   push:
     branches: [ master ]
-#     paths: 
-#     - src/KlantService/**
+    paths: 
+    - src/KlantService/**
   pull_request:
     branches: [ master ]
     paths: 
