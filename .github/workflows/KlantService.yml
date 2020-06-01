@@ -3,8 +3,8 @@ name: Klant Service
 on:
   push:
     branches: [ master ]
-    paths: 
-    - src/KlantService/**
+    # paths: 
+    # - src/KlantService/**
   pull_request:
     branches: [ master ]
     paths: 
@@ -40,7 +40,7 @@ jobs:
         # Username used to log in to a Docker registry. If not set then no login will occur
         username: djja
         # Password or personal access token used to log in to a Docker registry. If not set then no login will occur
-        password: ${{ secrets.DockerHubToken }}
+        password: ${{ secrets.DOCKERHUBTOKEN }}
         # Docker repository to tag the image with
         repository: djja/fit-klantservice
         # Path to the build context
@@ -48,8 +48,38 @@ jobs:
         # Path to the Dockerfile (Default is '{path}/Dockerfile')
         dockerfile: src/KlantService/KlantService/dockerfile
         # Comma-delimited list of tags. These will be added to the registry/repository to form the image's tags
-        tags: latest
+        # tags: latest
         # Automatically tags the built image with the git reference as per the readme
         tag_with_ref: true
         # Automatically tags the built image with the git short SHA as per the readme
         tag_with_sha: true
+
+  deploy:
+    name: Deploy on Kubernetes cluster
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Kubernetes set context
+        uses: Azure/k8s-set-context@v1
+        with:
+          # Acceptable values: kubeconfig or service-account
+          # method: # default is kubeconfig
+          # Kubernetes Config
+          kubeconfig: ${{ secrets.KUBECONFIG }}
+          # If your kubeconfig has multiple contexts, use this field to use a specific context, otherwise the default one would be chosen
+          # context: # optional, default is 
+          # Cluster Url
+          # k8s-url: # optional, default is 
+          # Service account secret. Run kubectl get serviceaccounts <service-account-name> -o yaml and copy the service-account-secret-name. Copy the ouptut of kubectl get secret <service-account-secret-name> -o yaml
+          # k8s-secret: # optional, default is 
+      
+      - name: Deploy to Kubernetes cluster
+        uses: Azure/k8s-deploy@v1
+        with:
+          # Choose the target Kubernetes namespace. If the namespace is not provided, the commands will run in the default namespace.
+          namespace: fit
+          # Path to the manifest files which will be used for deployment.
+          manifests: common/deployment/manifests/KlantService
+          # Fully qualified resource URL of the image(s) to be used for substitutions on the manifest files Example: contosodemo.azurecr.io/helloworld:test
+          images: djja/fit-klantservice:${GITHUB_SHA:7} # optional
+          
