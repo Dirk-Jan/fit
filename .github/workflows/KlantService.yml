@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       Banaan: banaan
-      Zin: ik wil een ${{ Banaan }}
+      Zin: ik wil een ${{ jobs.vars.outputs.Banaan }}
     steps:
       - name: do nothing
         run: echo fuck you
@@ -38,6 +38,9 @@ jobs:
     - run: echo ${{ jobs.vars.outputs.Zin }}
     - run: echo ${ jobs.vars.outputs.Zin }
     - run: echo $( jobs.vars.outputs.Zin )
+    - run: echo ${{ jobs.vars.outputs.Banaan }}
+    - run: echo ${ jobs.vars.outputs.Banaan }
+    - run: echo $( jobs.vars.outputs.Banaan )
 
     # Setup dotnet
     - name: Setup .NET Core SDK
