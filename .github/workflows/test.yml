@@ -43,5 +43,3 @@ jobs:
         echo djja/fit-klantservice:sha-${GITHUB_SHA::7}
         echo ${HALLO}
         echo ${{ job.build.steps.env.HALLO2 }}
-        echo ${CON}
-        echo ${CON2}
