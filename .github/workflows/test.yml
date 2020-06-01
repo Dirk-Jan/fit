@@ -33,4 +33,4 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
-        echo ${GITHUB_SHA:7}
+        echo ${{GITHUB_SHA:7}}
