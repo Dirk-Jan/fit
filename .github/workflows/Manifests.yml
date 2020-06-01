@@ -32,7 +32,6 @@ jobs:
           manifests: |
             common/deployment/manifests/Namespace/namespace.yaml
             common/deployment/manifests/Ingress/ingress.yaml
-            common/deployment/manifests/Ingress/nodeport.yaml
             common/deployment/manifests/Mssql/deployment.yaml
             common/deployment/manifests/Mssql/pvc.yaml
             common/deployment/manifests/Mssql/secret.yaml
