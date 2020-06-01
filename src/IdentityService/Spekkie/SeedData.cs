@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Security.Claims;
 using IdentityModel;
 using Spekkie.Constants;
@@ -11,8 +12,8 @@ namespace Spekkie
         {
             new SeedUserAccount
             {
-                Username = "admin",
-                Password = "Pass123$",
+                Username = Environment.GetEnvironmentVariable(EnvNames.AdminUsername) ?? "admin",
+                Password = Environment.GetEnvironmentVariable(EnvNames.AdminPassword) ?? "Pass123$",
                 Claims = new []
                 {
                     new Claim(JwtClaimTypes.Name, "Admin"),
@@ -22,7 +23,12 @@ namespace Spekkie
                     new Claim(AuthClaims.SpekkieAccountClaimAdd, AuthClaims.True),
                     new Claim(AuthClaims.SpekkieAccountClaimRemove, AuthClaims.True),
                     new Claim(AuthClaims.SpekkieSettingsViewAll, AuthClaims.True),
-                    new Claim(AuthClaims.SpekkieSettingsCanEnableDisableRegister, AuthClaims.True)
+                    new Claim(AuthClaims.SpekkieSettingsCanEnableDisableRegister, AuthClaims.True),
+                    
+                    new Claim(FitAuthClaims.FitFlexOefeningAdd, FitAuthClaims.True),
+                    new Claim(FitAuthClaims.FitFlexOefeningRead, FitAuthClaims.True),
+                    new Claim(FitAuthClaims.FitFlexOefeningPrestatieAdd, FitAuthClaims.True),
+                    new Claim(FitAuthClaims.FitFlexOefeningPrestatieRead, FitAuthClaims.True),
                 }
             }
         };

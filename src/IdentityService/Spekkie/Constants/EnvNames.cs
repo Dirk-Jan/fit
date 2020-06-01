@@ -9,5 +9,7 @@
         internal const string ApisPath = "CONFIG_PATH_APIS";
         internal const string PublicOrigin = "PUBLIC_ORIGIN";
         internal const string RegisterRedirectUrl = "REGISTER_REDIRECT_URL";
+        internal const string AdminUsername = "ADMIN_USERNAME";
+        internal const string AdminPassword = "ADMIN_PASSWORD";
     }
 }
