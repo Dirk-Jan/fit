@@ -26,6 +26,7 @@ data:
         "DisplayName":"Fit 💪",
         "Description":null,
         "UserClaims":[
+            "KlantId",
             "FitFlex.Oefening.Read",
             "FitFlex.Oefening.Add",
             "FitFlex.Oefening.Prestatie.Add",
