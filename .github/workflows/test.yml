@@ -35,3 +35,4 @@ jobs:
         echo test, and deploy your project.
         echo ${TAG}
         echo ${GITHUB_SHA::7}
+        echo sha-${GITHUB_SHA::7}
