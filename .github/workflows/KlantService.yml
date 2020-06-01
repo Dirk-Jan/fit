@@ -18,6 +18,7 @@ jobs:
     outputs:
       DockerImange: djja/fit-klantservice
       ProjectPath: src/KlantService/KlantService
+      ManifestsPath: common/deployment/manifests/KlantService
     steps:
       - name: Setting vars
         run: echo setting vars...
@@ -67,8 +68,8 @@ jobs:
         with:
           namespace: fit
           manifests: |
-            common/deployment/manifests/KlantService/deployment.yaml
-            common/deployment/manifests/KlantService/service.yaml
+            ${{ needs.vars.outputs.ManifestsPath }}/deployment.yaml
+            ${{ needs.vars.outputs.ManifestsPath }}/service.yaml
           images: ${{ needs.vars.outputs.DockerImange }}:${{ github.sha }}
           
           
