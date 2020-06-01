@@ -59,7 +59,8 @@ jobs:
     name: Deploy on Kubernetes cluster
     runs-on: ubuntu-latest
     # needs: build
-
+    env:
+      TAG: ${{ github.sha::7 }}
     steps:
       - uses: actions/checkout@v2
 
@@ -87,6 +88,6 @@ jobs:
             common/deployment/manifests/KlantService/deployment.yaml
             common/deployment/manifests/KlantService/service.yaml
           # Fully qualified resource URL of the image(s) to be used for substitutions on the manifest files Example: contosodemo.azurecr.io/helloworld:test
-          images: djja/fit-klantservice:sha-${GITHUB_SHA}
+          images: djja/fit-klantservice:sha-${TAG}
           
           
