@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       Banaan: banaan
-      Zin: ik wil een ${{ jobs.vars.outputs.Banaan }}
+      Zin: ik wil een ${{ github.workflow }}
     steps:
       - name: do nothing
         run: echo fuck you
