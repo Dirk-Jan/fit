@@ -15,6 +15,13 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+  vars:
+    name: Set variables
+    runs-on: ubuntu-latest
+    outputs:
+      Banaan: banaan
+      Zin: ik wil een ${{ Banaan }}
+      
   # This workflow contains a single job called "build"
   build:
     name: Build and Test
@@ -25,8 +32,10 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-    - run: echo ${ZIN}
-    - run: echo $(ZIN)
+    - run: echo ${{ jobs.vars.outputs.Zin }}
+    - run: echo ${ jobs.vars.outputs.Zin }
+    - run: echo $( jobs.vars.outputs.Zin )
+
     # Setup dotnet
     - name: Setup .NET Core SDK
       uses: actions/setup-dotnet@v1.4.0
