@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
     name: fit-frontend
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
         app: fit-frontend
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: fit-frontend
-          image: djja/fitflex-frontend
+          image: djja/fit-frontendservice
           imagePullPolicy: Always
           ports:
             - containerPort: 80

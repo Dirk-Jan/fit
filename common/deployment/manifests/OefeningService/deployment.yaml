@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-    name: klant-service
+    name: oefening-service
 spec:
   replicas: 1
   selector:
     matchLabels:
-        app: klant-service
+        app: oefening-service
   template:
     metadata:
       labels:
-        app: klant-service
+        app: oefening-service
     spec:
       containers:
-        - name: klant-service
-          image: djja/fit-klantservice
+        - name: oefening-service
+          image: djja/fit-oefeningservice
           imagePullPolicy: Always
           ports:
             - containerPort: 80
@@ -27,7 +27,7 @@ spec:
               memory: 50Mi
           env:
             - name: DB_CONNECTION_STRING
-              value: 'Server=mssql;Database=KlantService;User ID=sa;Password=Your(!)Strongpassword'
+              value: 'Server=mssql;Database=OefeningService;User ID=sa;Password=Your(!)Strongpassword'
             - name: BROKER_CONNECTION_STRING
               value: amqp://guest:guest@broker:5672
             - name: BROKER_EXCHANGE_NAME

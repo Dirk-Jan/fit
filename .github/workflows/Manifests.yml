@@ -1,0 +1,68 @@
+name: Manifests
+
+on:
+  push:
+    branches: [ master ]
+    # paths: 
+    # - common/deployment/manifests/**
+  pull_request:
+    branches: [ master ]
+    paths: 
+    - common/deployment/manifests/**
+
+
+jobs:
+  deploy:
+    name: Deploy on Kubernetes cluster
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Kubernetes set context
+        uses: Azure/k8s-set-context@v1
+        with:
+          kubeconfig: ${{ secrets.KUBECONFIG }}
+      
+      - name: Deploy to Kubernetes cluster
+        uses: Azure/k8s-deploy@v1
+        with:
+          namespace: fit
+          manifests: |
+            common/deployment/manifests/Namespace/namespace.yaml
+
+            common/deployment/manifests/Ingress/ingress.yaml
+            common/deployment/manifests/Ingress/nodeport.yaml
+
+            common/deployment/manifests/Mssql/deployment.yaml
+            common/deployment/manifests/Mssql/pvc.yaml
+            common/deployment/manifests/Mssql/secret.yaml
+            common/deployment/manifests/Mssql/service.yaml
+
+            common/deployment/manifests/RabbitMQ/deployment.yaml
+            common/deployment/manifests/RabbitMQ/service.yaml
+
+            common/deployment/manifests/FrontendService/deployment.yaml
+            common/deployment/manifests/FrontendService/service.yaml
+
+            common/deployment/manifests/BFF/deployment.yaml
+            common/deployment/manifests/BFF/service.yaml
+
+            common/deployment/manifests/IdentityService/configmap.yaml
+            common/deployment/manifests/IdentityService/deployment.yaml
+            common/deployment/manifests/IdentityService/service.yaml
+
+            common/deployment/manifests/KlantService/deployment.yaml
+            common/deployment/manifests/KlantService/service.yaml
+
+            common/deployment/manifests/OefeningService/deployment.yaml
+            common/deployment/manifests/OefeningService/service.yaml
+
+            common/deployment/manifests/PrestatieService/deployment.yaml
+            common/deployment/manifests/PrestatieService/service.yaml
+
+
+
+          
+          

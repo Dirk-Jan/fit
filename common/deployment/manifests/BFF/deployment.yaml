@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: bff
-          image: djja/fitflex-bff
+          image: djja/fit-bff
           imagePullPolicy: Always
           ports:
             - containerPort: 80
@@ -30,3 +30,7 @@ spec:
               value: 'Server=mssql;Database=fit;User ID=sa;Password=Your(!)Strongpassword'
             - name: AUTH_AUTHORITY
               value: 'https://identity.dirk-jan.eu'
+            - name: BROKER_CONNECTION_STRING
+              value: amqp://guest:guest@broker:5672
+            - name: BROKER_EXCHANGE_NAME
+              value: 'Fit.Messagebus'
