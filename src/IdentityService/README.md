@@ -9,7 +9,7 @@ Oauth identity service for securing applications
 |CONFIG_PATH_CLIENTS|-|-|✔️|-|
 |CONFIG_PATH_IDS|-|-|✔️|-|
 |CONFIG_PATH_APIS|-|-|✔️|-|
-|PUBLIC_ORIGIN|-|-|✔️|The public URL of the identity server| 
+|PUBLIC_ORIGIN|-|-|✔️|The public URL of the identity server (Required for TLS)| 
 |REGISTER_REDIRECT_URL|-|-|✔️|-|
 |ADMIN_USERNAME|-|admin|❌|-|
 |ADMIN_PASSWORD|-|Pass123$|❌|-|
