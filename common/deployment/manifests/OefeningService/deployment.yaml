@@ -26,9 +26,15 @@ spec:
               cpu: 50m
               memory: 50Mi
           env:
-            - name: DB_CONNECTION_STRING
-              value: 'Server=mssql;Database=OefeningService;User ID=sa;Password=Your(!)Strongpassword'
-            - name: BROKER_CONNECTION_STRING
-              value: amqp://guest:guest@broker:5672
             - name: BROKER_EXCHANGE_NAME
               value: 'Fit.Messagebus'
+            - name: DB_CONNECTION_STRING
+              valueFrom:
+                secretKeyRef:
+                  name: oefeningservice-secret
+                  key: dbConnectionString
+            - name: BROKER_CONNECTION_STRING
+              valueFrom:
+                secretKeyRef:
+                  name: rabbitmq-connectionstring-secret
+                  key: connectionString

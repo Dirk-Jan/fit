@@ -33,8 +33,6 @@ spec:
             - name: config-volume
               mountPath: /app/Data
           env:
-            - name: DB_CONNECTION_STRING
-              value: 'Server=mssql;Database=identity;User ID=sa;Password=Your(!)Strongpassword'
             - name: REGISTER_ENABLED
               value: 'true'
             - name: ASPNETCORE_URLS
@@ -49,7 +47,25 @@ spec:
               value: https://identity.dirk-jan.eu
             - name: REGISTER_REDIRECT_URL
               value: https://fit.dirk-jan.eu/fit
-            - name: BROKER_CONNECTION_STRING
-              value: amqp://guest:guest@broker:5672
             - name: BROKER_EXCHANGE_NAME
               value: 'Fit.Messagebus'
+            - name: DB_CONNECTION_STRING
+              valueFrom:
+                secretKeyRef:
+                  name: identityservice-secret
+                  key: dbConnectionString
+            - name: BROKER_CONNECTION_STRING
+              valueFrom:
+                secretKeyRef:
+                  name: rabbitmq-connectionstring-secret
+                  key: connectionString
+            - name: ADMIN_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: identityservice-secret
+                  key: adminUsername
+            - name: ADMIN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: identityservice-secret
+                  key: adminPassword
