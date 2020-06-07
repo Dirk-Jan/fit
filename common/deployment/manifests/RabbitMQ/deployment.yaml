@@ -35,6 +35,12 @@ spec:
               memory: 20Mi
           env:
             - name: RABBITMQ_DEFAULT_USER
-              value: guest
+              valueFrom:
+                secretKeyRef:
+                  name: rabbitmqservice-secret
+                  key: username
             - name: RABBITMQ_DEFAULT_PASS
-              value: guest
+              valueFrom:
+                secretKeyRef:
+                  name: rabbitmqservice-secret
+                  key: password
