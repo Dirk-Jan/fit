@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using ImportExportTool.Logic;
 using ImportExportTool.Models;
 using Microsoft.Extensions.Logging;
@@ -16,7 +17,7 @@ namespace ImportExportTool
     {
         private const string QueueName = "Fit.ImportExportTool.Queue";
         
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             Console.Write("Enter RabbitMQ connection string: ");
             var connectionString = Console.ReadLine();
@@ -44,32 +45,32 @@ namespace ImportExportTool
                 .ReadFromEnvironmentVariables()
                 .CreateContext();
 
-            using var host = new MicroserviceHostBuilder()
-                .SetLoggerFactory(loggerFactory)
-                .WithBusContext(context)
-                .WithQueueName(QueueName)
-                .UseConventions()
-                .CreateHost();
+            // using var host = new MicroserviceHostBuilder()
+            //     .SetLoggerFactory(loggerFactory)
+            //     .WithBusContext(context)
+            //     .WithQueueName(QueueName)
+            //     .UseConventions()
+            //     .CreateHost();
 
-            host.Start();
+            // host.Start();
             
             
             ICommandPublisher commandPublisher = new CommandPublisher(context);
-            var klantId = Guid.Empty;
+            var klantId = new Guid("979F7437-F7F3-4662-7485-08D80D5821EA");
 
-            Export();
-            // ImportDataIntoSystemFromFile(commandPublisher, klantId, @"C:\Users\Dirk-Jan\Dropbox\S6\Fitness Prestaties.txt");
+            // Export();
+            await ImportDataIntoSystemFromFile(commandPublisher, klantId, @"C:\Users\Dirk-Jan\Dropbox\S6\prestaties beide.txt");
         }
 
 
-        static void ImportDataIntoSystemFromFile(ICommandPublisher commandPublisher, Guid klantId, string filePath)
+        static async Task ImportDataIntoSystemFromFile(ICommandPublisher commandPublisher, Guid klantId, string filePath)
         {
             var lines = File.ReadAllLines(filePath);
             var exporter = new TextDataExporter();
             var oefeningen = exporter.ReadAllOefeningenWithPrestatiesFromLines(lines);
             
             var importer = new DataImporter(commandPublisher);
-            importer.ImportOefeningenIntoSystem(oefeningen.ToList(), klantId);
+            await importer.ImportOefeningenIntoSystem(oefeningen.ToList(), klantId);
         }
         
         

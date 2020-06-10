@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using ImportExportTool.Commands;
 using ImportExportTool.Models;
 using Minor.Miffy.MicroServices.Commands;
@@ -15,7 +16,7 @@ namespace ImportExportTool.Logic
             _commandPublisher = commandPublisher;
         }
         
-        public async void ImportOefeningenIntoSystem(IList<Oefening> oefeningen, Guid klantId)
+        public async Task ImportOefeningenIntoSystem(IList<Oefening> oefeningen, Guid klantId)
         {
             foreach (var oefening in oefeningen)
             {
@@ -28,7 +29,7 @@ namespace ImportExportTool.Logic
                 foreach (var prestatie in oefening.Prestaties)
                 {
                     prestatie.OefeningId = returnCommand.Oefening.Id;
-                    // prestatie.KlantId = klantId;
+                    prestatie.KlantId = klantId;
                     await _commandPublisher.PublishAsync<RegistreerPrestatieCommand>(
                         new RegistreerPrestatieCommand
                         {
