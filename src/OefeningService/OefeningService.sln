@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OefeningService", "OefeningService\OefeningService.csproj", "{BC177166-EDB9-4176-B2D1-253DC0CDA8FC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OefeningService.Test", "OefeningService.Test\OefeningService.Test.csproj", "{B17A8436-B3DF-475D-872E-B6C7B32A1866}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{BC177166-EDB9-4176-B2D1-253DC0CDA8FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC177166-EDB9-4176-B2D1-253DC0CDA8FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC177166-EDB9-4176-B2D1-253DC0CDA8FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B17A8436-B3DF-475D-872E-B6C7B32A1866}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B17A8436-B3DF-475D-872E-B6C7B32A1866}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B17A8436-B3DF-475D-872E-B6C7B32A1866}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B17A8436-B3DF-475D-872E-B6C7B32A1866}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

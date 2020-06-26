@@ -1,7 +1,7 @@
 ﻿namespace OefeningService.Constants
 {
-    internal static class TopicNames
+    public static class TopicNames
     {
-        internal const string OefeningAangemaakt = "Fit.OefeningService.OefeningAangemaakt";
+        public const string OefeningAangemaakt = "Fit.OefeningService.OefeningAangemaakt";
     }
 }

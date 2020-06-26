@@ -8,7 +8,7 @@ namespace OefeningService.Commands
     {
         public Oefening Oefening { get; set; }
 
-        protected MaakOefeningAanCommand() : base(QueueNames.MaakOefeningAan)
+        public MaakOefeningAanCommand() : base(QueueNames.MaakOefeningAan)
         {
         }
     }
