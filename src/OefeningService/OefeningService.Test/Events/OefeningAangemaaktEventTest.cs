@@ -10,8 +10,10 @@ namespace OefeningService.Test.Events
         [TestMethod]
         public void Ctor_ShouldSetTopic()
         {
+            // Act
             var target = new OefeningAangemaaktEvent();
             
+            // Assert
             Assert.AreEqual(TopicNames.OefeningAangemaakt, target.Topic);
         }
     }

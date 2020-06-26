@@ -18,6 +18,7 @@ namespace OefeningService.Test.CommandListeners
         [DataRow("Squat", "Ver doorzakken")]
         public void HandleMaakKlantAanCommand_ShouldCallAddOnRepositoryWithOefening(string naam, string omschrijving)
         {
+            // Arrange
             var repositoryMock = new Mock<IOefeningRepository>(MockBehavior.Strict);
             repositoryMock.Setup(x => x.Add(It.IsAny<Oefening>()));
             var evenPublisherMock = new Mock<IEventPublisher>(MockBehavior.Strict);
@@ -35,8 +36,10 @@ namespace OefeningService.Test.CommandListeners
                 Oefening = oefening
             };
 
+            // Act
             target.HandleMaakKlantAanCommand(command);
             
+            // Assert
             repositoryMock.Verify(x => x.Add(oefening), Times.Once);
         }
 
@@ -45,6 +48,7 @@ namespace OefeningService.Test.CommandListeners
         [DataRow("Squat", "Ver doorzakken")]
         public void HandleMaakKlantAanCommand_ShouldPublishEventWithOefening(string naam, string omschrijving)
         {
+            // Arrange
             var repositoryMock = new Mock<IOefeningRepository>(MockBehavior.Strict);
             repositoryMock.Setup(x => x.Add(It.IsAny<Oefening>()));
             var evenPublisherMock = new Mock<IEventPublisher>(MockBehavior.Strict);
@@ -62,8 +66,10 @@ namespace OefeningService.Test.CommandListeners
                 Oefening = oefening
             };
 
+            // Act
             target.HandleMaakKlantAanCommand(command);
             
+            // Assert
             evenPublisherMock.Verify(x => x.PublishAsync(
                 It.Is<OefeningAangemaaktEvent>(e => e.Oefening == oefening)), 
                 Times.Once);
@@ -74,6 +80,7 @@ namespace OefeningService.Test.CommandListeners
         [DataRow("Squat", "Ver doorzakken")]
         public void HandleMaakKlantAanCommand_ShouldReturnCommand(string naam, string omschrijving)
         {
+            // Arrange
             var repositoryMock = new Mock<IOefeningRepository>(MockBehavior.Strict);
             repositoryMock.Setup(x => x.Add(It.IsAny<Oefening>()));
             var evenPublisherMock = new Mock<IEventPublisher>(MockBehavior.Strict);
@@ -91,8 +98,10 @@ namespace OefeningService.Test.CommandListeners
                 Oefening = oefening
             };
 
+            // Act
             MaakOefeningAanCommand result = target.HandleMaakKlantAanCommand(command);
             
+            // Assert
             Assert.AreSame(command, result);
         }
     }

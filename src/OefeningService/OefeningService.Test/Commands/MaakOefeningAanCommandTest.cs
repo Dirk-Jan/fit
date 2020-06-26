@@ -10,8 +10,10 @@ namespace OefeningService.Test.Commands
         [TestMethod]
         public void Ctor_ShouldSetQueueName()
         {
+            // Act
             var target = new MaakOefeningAanCommand();
             
+            // Assert
             Assert.AreEqual(QueueNames.MaakOefeningAan, target.DestinationQueue);
         }
     }

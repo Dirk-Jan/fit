@@ -43,11 +43,14 @@ namespace OefeningService.Test.Repository
         [TestMethod]
         public void Add_ShouldIncrementDatabaseRowCount()
         {
+            // Arrange
             var oefening = new Oefening();
             var target = GetOefeningRepository();
 
+            // Act
             target.Add(oefening);
 
+            // Assert
             using var context = GetContext();
             Assert.AreEqual(1, context.Oefeningen.Count());
         }
@@ -57,6 +60,7 @@ namespace OefeningService.Test.Repository
         [DataRow("Lunges", "Gebruik de beentjes")]
         public void Add_ShouldAddItemToDatabase(string naam, string omschrijving)
         {
+            // Arrange
             var oefening = new Oefening
             {
                 Naam = naam,
@@ -64,8 +68,10 @@ namespace OefeningService.Test.Repository
             };
             var target = GetOefeningRepository();
 
+            // Act
             target.Add(oefening);
 
+            // Assert
             using var context = GetContext();
             var result = context.Oefeningen.Find(oefening.Id);
             Assert.AreEqual(oefening.Naam, result.Naam);
