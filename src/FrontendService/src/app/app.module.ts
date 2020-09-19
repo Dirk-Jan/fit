@@ -19,6 +19,8 @@ import { ShouldNotBeAthenticatedGuard } from './guards/should-not-be-authenticat
 import { RouterModule } from '@angular/router';
 import { HasToBeAthenticatedGuard } from './guards/has-to-be-authenticated.guard';
 import { WorkoutApi } from './apis/workout.api';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 registerLocaleData(localeNl, 'nl');
 
 @NgModule({
@@ -34,7 +36,8 @@ registerLocaleData(localeNl, 'nl');
     FitModule,
     LandingPageModule,
     AuthModule,
-    RouterModule
+    RouterModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'nl' },
