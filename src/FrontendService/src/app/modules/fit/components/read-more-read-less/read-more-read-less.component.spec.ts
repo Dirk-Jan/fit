@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ReadMoreReadLessComponent } from './read-more-read-less.component';
 
@@ -6,7 +6,7 @@ describe('ReadMoreReadLessComponent', () => {
   let component: ReadMoreReadLessComponent;
   let fixture: ComponentFixture<ReadMoreReadLessComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ReadMoreReadLessComponent ]
     })
