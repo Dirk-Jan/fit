@@ -20,7 +20,7 @@ jobs:
     outputs:
       DockerImange: djja/fit-bff
       ProjectPath: src/BFF/BFF
-      ManifestsPath: common/deployment/manifests/BFF
+      ManifestsPath: deployment/manifests/BFF
     steps:
       - name: Setting vars
         run: echo setting vars...

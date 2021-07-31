@@ -1,10 +1,13 @@
 # Fit 💪
 Fitness tracker
 
-![Frontend Service](https://github.com/Dirk-Jan/fit-flex/workflows/Frontend%20Service/badge.svg)
-![BFF](https://github.com/Dirk-Jan/fit-flex/workflows/BFF/badge.svg)
-![Identity Service](https://github.com/Dirk-Jan/fit-flex/workflows/Identity%20Service/badge.svg)
-![Klant Service](https://github.com/Dirk-Jan/fit-flex/workflows/Klant%20Service/badge.svg)
-![Oefening Service](https://github.com/Dirk-Jan/fit-flex/workflows/Oefening%20Service/badge.svg)
-![Prestatie Service](https://github.com/Dirk-Jan/fit-flex/workflows/Prestatie%20Service/badge.svg)
-![Manifests](https://github.com/Dirk-Jan/fit-flex/workflows/Manifests/badge.svg)
+## Services
+|Source code|Workflow status|Container registry|
+|:-|:-|:-|
+| [Frontend Service](src/WebFrontendService) | [<img align="left" alt="workflow" src="https://github.com/Dirk-Jan/fit/workflows/Frontend%20Service/badge.svg" />](https://github.com/Dirk-Jan/fit/actions/workflows/FrontendService.yml) | [<img align="left" alt="dockerhub" width="32px" src="https://www.docker.com/sites/default/files/social/docker_facebook_share.png" />](https://hub.docker.com/repository/docker/djja/fit-frontendservice) |
+| [BFF Service](src/LogicService) | [<img align="left" alt="workflow" src="https://github.com/Dirk-Jan/fit/workflows/BFF/badge.svg" />](https://github.com/Dirk-Jan/fit/actions/workflows/BFF.yml) | [<img align="left" alt="dockerhub" width="32px" src="https://www.docker.com/sites/default/files/social/docker_facebook_share.png" />](https://hub.docker.com/repository/docker/djja/fit-bff) |
+| [Identity Service](src/IdentityService) | [<img align="left" alt="workflow" src="https://github.com/Dirk-Jan/fit/workflows/Identity%20Service/badge.svg" />](https://github.com/Dirk-Jan/fit/actions/workflows/IdentityService.yml) | [<img align="left" alt="dockerhub" width="32px" src="https://www.docker.com/sites/default/files/social/docker_facebook_share.png" />](https://hub.docker.com/repository/docker/djja/fit-identityservice) |
+| [Klant Service](src/KlantService) | [<img align="left" alt="workflow" src="https://github.com/Dirk-Jan/fit/workflows/Klant%20Service/badge.svg" />](https://github.com/Dirk-Jan/fit/actions/workflows/KlantService.yml) | [<img align="left" alt="dockerhub" width="32px" src="https://www.docker.com/sites/default/files/social/docker_facebook_share.png" />](https://hub.docker.com/repository/docker/djja/fit-klantservice) |
+| [Oefening Service](src/OefeningService) | [<img align="left" alt="workflow" src="https://github.com/Dirk-Jan/fit/workflows/Oefening%20Service/badge.svg" />](https://github.com/Dirk-Jan/fit/actions/workflows/OefeningService.yml) | [<img align="left" alt="dockerhub" width="32px" src="https://www.docker.com/sites/default/files/social/docker_facebook_share.png" />](https://hub.docker.com/repository/docker/djja/fit-oefeningservice) |
+| [Prestatie Service](src/PrestatieService) | [<img align="left" alt="workflow" src="https://github.com/Dirk-Jan/fit/workflows/Prestatie%20Service/badge.svg" />](https://github.com/Dirk-Jan/fit/actions/workflows/PrestatieService.yml) | [<img align="left" alt="dockerhub" width="32px" src="https://www.docker.com/sites/default/files/social/docker_facebook_share.png" />](https://hub.docker.com/repository/docker/djja/fit-prestatieservice) |
+| [Manifests](deployment/manifests) | [<img align="left" alt="workflow" src="https://github.com/Dirk-Jan/fit/workflows/Manifests/badge.svg" />](https://github.com/Dirk-Jan/fit/actions/workflows/Manifests.yml) | - |

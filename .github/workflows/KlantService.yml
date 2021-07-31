@@ -20,7 +20,7 @@ jobs:
     outputs:
       DockerImange: djja/fit-klantservice
       ProjectPath: src/KlantService/KlantService
-      ManifestsPath: common/deployment/manifests/KlantService
+      ManifestsPath: deployment/manifests/KlantService
     steps:
       - name: Setting vars
         run: echo setting vars...
