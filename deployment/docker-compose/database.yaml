@@ -9,3 +9,5 @@ services:
       SA_PASSWORD: Geheim_101
     ports:
       - 1433:1433
+    volumes:
+      - /d/data/fitdb2/fitdb/mssql-data:/var/opt/mssql/data
