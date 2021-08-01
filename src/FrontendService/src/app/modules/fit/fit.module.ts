@@ -18,6 +18,13 @@ import { WorkoutOverzichtPage } from './pages/workout-overzicht/workout-overzich
 import { OefeningApi } from 'src/app/apis/oefening.api';
 import { WorkoutApi } from 'src/app/apis/workout.api';
 import { WorkoutPage } from './pages/workout/workout.page';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { NumberInputComponent } from './components/inputs/number-input/number-input.component'
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCardModule } from '@angular/material/card';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -31,19 +38,25 @@ import { WorkoutPage } from './pages/workout/workout.page';
     PrestatieDagComponent,
     WorkoutItemComponent,
     WorkoutOverzichtPage,
-    WorkoutPage
+    WorkoutPage,
+
+    NumberInputComponent,
   ],
   imports: [
     CommonModule,
     FitRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSliderModule,
+    MatButtonModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatCardModule,
+    MatChipsModule,
   ],
   providers: [
     ClaimsAuthGuard,
     AuthPolicyValidator,
-    // OefeningApi,
-    // WorkoutApi
   ]
 })
 export class FitModule {}

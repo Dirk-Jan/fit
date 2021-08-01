@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" [routerLink]="fitModuleUrl" (click)="isCollapsed = true">Fit 💪</a>
     <button class="navbar-toggler"
             type="button"
@@ -31,4 +31,50 @@
     </div>
   </nav>
   
-  <router-outlet></router-outlet>
+  <router-outlet></router-outlet> -->
+
+
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button aria-label="Menu icon" fxShow="true" fxHide.gt-sm="true" (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <span class="brandName">Fit 💪</span>
+    <div fxShow="true" fxHide.lt-md="true" fxLayout="row" class="toolbar-content">
+
+      <a *ngIf="showNavOefeningOverzicht" mat-button [routerLink]="oefeningOverzichtUrl">Oefeningen overzicht</a>
+      <a *ngIf="showNavWorkoutOverzicht" mat-button [routerLink]="workoutOverzichtUrl">Workout overzicht</a>
+      <a *ngIf="showNavNieuweOefeningToevoegen" mat-button [routerLink]="nieuweOefeningUrl">Nieuwe oefening</a>
+
+      <span class="example-spacer"></span>
+      
+      <a mat-button [matMenuTriggerFor]="menu">{{nameOfUser}} <mat-icon>arrow_drop_down</mat-icon></a>
+      
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav fxLayout="column" mode="side" opened="false">
+    <div fxLayout="column">
+      
+      <a *ngIf="showNavOefeningOverzicht" mat-button (click)="sidenav.toggle()" [routerLink]="oefeningOverzichtUrl">Oefeningen overzicht</a>
+      <a *ngIf="showNavWorkoutOverzicht" mat-button (click)="sidenav.toggle()" [routerLink]="workoutOverzichtUrl">Workout overzicht</a>
+      <a *ngIf="showNavNieuweOefeningToevoegen" mat-button (click)="sidenav.toggle()" [routerLink]="nieuweOefeningUrl">Nieuwe oefening</a>
+
+      <a mat-button [matMenuTriggerFor]="menu">{{nameOfUser}} <mat-icon>arrow_drop_down</mat-icon></a>
+
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content fxFlexFill>
+
+    <router-outlet></router-outlet>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="logout()">Log uit</button>
+</mat-menu>

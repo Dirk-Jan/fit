@@ -1,6 +1,7 @@
-<div class="d-flex">
+<mat-card>
+<!-- <div class="d-flex">
     <div class="input-group kg-container">
-        <input disabled type="text" inputmode="numeric" pattern="[0-9]*" min="0" max="999" class="form-control" id="gewicht" name="segewichtt1" placeholder="-" [value]="prestatie.gewicht">
+        <input matInput disabled type="text" inputmode="numeric" pattern="[0-9]*" min="0" max="999" class="form-control" id="gewicht" name="segewichtt1" placeholder="-" [value]="prestatie.gewicht">
         <div class="input-group-append">
             <span class="input-group-text">Kg</span>
         </div>
@@ -11,15 +12,29 @@
             <span class="input-group-text">Reps</span>
         </div>
     </div>
-</div>
+</div> -->
+
+<!-- <app-number-input label="Gewicht" [waarde]="prestatie.gewicht" suffix="Kg"></app-number-input>
+<app-number-input label="Reps" [waarde]="prestatie.herhalingen" suffix="X"></app-number-input> -->
+
+<p>{{prestatie.gewicht}} Kg --> {{prestatie.herhalingen}} Reps</p>
 
 <!-- <textarea class="form-control">{{prestatie.opmerking}}</textarea> -->
-<input *ngIf="prestatie.opmerking" disabled type="text" [value]="prestatie.opmerking" class="form-control opmerking">
+<!-- <input *ngIf="prestatie.opmerking" disabled type="text" [value]="prestatie.opmerking" class="form-control opmerking"> -->
+<p>{{prestatie.opmerking}}</p>
 
 <div class="timestamp">{{prestatie.datum | date:'HH:mm:ss'}}</div>
 
 
+<!-- <mat-slider min="1" max="100" step="1" value="1"></mat-slider>
+
+<button mat-raised-button color="primary">Primary</button>
+<button mat-raised-button color="accent">Accent</button>
+<button mat-raised-button color="warn">Warn</button>
+<button mat-raised-button disabled>Disabled</button> -->
 
 <!-- <p>
     <app-read-more-read-less [text]="prestatie.opmerking"></app-read-more-read-less>
 </p> -->
+
+</mat-card>

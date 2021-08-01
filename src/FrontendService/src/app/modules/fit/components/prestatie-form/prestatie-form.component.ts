@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { OefeningApi } from 'src/app/apis/oefening.api';
 import { Oefening } from 'src/app/models/oefening';
 import { Router } from '@angular/router';
@@ -18,6 +18,22 @@ export class PrestatieFormComponent implements OnInit {
     herhalingen: new FormControl(),
     opmerking: new FormControl()
   });
+
+  // gewichtFormControl = new FormControl(0,
+  //   [
+  //     Validators.min(0),
+  //     Validators.required
+  //   ]
+  // );
+
+  // herhalingenFormControl = new FormControl(0,
+  //   [
+  //     Validators.min(0),
+  //     Validators.required
+  //   ]
+  // );
+
+  // opmerkingFormControl = new FormControl();
 
   constructor(
     private oefeningApi: OefeningApi,

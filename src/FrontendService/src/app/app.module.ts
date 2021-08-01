@@ -21,7 +21,16 @@ import { HasToBeAthenticatedGuard } from './guards/has-to-be-authenticated.guard
 import { WorkoutApi } from './apis/workout.api';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 registerLocaleData(localeNl, 'nl');
+
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -37,7 +46,16 @@ registerLocaleData(localeNl, 'nl');
     LandingPageModule,
     AuthModule,
     RouterModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    BrowserAnimationsModule,
+
+    MatToolbarModule,
+    MatIconModule,
+    MatMenuModule,
+    MatButtonModule,
+    MatSidenavModule,
+
+    FlexLayoutModule,
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'nl' },

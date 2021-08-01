@@ -1,4 +1,8 @@
-<span class="badge badge-pill badge-primary">{{prestatieDag.datum | date:'EEEE d LLLL yyyy'}}</span>
+<!-- <span class="badge badge-pill badge-primary">{{prestatieDag.datum | date:'EEEE d LLLL yyyy'}}</span> -->
+<mat-chip-list>
+    <mat-chip color="accent" selected>{{prestatieDag.datum | date:'EEEE d LLLL yyyy'}}</mat-chip>
+</mat-chip-list>
+
 <div *ngFor="let prestatie of prestatieDag.prestaties">
     <app-oefening-prestatie [prestatie]="prestatie"></app-oefening-prestatie>
 </div>

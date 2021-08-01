@@ -25,3 +25,21 @@ input[type=number] {
 .rep-container {
     max-width: 55%;
 }
+
+/* .mat-form-field {
+    max-width: 8em;
+} */
+
+#gewichtInput {
+    max-width: 8em;
+}
+
+#repsInput {
+    max-width: 8em;
+    margin-left: 1em;
+}
+
+#opmerkingInput {
+    display: block;
+    width: 100%;
+}
