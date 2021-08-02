@@ -1,5 +1,5 @@
 <mat-chip-list>
-    <mat-chip color="accent" selected>{{prestatieDag.datum | date:'EEEE d LLLL yyyy'}}</mat-chip>
+    <mat-chip color="accent" selected (click)="goToWorkoutDag()">{{prestatieDag.datum | date:'EEEE d LLLL yyyy'}}</mat-chip>
 </mat-chip-list>
 
 <div *ngFor="let prestatie of prestatieDag.prestaties">

@@ -1,4 +1,4 @@
 <mat-chip-list>
-    <mat-chip color="accent" selected>{{workoutItem.oefeningNaam}}</mat-chip>
+    <mat-chip color="accent" selected (click)="goToOefening()">{{workoutItem.oefeningNaam}}</mat-chip>
 </mat-chip-list>
 <app-oefening-prestatie *ngFor="let prestatie of workoutItem.prestaties" [prestatie]="prestatie"></app-oefening-prestatie>

@@ -11,7 +11,7 @@ import { PrestatieDagComponent } from './components/prestatie-dag/prestatie-dag.
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthPolicyValidator } from 'src/app/auth/auth-policy-validator';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { ClaimsAuthGuard } from 'src/app/guards/claims-auth.guard';
 import { WorkoutItemComponent } from './components/workout-item/workout-item.component';
 import { WorkoutOverzichtPage } from './pages/workout-overzicht/workout-overzicht.page';
@@ -57,6 +57,7 @@ import { MatChipsModule } from '@angular/material/chips';
   providers: [
     ClaimsAuthGuard,
     AuthPolicyValidator,
+    DatePipe,
   ]
 })
 export class FitModule {}
