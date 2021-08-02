@@ -1,10 +1,10 @@
+<a mat-raised-button color="primary" [routerLink]="workoutOverzichtUrl" class="btn btn-primary">&lt;&lt; Terug naar workouts</a>
 
-
-<div class="card-body">
-    <a [routerLink]="workoutOverzichtUrl" class="btn btn-primary">&lt;&lt; Terug naar workouts</a>
-
-    <h5 class="card-title">Workout: {{workout.datum | date:'EEEE d LLLL yyyy'}}</h5>
-    
-    <app-workout-item *ngFor="let workoutItem of workout.workoutItems" [workoutItem]="workoutItem"></app-workout-item>
-
-</div>
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Workout: {{workout.datum | date:'EEEE d LLLL yyyy'}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <app-workout-item *ngFor="let workoutItem of workout.workoutItems" [workoutItem]="workoutItem"></app-workout-item>
+    </mat-card-content>
+</mat-card>
