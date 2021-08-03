@@ -22,74 +22,83 @@
     <title>Spekkie</title>
     <link rel="icon" type="image/x-icon" href="~/favicon.ico" />
     <link rel="shortcut icon" type="image/x-icon" href="~/favicon.ico" />
-    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css" />
+    @* <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css" /> *@
+    <link rel="stylesheet" href="~/lib/material-components-web/css/material-components-web.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="~/">
-                    <span class="navbar-brand">
-                        <img src="~/icon.png" class="icon-banner">
-                        Spekkie
-                    </span>
-                </a>
-            </div>
-            
-            <ul class="nav navbar-nav">
-                @if ((await AuthorizationService.AuthorizeAsync(User, AuthPolicies.SpekkieAccountViewAllPolicy)).Succeeded)
-                {
-                    <li>
-                        <a asp-action="GetAllAccounts" asp-controller="AccountManagement">Account Management</a>
-                    </li>
-                }
-                
-                @if ((await AuthorizationService.AuthorizeAsync(User, AuthPolicies.SpekkieSettingsViewAllPolicy)).Succeeded)
-                {
-                    <li>
-                        <a asp-action="ViewSettings" asp-controller="Settings">Settings</a>
-                    </li>
-                }
-
-                @if (!signInManager.IsSignedIn(User))
-                {
-                    <li>
-                        <a asp-action="Login" asp-controller="Account">Login</a>
-                    </li>
-                    if (Startup.RegisterEnabled)
-                    {
-                        <li>
-                            <a asp-action="Register" asp-controller="Account">Register</a>
-                        </li>
-                    }
-                }
-
-                @if (!string.IsNullOrWhiteSpace(name))
-                {
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">@name <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a asp-action="Logout" asp-controller="Account">Logout</a></li>
-                        </ul>
-                    </li>
-                }
-            </ul>
-        </div>
-    </div>
+@*     <div class="navbar navbar-inverse navbar-fixed-top"> *@
+@*         <div class="container-fluid"> *@
+@*             <div class="navbar-header"> *@
+@*                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> *@
+@*                     <span class="sr-only">Toggle navigation</span> *@
+@*                     <span class="icon-bar"></span> *@
+@*                     <span class="icon-bar"></span> *@
+@*                     <span class="icon-bar"></span> *@
+@*                 </button> *@
+@*                 <a href="~/"> *@
+@*                     <span class="navbar-brand"> *@
+@*                         <img src="~/icon.png" class="icon-banner"> *@
+@*                         Spekkie *@
+@*                     </span> *@
+@*                 </a> *@
+@*             </div> *@
+@*              *@
+@*             <ul class="nav navbar-nav"> *@
+@*                 @if ((await AuthorizationService.AuthorizeAsync(User, AuthPolicies.SpekkieAccountViewAllPolicy)).Succeeded) *@
+@*                 { *@
+@*                     <li> *@
+@*                         <a asp-action="GetAllAccounts" asp-controller="AccountManagement">Account Management</a> *@
+@*                     </li> *@
+@*                 } *@
+@*                  *@
+@*                 @if ((await AuthorizationService.AuthorizeAsync(User, AuthPolicies.SpekkieSettingsViewAllPolicy)).Succeeded) *@
+@*                 { *@
+@*                     <li> *@
+@*                         <a asp-action="ViewSettings" asp-controller="Settings">Settings</a> *@
+@*                     </li> *@
+@*                 } *@
+@* *@
+@*                 @if (!signInManager.IsSignedIn(User)) *@
+@*                 { *@
+@*                     <li> *@
+@*                         <a asp-action="Login" asp-controller="Account">Login</a> *@
+@*                     </li> *@
+@*                     if (Startup.RegisterEnabled) *@
+@*                     { *@
+@*                         <li> *@
+@*                             <a asp-action="Register" asp-controller="Account">Register</a> *@
+@*                         </li> *@
+@*                     } *@
+@*                 } *@
+@* *@
+@*                 @if (!string.IsNullOrWhiteSpace(name)) *@
+@*                 { *@
+@*                     <li class="dropdown"> *@
+@*                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">@name <b class="caret"></b></a> *@
+@*                         <ul class="dropdown-menu"> *@
+@*                             <li><a asp-action="Logout" asp-controller="Account">Logout</a></li> *@
+@*                         </ul> *@
+@*                     </li> *@
+@*                 } *@
+@*             </ul> *@
+@*         </div> *@
+@*     </div> *@
 
     <div class="container body-content">
         @RenderBody()
     </div>
 
     <script src="~/lib/jquery/jquery.js"></script>
-    <script src="~/lib/bootstrap/js/bootstrap.js"></script>
-    @RenderSection("scripts", required: false)
+    @* <script src="~/lib/bootstrap/js/bootstrap.js"></script> *@
+@* <script src="~/lib/material-components-web/js/material-components-web.js"></script> *@
+
+<!-- Required Material Web JavaScript library -->
+<script src="~/lib/material-components-web/js/material-components-web.js"></script>
+<script src="~/js/start-material.js"></script>
+<!-- Instantiate single textfield component rendered in the document -->
+
+@RenderSection("scripts", required: false)
+
 </body>
 </html>
