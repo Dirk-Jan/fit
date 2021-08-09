@@ -1,4 +1,4 @@
-<a mat-raised-button color="primary" [routerLink]="oefeningOverzichtUrl" class="btn btn-primary">&lt;&lt; Terug naar oefeningen</a>
+<a mat-raised-button color="primary" [routerLink]="oefeningOverzichtUrl">&lt;&lt; Terug naar oefeningen</a>
 
 
 <mat-card>
@@ -12,6 +12,8 @@
         </p>
 
         <app-prestatie-form [oefening]="oefening"></app-prestatie-form>
+
+        <button *ngIf="showOefeningEditButton" mat-raised-button color="primary" (click)="editOefening()">Pas oefening aan</button>
         
         <h6>Vorige prestaties</h6>
         <app-vorige-prestaties [prestatieDagen]="oefening.prestatieDagen"></app-vorige-prestaties>

@@ -13,5 +13,10 @@ export const AuthPolicies = {
         requiredClaims: [
             AuthClaims.FitFlexOefeningAdd
         ]
+    },
+    KanOefeningenAanpassenPolicy: {
+        requiredClaims: [
+            AuthClaims.FitOefeningEdit
+        ]
     }
 }

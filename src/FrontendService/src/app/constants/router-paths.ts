@@ -8,6 +8,8 @@ export const RouterPaths = {
     OefeningenOverzicht: `oefeningen`,
     OefeningDetails: `oefeningen`, // /:id
     NieuweOefening: `nieuwe-oefening`,
+    OefeningBewerken: `oefening-bewerken`, // /:id
+
     WorkoutDetails: `workouts`, // /:id
     WorkoutOverzicht: `workouts`
 }

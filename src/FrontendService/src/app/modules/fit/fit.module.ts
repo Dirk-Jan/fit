@@ -15,9 +15,9 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { ClaimsAuthGuard } from 'src/app/guards/claims-auth.guard';
 import { WorkoutItemComponent } from './components/workout-item/workout-item.component';
 import { WorkoutOverzichtPage } from './pages/workout-overzicht/workout-overzicht.page';
-import { OefeningApi } from 'src/app/apis/oefening.api';
-import { WorkoutApi } from 'src/app/apis/workout.api';
 import { WorkoutPage } from './pages/workout/workout.page';
+import { OefeningNieuwPage } from './pages/oefening-nieuw/oefening-nieuw.page';
+import { OefeningBewerkenPage } from './pages/oefening-bewerken/oefening-bewerken.page';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
@@ -28,17 +28,22 @@ import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [
-    OefeningPage,
+    
     OefeningPrestatieComponent,
     ReadMoreReadLessComponent,
     OefeningFormComponent,
     PrestatieFormComponent,
     VorigePrestatiesComponent,
-    OefeningenOverzichtPage,
+    
     PrestatieDagComponent,
     WorkoutItemComponent,
+
+    OefeningPage,
+    OefeningenOverzichtPage,
     WorkoutOverzichtPage,
     WorkoutPage,
+    OefeningNieuwPage,
+    OefeningBewerkenPage,
 
     NumberInputComponent,
   ],

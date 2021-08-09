@@ -1,8 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { OefeningApi } from 'src/app/apis/oefening.api';
-import { Router } from '@angular/router';
-import { InternalEndpoints } from 'src/app/constants/internal-endpoints';
+import { Oefening } from 'src/app/models/oefening';
 
 @Component({
   selector: 'app-oefening-form',
@@ -10,21 +8,28 @@ import { InternalEndpoints } from 'src/app/constants/internal-endpoints';
   styleUrls: ['./oefening-form.component.css']
 })
 export class OefeningFormComponent implements OnInit {
-  form = new FormGroup({
+  @Input() oefening: Oefening;
+  @Output() submitClicked: EventEmitter<Oefening> = new EventEmitter();
+  @Output() cancelClicked: EventEmitter<void> = new EventEmitter();
+
+  public form = new FormGroup({
     naam: new FormControl(),
     omschrijving: new FormControl()
   });
 
-  constructor(
-    private oefeningApi: OefeningApi,
-    private router: Router
-    ) { }
+  constructor() { }
 
   ngOnInit(): void {
+    if (this.oefening !== undefined) {
+      // TODO fill form
+    }
   }
 
-  saveOefening() {
-    this.oefeningApi.add(this.form.value)
-      .subscribe(x => this.router.navigateByUrl(InternalEndpoints.OefeningenOverzicht));
+  cancel() {
+    this.cancelClicked.emit();
+  }
+
+  submit() {
+    this.submitClicked.emit(this.form.value);
   }
 }

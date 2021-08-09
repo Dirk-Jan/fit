@@ -1,6 +1,4 @@
-<h1>Nieuwe oefening</h1>
-
-<form (submit)="saveOefening()" [formGroup]="form" id="reactive-form">
+<form (submit)="submit()" [formGroup]="form" id="reactive-form">
 
     <mat-form-field id="naamInput" appearance="fill">
         <mat-label>Naam</mat-label>
@@ -15,4 +13,5 @@
     </mat-form-field>
 
     <button mat-raised-button color="accent" type="submit" class="btn btn-primary">Opslaan</button>
+    <button mat-raised-button color="accent" type="button" class="btn btn-primary" (click)="cancel()">Annuleren</button>
 </form>

@@ -8,6 +8,8 @@ import { ClaimsAuthGuard } from 'src/app/guards/claims-auth.guard';
 import { RouterPaths } from 'src/app/constants/router-paths';
 import { WorkoutOverzichtPage } from './pages/workout-overzicht/workout-overzicht.page';
 import { WorkoutPage } from './pages/workout/workout.page';
+import { OefeningNieuwPage } from './pages/oefening-nieuw/oefening-nieuw.page';
+import { OefeningBewerkenPage } from './pages/oefening-bewerken/oefening-bewerken.page';
 
 const routes: Routes = [
     {
@@ -21,14 +23,23 @@ const routes: Routes = [
     {
       path: RouterPaths.OefeningenOverzicht,
       component: OefeningenOverzichtPage,
+      pathMatch: 'full',
       canActivate: [ClaimsAuthGuard],
       data: { authPolicy: AuthPolicies.KanOefeningenZienPolicy }
     },
     {
       path: RouterPaths.NieuweOefening,
-      component: OefeningFormComponent,
+      component: OefeningNieuwPage,
+      pathMatch: 'full',
       canActivate: [ClaimsAuthGuard],
       data: { authPolicy: AuthPolicies.KanOefeningenToevoegenPolicy }
+    },
+    {
+      path: `${RouterPaths.OefeningBewerken}/:id`,
+      component: OefeningBewerkenPage,
+      pathMatch: 'full',
+      canActivate: [ClaimsAuthGuard],
+      data: { authPolicy: AuthPolicies.KanOefeningenToevoegenPolicy }           // TODO Juiste claim toevoegen
     },
     {
       path: '',
@@ -46,6 +57,7 @@ const routes: Routes = [
     {
       path: RouterPaths.WorkoutOverzicht,
       component: WorkoutOverzichtPage,
+      pathMatch: 'full',
       // canActivate: [ClaimsAuthGuard],
       // data: { authPolicy: AuthPolicies.KanOefeningenZienPolicy }
     },

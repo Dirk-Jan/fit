@@ -1,39 +1,3 @@
-<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" [routerLink]="fitModuleUrl" (click)="isCollapsed = true">Fit 💪</a>
-    <button class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-label="Toggle navigation"
-            [attr.aria-expanded]="!isCollapsed"
-            (click)="isCollapsed = !isCollapsed">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-  
-    <div class="collapse navbar-collapse"
-         id="navbarSupportedContent"
-         [ngClass]="{'show': !isCollapsed}">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a *ngIf="showNavOefeningOverzicht" class="nav-link" (click)="isCollapsed = !isCollapsed" [routerLink]="oefeningOverzichtUrl">Oefeningen overzicht</a>
-        </li>
-        <li class="nav-item">
-          <a *ngIf="showNavWorkoutOverzicht" class="nav-link" (click)="isCollapsed = !isCollapsed" [routerLink]="workoutOverzichtUrl">Workout overzicht</a>
-        </li>
-        <li class="nav-item">
-          <a *ngIf="showNavNieuweOefeningToevoegen" class="nav-link" (click)="isCollapsed = !isCollapsed" [routerLink]="nieuweOefeningUrl">Nieuwe oefening</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link hand-cursor" (click)="logout()">Log uit ({{nameOfUser}})</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  
-  <router-outlet></router-outlet> -->
-
-
 <mat-toolbar color="primary">
   <mat-toolbar-row>
     <button mat-icon-button aria-label="Menu icon" fxShow="true" fxHide.gt-sm="true" (click)="sidenav.toggle()">
