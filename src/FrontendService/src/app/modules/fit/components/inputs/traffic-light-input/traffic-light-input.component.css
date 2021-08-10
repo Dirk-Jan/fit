@@ -1,0 +1,15 @@
+div {
+    display: flex;
+    border-radius: 8px;
+    /* border-color: #7f8c8d; */
+    border-color: #555555;
+    border-width: 8px;
+    border-style: solid;
+    /* margin-bottom: 1.34375em; */
+    margin-bottom: 8px;
+}
+
+button {
+    flex-grow: 1;
+    background-color: #555555;
+}

@@ -16,6 +16,7 @@ export class PrestatieFormComponent implements OnInit {
   form = new FormGroup({
     gewicht: new FormControl(),
     herhalingen: new FormControl(),
+    sets: new FormControl(),
     opmerking: new FormControl()
   });
 

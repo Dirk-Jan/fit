@@ -21,10 +21,13 @@ import { OefeningBewerkenPage } from './pages/oefening-bewerken/oefening-bewerke
 import { MatSliderModule } from '@angular/material/slider';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
-import { NumberInputComponent } from './components/inputs/number-input/number-input.component'
+import { NumberInputComponent } from './components/inputs/number-input/number-input.component';
+import { TrafficLightInputComponent } from './components/inputs/traffic-light-input/traffic-light-input.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -46,6 +49,7 @@ import { MatChipsModule } from '@angular/material/chips';
     OefeningBewerkenPage,
 
     NumberInputComponent,
+    TrafficLightInputComponent,
   ],
   imports: [
     CommonModule,
@@ -58,6 +62,8 @@ import { MatChipsModule } from '@angular/material/chips';
     MatFormFieldModule,
     MatCardModule,
     MatChipsModule,
+    MatButtonToggleModule,
+    MatIconModule,
   ],
   providers: [
     ClaimsAuthGuard,

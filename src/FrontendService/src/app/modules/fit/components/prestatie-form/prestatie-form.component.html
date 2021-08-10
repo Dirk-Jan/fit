@@ -1,51 +1,55 @@
 <form (submit)="savePrestatie()" [formGroup]="form">
-    <!-- <div class="d-flex">
-        <div class="input-group kg-container">
-            <input type="number" inputmode="numeric" pattern="[0-9]*" min="0" max="999" class="form-control" id="gewicht" name="gewicht" placeholder="Kg" formControlName="gewicht">
-            <div class="input-group-append">
-                <span class="input-group-text">Kg</span>
-            </div>
-        </div>
-        <div class="input-group rep-container">    
-            <input type="number" inputmode="numeric" pattern="[0-9]*" min="0" max="99" class="form-control" id="herhalingen" name="herhalingen" placeholder="Herhalingen" formControlName="herhalingen">
-            <div class="input-group-append">
-                <span class="input-group-text">Reps</span>
-            </div>
-        </div>
+
+    <div class="topRow">
+        <mat-form-field id="gewichtInput" appearance="fill">
+            <mat-label>Gewicht</mat-label>
+            <input matInput type="number" placeholder="Ex. 12" formControlName="gewicht" min="0">
+            <span matSuffix>Kg</span>
+            <!-- <mat-error *ngIf="waardeControl.invalid">Min size: 0 °C</mat-error>
+            <mat-error *ngIf="waardeControl.invalid">{{waardeControl.errors | json}}</mat-error> -->
+        </mat-form-field>
+    
+        <mat-form-field id="repsInput" appearance="fill">
+            <mat-label>Reps</mat-label>
+            <input matInput type="number" placeholder="Ex. 12" formControlName="herhalingen" min="0">
+            <!-- <span matSuffix>{{suffix}}</span> -->
+            <!-- <mat-error *ngIf="waardeControl.invalid">Min size: 0 °C</mat-error>
+            <mat-error *ngIf="waardeControl.invalid">{{waardeControl.errors | json}}</mat-error> -->
+        </mat-form-field>
+    
+        <mat-form-field id="setsInput" appearance="fill">
+            <mat-label>Sets</mat-label>
+            <input matInput type="number" placeholder="Ex. 12" formControlName="sets" min="0">
+            <!-- <span matSuffix>{{suffix}}</span> -->
+            <!-- <mat-error *ngIf="waardeControl.invalid">Min size: 0 °C</mat-error>
+            <mat-error *ngIf="waardeControl.invalid">{{waardeControl.errors | json}}</mat-error> -->
+        </mat-form-field>
     </div>
-    <div class="form-group">
-        <textarea class="form-control" id="input-omschrijving" placeholder="Opmerking (optioneel)" formControlName="opmerking"></textarea>
-    </div> -->
+    
 
 
-    <mat-form-field id="gewichtInput" appearance="fill">
-        <mat-label>Gewicht</mat-label>
-        <input matInput type="number" placeholder="Ex. 12" formControlName="gewicht" min="0">
-        <span matSuffix>Kg</span>
-        <!-- <mat-error *ngIf="waardeControl.invalid">Min size: 0 °C</mat-error>
-        <mat-error *ngIf="waardeControl.invalid">{{waardeControl.errors | json}}</mat-error> -->
-    </mat-form-field>
+    <app-traffic-light-input></app-traffic-light-input>
 
-    <mat-form-field id="repsInput" appearance="fill">
-        <mat-label>Reps</mat-label>
-        <input matInput type="number" placeholder="Ex. 12" formControlName="herhalingen" min="0">
-        <!-- <span matSuffix>{{suffix}}</span> -->
-        <!-- <mat-error *ngIf="waardeControl.invalid">Min size: 0 °C</mat-error>
-        <mat-error *ngIf="waardeControl.invalid">{{waardeControl.errors | json}}</mat-error> -->
-    </mat-form-field>
+    
 
     <mat-form-field id="opmerkingInput" appearance="fill">
         <mat-label>Opmerking (optioneel)</mat-label>
         <textarea matInput placeholder="Opmerking (optioneel)" formControlName="opmerking"></textarea>
     </mat-form-field>
 
-    <!-- <mat-form-field appearance="fill">
-        <mat-label>{{label}}</mat-label>
-        <input matInput type="number" placeholder="Ex. 12" [formControl]="waardeControl" [min]="minimum" (blur)="inputBlurred($event.target.value)" (focus)="onFocus()">
-        <span matSuffix>{{suffix}}</span>
-        <mat-error *ngIf="waardeControl.invalid">Min size: 0 °C</mat-error>
-        <mat-error *ngIf="waardeControl.invalid">{{waardeControl.errors | json}}</mat-error>
-    </mat-form-field> -->
+    <!-- <mat-button-toggle-group #group="matButtonToggleGroup">
+        <mat-button-toggle value="left" aria-label="Text align left">
+          <mat-icon>format_align_left</mat-icon>
+        </mat-button-toggle>
+        <mat-button-toggle value="center" aria-label="Text align center">
+          <mat-icon>format_align_center</mat-icon>
+        </mat-button-toggle>
+        <mat-button-toggle value="right" aria-label="Text align right">
+          <mat-icon>format_align_right</mat-icon>
+        </mat-button-toggle>
+      </mat-button-toggle-group> -->
+
+      
 
     <div class="submit-group">
         <button mat-raised-button color="accent" type="submit" class="btn btn-primary">Prestatie toevoegen</button>
