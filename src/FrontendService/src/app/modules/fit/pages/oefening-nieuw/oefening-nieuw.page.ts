@@ -26,7 +26,7 @@ export class OefeningNieuwPage implements OnInit {
   public oefeningSubmitted(oefening: Oefening) : void {
     console.log('Oefening submitted', oefening);
     this.oefeningApi.add(oefening)
-      .subscribe(x => this.router.navigateByUrl(InternalEndpoints.OefeningenOverzicht));
+      .subscribe(oefeningId => this.router.navigate([InternalEndpoints.OefeningDetails, oefeningId]));
   }
 
   public formCancelled() : void {

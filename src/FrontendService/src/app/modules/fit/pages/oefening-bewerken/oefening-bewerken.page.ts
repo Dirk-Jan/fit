@@ -30,9 +30,11 @@ export class OefeningBewerkenPage implements OnInit {
   }
 
   public oefeningSubmitted(oefening: Oefening) : void {
+    oefening.id = this.oefening.id;
+    
     console.log('Oefening aangepast', oefening);
-    // this.oefeningApi.add(oefening)
-    //   .subscribe(x => this.router.navigateByUrl(InternalEndpoints.OefeningenOverzicht));
+    this.oefeningApi.edit(oefening)
+      .subscribe(x => this.router.navigate([InternalEndpoints.OefeningDetails, this.oefening.id]));
   }
 
   public formCancelled() : void {

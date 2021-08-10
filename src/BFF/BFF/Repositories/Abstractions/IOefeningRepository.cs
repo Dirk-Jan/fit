@@ -9,5 +9,6 @@ namespace BFF.Repositories.Abstractions
         IEnumerable<Oefening> GetAll();
         Oefening GetById(Guid id);
         void Add(Oefening oefening);
+        void Edit(Oefening oefening);
     }
 }

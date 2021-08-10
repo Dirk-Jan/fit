@@ -37,5 +37,16 @@ namespace BFF.Repositories
             _context.Oefeningen.Add(oefening);
             _context.SaveChanges();
         }
+        
+        public void Edit(Oefening oefening)
+        {
+            _context.Oefeningen.Update(oefening);
+            
+            // var oefeningInDatabase = _context.Oefeningen.First(x => x.Id == oefening.Id);
+            // oefeningInDatabase.Naam = oefening.Naam;
+            // oefeningInDatabase.Omschrijving = oefening.Omschrijving;
+            
+            _context.SaveChanges();
+        }
     }
 }
