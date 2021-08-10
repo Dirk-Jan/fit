@@ -21,7 +21,6 @@ export class OefeningBewerkenPage implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    console.log('nginit called, oefening bewerken page');
     this.route.params.pipe(switchMap(params => this.oefeningApi.getById(params['id'])))
     .subscribe(oefening => 
       {
@@ -37,7 +36,6 @@ export class OefeningBewerkenPage implements OnInit {
   }
 
   public formCancelled() : void {
-    console.log('cancel clicked');
     this.router.navigate([InternalEndpoints.OefeningDetails, this.oefening.id]);
   }
 }
