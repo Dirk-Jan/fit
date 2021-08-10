@@ -25,7 +25,7 @@ export class OefeningPage implements OnInit {
     private router: Router,
     private authPolicyValidator: AuthPolicyValidator
     ) { 
-      this.showOefeningEditButton = authPolicyValidator.isAllowed(AuthPolicies.KanOefeningenZienPolicy);
+      this.showOefeningEditButton = authPolicyValidator.isAllowed(AuthPolicies.KanOefeningenAanpassenPolicy);
     }
 
   ngOnInit(): void {

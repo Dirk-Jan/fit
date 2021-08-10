@@ -6,10 +6,11 @@
         internal const string KanOefeningenToevoegen = "KanOefeningenToevoegen";
         internal const string KanPrestatiesToevoegen = "KanPrestatiesToevoegen";
         
-        internal const string FitFlexOefeningRead = "FitFlex.Oefening.Read";
-        internal const string FitFlexOefeningAdd = "FitFlex.Oefening.Add";
-        internal const string FitFlexOefeningPrestatieAdd = "FitFlex.Oefening.Prestatie.Add";
-        internal const string FitFlexOefeningPrestatieRead = "FitFlex.Oefening.Prestatie.Read";
+        internal const string FitOefeningRead = "Fit.Oefening.Read";
+        internal const string FitOefeningAdd = "Fit.Oefening.Add";
+        internal const string FitFlexOefeningEdit = "Fit.Oefening.Edit";
+        internal const string FitOefeningPrestatieAdd = "Fit.Oefening.Prestatie.Add";
+        internal const string FitOefeningPrestatieRead = "Fit.Oefening.Prestatie.Read";
         
         internal const string True = "true";
     }

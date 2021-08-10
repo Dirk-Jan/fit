@@ -39,7 +39,7 @@ const routes: Routes = [
       component: OefeningBewerkenPage,
       pathMatch: 'full',
       canActivate: [ClaimsAuthGuard],
-      data: { authPolicy: AuthPolicies.KanOefeningenToevoegenPolicy }           // TODO Juiste claim toevoegen
+      data: { authPolicy: AuthPolicies.KanOefeningenAanpassenPolicy }
     },
     {
       path: '',
@@ -51,15 +51,15 @@ const routes: Routes = [
       path: `${RouterPaths.WorkoutDetails}/:workoutDag`,
       component: WorkoutPage,
       pathMatch: 'full',
-      // canActivate: [ClaimsAuthGuard],
-      // data: { authPolicy: AuthPolicies.KanOefeningenZienPolicy }
+      canActivate: [ClaimsAuthGuard],
+      data: { authPolicy: AuthPolicies.KanOefeningenZienPolicy }
     },
     {
       path: RouterPaths.WorkoutOverzicht,
       component: WorkoutOverzichtPage,
       pathMatch: 'full',
-      // canActivate: [ClaimsAuthGuard],
-      // data: { authPolicy: AuthPolicies.KanOefeningenZienPolicy }
+      canActivate: [ClaimsAuthGuard],
+      data: { authPolicy: AuthPolicies.KanOefeningenZienPolicy }
     },
     // Fallback when no prior routes is matched
     { 

@@ -18,10 +18,8 @@ export class OefeningFormComponent implements OnInit {
       this._oefening = value;
       this.updateForm();
   }
-  // @Input() oefening: Oefening;
   @Output() submitClicked: EventEmitter<Oefening> = new EventEmitter();
   @Output() cancelClicked: EventEmitter<void> = new EventEmitter();
-
 
   naamFormControl = new FormControl();
   omschrijvingFormControl = new FormControl();
