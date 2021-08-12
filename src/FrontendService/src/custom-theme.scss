@@ -46,7 +46,11 @@ $md-mcgpalette0: (
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 $fit-primary: mat.define-palette($md-mcgpalette0);
-$fit-accent: mat.define-palette(mat.$yellow-palette, A200, A100, A400);
+// $fit-accent: mat.define-palette(mat.$yellow-palette, 900);
+// $fit-accent: mat.define-palette(mat.$deep-purple-palette, 800);
+// $fit-accent: mat.define-palette(mat.$orange-palette, 900);
+$fit-accent: mat.define-palette(mat.$gray-palette, 900);          // I like it!
+// $fit-accent: mat.define-palette(mat.$brown-palette, 700);         // Not bad either
 
 // The warn palette is optional (defaults to red).
 $fit-warn: mat.define-palette(mat.$red-palette);
