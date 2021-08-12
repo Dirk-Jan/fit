@@ -1,3 +1,5 @@
+import { OefeningZwaarte } from "../enums/oefening-zwaarte";
+
 export class Prestatie {
     id: string;
     oefeningId: string;
@@ -5,4 +7,6 @@ export class Prestatie {
     gewicht: number;
     herhalingen: number;
     opmerking: string;
+    sets: number;
+    oefeningZwaarte: OefeningZwaarte;
 }

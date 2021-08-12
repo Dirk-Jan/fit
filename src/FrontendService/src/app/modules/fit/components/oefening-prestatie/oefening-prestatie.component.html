@@ -17,11 +17,16 @@
 <!-- <app-number-input label="Gewicht" [waarde]="prestatie.gewicht" suffix="Kg"></app-number-input>
 <app-number-input label="Reps" [waarde]="prestatie.herhalingen" suffix="X"></app-number-input> -->
 
-<p>{{prestatie.gewicht}} Kg --> {{prestatie.herhalingen}} Reps</p>
+<!-- <p>{{prestatie.gewicht}} Kg -> {{prestatie.herhalingen}} Reps</p> -->
+
+<p *ngIf="prestatie.gewicht">{{prestatie.gewicht}} Kg</p>
+<p *ngIf="prestatie.herhalingen">{{prestatie.herhalingen}} Reps</p>
+<p *ngIf="prestatie.sets">{{prestatie.sets}} sets</p>
+<p *ngIf="prestatie.oefeningZwaarte">Zwaarte: {{oefeningZwaarte}}</p>
 
 <!-- <textarea class="form-control">{{prestatie.opmerking}}</textarea> -->
 <!-- <input *ngIf="prestatie.opmerking" disabled type="text" [value]="prestatie.opmerking" class="form-control opmerking"> -->
-<p>{{prestatie.opmerking}}</p>
+<p *ngIf="prestatie.opmerking"><strong>Opmerking: </strong>{{prestatie.opmerking}}</p>
 
 <div class="timestamp">{{prestatie.datum | date:'HH:mm:ss'}}</div>
 
@@ -36,5 +41,7 @@
 <!-- <p>
     <app-read-more-read-less [text]="prestatie.opmerking"></app-read-more-read-less>
 </p> -->
+
+<!-- <p>{{prestatie | json}}</p> -->
 
 </mat-card>
