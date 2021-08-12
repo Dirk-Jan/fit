@@ -9,7 +9,7 @@
 .timestamp {
     text-align: end;
     font-size: .75em;
-    -moz-user-select: none;
+   user-select: none;
 }
 
 p {
@@ -26,10 +26,18 @@ input {
     text-align: end;
     padding: .175rem .75rem;
     font-size: .95em;
-    -moz-user-select: none;
+    user-select: none;
 }
 
 .input-group-text {
     font-size: .75em;
-    -moz-user-select: none;
+    user-select: none;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex > p {
+    margin-right: 2em;
 }
