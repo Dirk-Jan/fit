@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, AfterViewInit } from '@angular/core';
 import { KeyValuePipe } from '@angular/common';
 import { Prestatie } from 'src/app/models/prestatie';
 import { OefeningZwaarte } from 'src/app/enums/oefening-zwaarte';
@@ -8,17 +8,41 @@ import { OefeningZwaarte } from 'src/app/enums/oefening-zwaarte';
   templateUrl: './oefening-prestatie.component.html',
   styleUrls: ['./oefening-prestatie.component.css']
 })
-export class OefeningPrestatieComponent implements OnInit {
+export class OefeningPrestatieComponent implements OnInit, AfterViewInit {
 
+  @ViewChild('poep') oefeningZwaarteDot;
+  // @ViewChild('poep') poep;
+  
   @Input() prestatie: Prestatie;
 
   public oefeningZwaarte: string;
 
   constructor() { }
 
+  ngAfterViewInit(): void {
+
+    console.log('oefeningZwaarte', this.oefeningZwaarte);
+    console.log('viewchild', this.oefeningZwaarteDot);
+
+    if (this.oefeningZwaarteDot === undefined)
+      return;
+
+    let element = this.oefeningZwaarteDot.nativeElement;
+
+    switch (this.prestatie.oefeningZwaarte) {
+      case OefeningZwaarte.TeZwaar:
+        element.classList.add('zwaarte-te-zwaar');
+        break;
+      case OefeningZwaarte.Goed:
+        element.classList.add('zwaarte-goed');
+        break;
+      case OefeningZwaarte.TeLicht:
+        element.classList.add('zwaarte-te-licht');
+        break;
+    }
+  }
+
   ngOnInit(): void {
-    // console.log('pre')
-    // this.oefeningZwaarte = 'aaaaaaaa';
     switch (this.prestatie.oefeningZwaarte) {
       case OefeningZwaarte.TeZwaar:
         this.oefeningZwaarte = 'Te zwaar';
@@ -32,4 +56,5 @@ export class OefeningPrestatieComponent implements OnInit {
     }
   }
 
+  
 }
