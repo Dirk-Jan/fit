@@ -1,4 +1,4 @@
-﻿using Minor.Miffy.MicroServices.Events;
+﻿using Minor.Miffy;
 using PrestatieService.Constants;
 using PrestatieService.Models;
 

@@ -1,5 +1,5 @@
-﻿using Minor.Miffy.MicroServices.Commands;
-using Minor.Miffy.MicroServices.Events;
+﻿using Minor.Miffy.MicroServices;
+using Minor.Miffy.MicroServices.Abstractions;
 using PrestatieService.Commands;
 using PrestatieService.Constants;
 using PrestatieService.Events;
@@ -18,7 +18,7 @@ namespace PrestatieService.CommandListeners
             _eventPublisher = eventPublisher;
         }
         
-        [CommandListener(QueueNames.RegistreerPrestatie)]
+        [CommandListener]
         public RegistreerPrestatieCommand HandleMaakKlantAanCommand(RegistreerPrestatieCommand command)
         {
             _prestatieRepository.Add(command.Prestatie);
