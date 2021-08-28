@@ -1,3 +1,22 @@
-.hand-cursor {
+/* .hand-cursor {
     cursor: pointer;
+} */
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.brandName {
+    padding-right: 32px;
+    padding-left: 16px;
+    user-select: none;
+}
+
+.toolbar-content {
+    width: 100%;
+}
+
+mat-sidenav-container {
+    max-height: calc(100% - 64px);
+    height: calc(100% - 64px);
 }

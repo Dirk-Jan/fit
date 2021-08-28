@@ -30,5 +30,18 @@ namespace OefeningService.CommandListeners
             
             return command;
         }
+        
+        [CommandListener(QueueNames.PasOefeningAan)]
+        public PasOefeningAanCommand HandlePasOefeningAanCommand(PasOefeningAanCommand command)
+        {
+            _oefeningRepository.Edit(command.Oefening);
+
+            _eventPublisher.PublishAsync(new OefeningAangepastEvent
+            {
+                Oefening = command.Oefening
+            });
+            
+            return command;
+        }
     }
 }

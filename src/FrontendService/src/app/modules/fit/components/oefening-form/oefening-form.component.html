@@ -1,11 +1,17 @@
-<form (submit)="saveOefening()" [formGroup]="form" id="reactive-form">
-    <div class="form-group">
-        <label for="input-naam">Naam</label>
-        <input type="text" class="form-control" id="input-naam" placeholder="Naam oefening" formControlName="naam">
-    </div>
-    <div class="form-group">
-        <label for="input-omschrijving">Omschrijving</label>
-        <textarea class="form-control" id="input-omschrijving" placeholder="Omschrijving oefening (optioneel)" formControlName="omschrijving"></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary">Opslaan</button>
+<form (submit)="submit()" [formGroup]="form" id="reactive-form">
+
+    <mat-form-field id="naamInput" appearance="fill">
+        <mat-label>Naam</mat-label>
+        <input matInput type="text" placeholder="Bijvoorbeeld: Chest press" formControlName="naam">
+        <!-- <mat-error *ngIf="waardeControl.invalid">Min size: 0 °C</mat-error>
+        <mat-error *ngIf="waardeControl.invalid">{{waardeControl.errors | json}}</mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field id="omschrijvingInput" appearance="fill">
+        <mat-label>Omschrijving (optioneel)</mat-label>
+        <textarea rows="4" matInput placeholder="Omschrijving oefening (optioneel)" formControlName="omschrijving"></textarea>
+    </mat-form-field>
+
+    <button mat-raised-button color="accent" type="submit" class="btn btn-primary">Opslaan</button>
+    <button mat-raised-button color="accent" type="button" class="btn btn-primary" (click)="cancel()">Annuleren</button>
 </form>

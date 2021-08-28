@@ -1,18 +1,22 @@
-<a [routerLink]="oefeningOverzichtUrl" class="btn btn-primary">&lt;&lt; Terug naar oefeningen</a>
-<!-- <div class="card"> -->
-    <!-- <img class="card-img-top" src="https://bodybuildingblog.nl/wp-content/uploads/incline-benchpress-voorbeeld.jpg"> -->
-    <!-- <img class="card-img-top"> -->
-    <div class="card-body">
-        <h5 class="card-title">{{oefening.naam}}</h5>
-        <p class="card-text">
-            <!-- <app-read-more-read-less [text]="oefening.omschrijving"></app-read-more-read-less> -->
-            {{oefening.omschrijving}}
+<mat-card>
+    <a mat-raised-button color="primary" [routerLink]="oefeningOverzichtUrl">🠔 Terug naar oefeningen</a>
+    <div></div>
+
+    <mat-card-header>
+        <mat-card-title>{{oefening.naam}}</mat-card-title>
+        <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+    </mat-card-header>
+    <mat-card-content>
+        <p>
+        {{oefening.omschrijving}}
         </p>
 
         <app-prestatie-form [oefening]="oefening"></app-prestatie-form>
-        
-        <h6>Vorige prestaties</h6>
-        <app-vorige-prestaties [prestatieDagen]="oefening.prestatieDagen"></app-vorige-prestaties>
 
-    </div>
-<!-- </div> -->
+        <button *ngIf="showOefeningEditButton" mat-raised-button color="primary" (click)="editOefening()">Pas oefening aan</button>
+        
+        <h3>Vorige prestaties</h3>
+        <app-vorige-prestaties [prestatieDagen]="oefening.prestatieDagen"></app-vorige-prestaties>
+    </mat-card-content>
+</mat-card>
+  

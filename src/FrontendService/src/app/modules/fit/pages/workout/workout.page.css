@@ -1,4 +1,8 @@
 .card-title {
     font-weight: bold;
-    -moz-user-select: none;
+    user-select: none;
+}
+
+div {
+    height: 1em;
 }

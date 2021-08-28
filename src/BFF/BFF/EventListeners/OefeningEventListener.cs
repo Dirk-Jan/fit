@@ -20,5 +20,12 @@ namespace BFF.EventListeners
         {
             _oefeningRepository.Add(e.Oefening);
         }
+        
+        [EventListener]
+        [Topic(TopicNames.OefeningAangepast)]
+        public void HandleOefeningAangepastEvent(OefeningAangepastEvent e)
+        {
+            _oefeningRepository.Edit(e.Oefening);
+        }
     }
 }

@@ -8,7 +8,6 @@ using BFF.Repositories.Abstractions;
 using BFF.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Routing;
 using Minor.Miffy.MicroServices.Commands;
 
 namespace BFF.Controllers
@@ -63,13 +62,23 @@ namespace BFF.Controllers
         [Authorize(Policy = AuthPolicies.KanOefeningenToevoegenPolicy)]
         public async Task<IActionResult> Add(Oefening oefening)
         {
-            // _oefeningRepository.Add(oefening);
             var command = new MaakOefeningAanCommand
             {
                 Oefening = oefening
             };
-            await _commandPublisher.PublishAsync<MaakOefeningAanCommand>(command);
+            var result = await _commandPublisher.PublishAsync<MaakOefeningAanCommand>(command);
             
+            return Ok(result.Oefening.Id);
+        }
+        
+        [HttpPut]
+        [Authorize(Policy = AuthPolicies.KanOefeningenAanpassenPolicy)]
+        public async Task<IActionResult> Edit(Oefening oefening)
+        {
+            await _commandPublisher.PublishAsync<PasOefeningAanCommand>(new PasOefeningAanCommand
+            {
+                Oefening = oefening
+            });
             return Ok();
         }
     }

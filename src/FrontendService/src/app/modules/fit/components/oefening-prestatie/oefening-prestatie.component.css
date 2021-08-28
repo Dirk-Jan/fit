@@ -9,7 +9,7 @@
 .timestamp {
     text-align: end;
     font-size: .75em;
-    -moz-user-select: none;
+   user-select: none;
 }
 
 p {
@@ -26,10 +26,47 @@ input {
     text-align: end;
     padding: .175rem .75rem;
     font-size: .95em;
-    -moz-user-select: none;
+    user-select: none;
 }
 
 .input-group-text {
     font-size: .75em;
-    -moz-user-select: none;
+    user-select: none;
+}
+
+.flex {
+    display: flex;
+    /* flex-direction: column; */
+}
+
+.flex2 {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.flex > p {
+    margin-right: 2em;
+}
+
+.dot {
+    height: 1.5em;
+    width: 1.5em;
+    background-color: #555555;
+    border-radius: 50%;
+    /* display: inline-block; */
+    align-self: center;
+    /* flex-direction: column; */
+}
+
+.zwaarte-te-licht {
+    background-color: #20bf6b;
+}
+
+.zwaarte-goed {
+    background-color: #fa8231;
+}
+
+.zwaarte-te-zwaar {
+    background-color: #eb3b5a;
 }

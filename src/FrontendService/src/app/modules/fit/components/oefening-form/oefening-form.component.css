@@ -1,3 +1,7 @@
-textarea {
-    height: 10em;
+#naamInput {
+    display: block;
+}
+
+#omschrijvingInput {
+    display: block;
 }

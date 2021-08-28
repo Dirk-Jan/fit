@@ -4,14 +4,19 @@ import { AuthClaims } from './auth-claims';
 export const AuthPolicies = {
     KanOefeningenZienPolicy: {
         requiredClaims: [
-            AuthClaims.FitFlexOefeningRead,
-            AuthClaims.FitFlexOefeningPrestatieRead,
-            AuthClaims.FitFlexOefeningPrestatieAdd
+            AuthClaims.FitOefeningRead,
+            AuthClaims.FitOefeningPrestatieRead,
+            AuthClaims.FitOefeningPrestatieAdd
         ]
     },
     KanOefeningenToevoegenPolicy: {
         requiredClaims: [
-            AuthClaims.FitFlexOefeningAdd
+            AuthClaims.FitOefeningAdd
+        ]
+    },
+    KanOefeningenAanpassenPolicy: {
+        requiredClaims: [
+            AuthClaims.FitOefeningEdit
         ]
     }
 }

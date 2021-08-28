@@ -18,10 +18,18 @@ input[type=number] {
     -moz-appearance:textfield; /* Firefox */
 }
 
-.kg-container {
-    max-width: 45%;
+
+.topRow > mat-form-field {
+    flex-grow: 1;
+    max-width: 33%;
 }
 
-.rep-container {
-    max-width: 55%;
+#opmerkingInput {
+    display: block;
+    width: 100%;
+}
+
+.topRow {
+    display: flex;
+    justify-content: space-between;
 }

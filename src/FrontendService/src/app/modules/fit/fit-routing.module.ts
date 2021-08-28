@@ -8,6 +8,8 @@ import { ClaimsAuthGuard } from 'src/app/guards/claims-auth.guard';
 import { RouterPaths } from 'src/app/constants/router-paths';
 import { WorkoutOverzichtPage } from './pages/workout-overzicht/workout-overzicht.page';
 import { WorkoutPage } from './pages/workout/workout.page';
+import { OefeningNieuwPage } from './pages/oefening-nieuw/oefening-nieuw.page';
+import { OefeningBewerkenPage } from './pages/oefening-bewerken/oefening-bewerken.page';
 
 const routes: Routes = [
     {
@@ -21,14 +23,23 @@ const routes: Routes = [
     {
       path: RouterPaths.OefeningenOverzicht,
       component: OefeningenOverzichtPage,
+      pathMatch: 'full',
       canActivate: [ClaimsAuthGuard],
       data: { authPolicy: AuthPolicies.KanOefeningenZienPolicy }
     },
     {
       path: RouterPaths.NieuweOefening,
-      component: OefeningFormComponent,
+      component: OefeningNieuwPage,
+      pathMatch: 'full',
       canActivate: [ClaimsAuthGuard],
       data: { authPolicy: AuthPolicies.KanOefeningenToevoegenPolicy }
+    },
+    {
+      path: `${RouterPaths.OefeningBewerken}/:id`,
+      component: OefeningBewerkenPage,
+      pathMatch: 'full',
+      canActivate: [ClaimsAuthGuard],
+      data: { authPolicy: AuthPolicies.KanOefeningenAanpassenPolicy }
     },
     {
       path: '',
@@ -40,14 +51,15 @@ const routes: Routes = [
       path: `${RouterPaths.WorkoutDetails}/:workoutDag`,
       component: WorkoutPage,
       pathMatch: 'full',
-      // canActivate: [ClaimsAuthGuard],
-      // data: { authPolicy: AuthPolicies.KanOefeningenZienPolicy }
+      canActivate: [ClaimsAuthGuard],
+      data: { authPolicy: AuthPolicies.KanOefeningenZienPolicy }
     },
     {
       path: RouterPaths.WorkoutOverzicht,
       component: WorkoutOverzichtPage,
-      // canActivate: [ClaimsAuthGuard],
-      // data: { authPolicy: AuthPolicies.KanOefeningenZienPolicy }
+      pathMatch: 'full',
+      canActivate: [ClaimsAuthGuard],
+      data: { authPolicy: AuthPolicies.KanOefeningenZienPolicy }
     },
     // Fallback when no prior routes is matched
     { 

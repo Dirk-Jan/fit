@@ -1,4 +1,5 @@
-.badge {
+mat-chip {
     width: 100%;
-    -moz-user-select: none;
+    user-select: none;
+    cursor: pointer;
 }

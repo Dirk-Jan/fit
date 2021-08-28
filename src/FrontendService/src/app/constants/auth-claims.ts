@@ -1,6 +1,7 @@
 export const AuthClaims = {
-    FitFlexOefeningRead: 'FitFlex.Oefening.Read',
-    FitFlexOefeningAdd: 'FitFlex.Oefening.Add',
-    FitFlexOefeningPrestatieAdd: 'FitFlex.Oefening.Prestatie.Add',
-    FitFlexOefeningPrestatieRead: 'FitFlex.Oefening.Prestatie.Read',
+    FitOefeningRead: 'Fit.Oefening.Read',
+    FitOefeningAdd: 'Fit.Oefening.Add',
+    FitOefeningEdit: 'Fit.Oefening.Edit',
+    FitOefeningPrestatieAdd: 'Fit.Oefening.Prestatie.Add',
+    FitOefeningPrestatieRead: 'Fit.Oefening.Prestatie.Read',
 }

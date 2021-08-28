@@ -1,14 +1,15 @@
 p {
     font-size: 3em;
     font-weight: bold;
-    -moz-user-select: none;
-    -webkit-user-select: none;
+    user-select: none;
 }
 
-div {
+mat-card {
     display: flex;
     flex-direction: column;
     text-align: center;
+    height: 100%;
+    border-radius: 0;
 }
 
 button {

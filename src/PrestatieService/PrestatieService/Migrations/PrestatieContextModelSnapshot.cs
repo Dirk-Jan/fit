@@ -31,7 +31,7 @@ namespace PrestatieService.Migrations
                     b.Property<double?>("Gewicht")
                         .HasColumnType("float");
 
-                    b.Property<double>("Herhalingen")
+                    b.Property<double?>("Herhalingen")
                         .HasColumnType("float");
 
                     b.Property<Guid>("KlantId")
@@ -40,8 +40,14 @@ namespace PrestatieService.Migrations
                     b.Property<Guid>("OefeningId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<int?>("OefeningZwaarte")
+                        .HasColumnType("int");
+
                     b.Property<string>("Opmerking")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Sets")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

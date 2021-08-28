@@ -29,7 +29,7 @@ import { InternalEndpoints } from 'src/app/constants/internal-endpoints';
         this.nameOfUser = authService.name;
         this.showNavOefeningOverzicht = authPolicyValidator.isAllowed(AuthPolicies.KanOefeningenZienPolicy);
         this.showNavNieuweOefeningToevoegen = authPolicyValidator.isAllowed(AuthPolicies.KanOefeningenToevoegenPolicy);
-        this.showNavWorkoutOverzicht = true;
+        this.showNavWorkoutOverzicht = authPolicyValidator.isAllowed(AuthPolicies.KanOefeningenZienPolicy);
     }
   
     ngOnInit(): void {}

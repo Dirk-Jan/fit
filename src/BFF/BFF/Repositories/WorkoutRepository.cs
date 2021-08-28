@@ -54,6 +54,7 @@ namespace BFF.Repositories
                 {
                     workoutItems.Add(new WorkoutItemViewModel
                     {
+                        OefeningId = result.Oefening.Id,
                         OefeningNaam = result.Oefening.Naam,
                         Prestaties = new List<Prestatie>
                         {

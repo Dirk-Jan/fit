@@ -6,3 +6,7 @@ img {
 h6, h5 {
     font-weight: bold;
 }
+
+div {
+    height: 1em;
+}

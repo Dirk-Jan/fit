@@ -1,7 +1,5 @@
 using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using BFF.Constants;
@@ -11,13 +9,10 @@ using BFF.Repositories.Abstractions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Minor.Miffy.MicroServices.Commands;
 
 namespace BFF
@@ -69,11 +64,12 @@ namespace BFF
             {
                 options.AddPolicy(AuthPolicies.KanOefeningenZienPolicy, policy =>
                 {
-                    policy.RequireClaim(AuthClaims.FitFlexOefeningRead, AuthClaims.True);
-                    policy.RequireClaim(AuthClaims.FitFlexOefeningPrestatieRead, AuthClaims.True);
+                    policy.RequireClaim(AuthClaims.FitOefeningRead, AuthClaims.True);
+                    policy.RequireClaim(AuthClaims.FitOefeningPrestatieRead, AuthClaims.True);
                 });
-                options.AddPolicy(AuthPolicies.KanOefeningenToevoegenPolicy, policy => policy.RequireClaim(AuthClaims.FitFlexOefeningAdd, AuthClaims.True));
-                options.AddPolicy(AuthPolicies.KanPrestatiesToevoegenPolicy, policy => policy.RequireClaim(AuthClaims.FitFlexOefeningPrestatieAdd, AuthClaims.True));
+                options.AddPolicy(AuthPolicies.KanOefeningenToevoegenPolicy, policy => policy.RequireClaim(AuthClaims.FitOefeningAdd, AuthClaims.True));
+                options.AddPolicy(AuthPolicies.KanOefeningenAanpassenPolicy, policy => policy.RequireClaim(AuthClaims.FitFlexOefeningEdit, AuthClaims.True));
+                options.AddPolicy(AuthPolicies.KanPrestatiesToevoegenPolicy, policy => policy.RequireClaim(AuthClaims.FitOefeningPrestatieAdd, AuthClaims.True));
             });
 
             services.AddCors(options =>

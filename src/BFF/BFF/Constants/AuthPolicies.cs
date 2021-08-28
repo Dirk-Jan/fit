@@ -4,6 +4,7 @@
     {
         internal const string KanOefeningenZienPolicy = "KanOefeningenZienPolicy";
         internal const string KanOefeningenToevoegenPolicy = "KanOefeningenToevoegenPolicy";
+        internal const string KanOefeningenAanpassenPolicy = "KanOefeningenAanpassenPolicy";
         internal const string KanPrestatiesToevoegenPolicy = "KanPrestatiesToevoegenPolicy";
     }
 }

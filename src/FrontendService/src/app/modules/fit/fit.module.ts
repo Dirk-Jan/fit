@@ -11,39 +11,64 @@ import { PrestatieDagComponent } from './components/prestatie-dag/prestatie-dag.
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthPolicyValidator } from 'src/app/auth/auth-policy-validator';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { ClaimsAuthGuard } from 'src/app/guards/claims-auth.guard';
 import { WorkoutItemComponent } from './components/workout-item/workout-item.component';
 import { WorkoutOverzichtPage } from './pages/workout-overzicht/workout-overzicht.page';
-import { OefeningApi } from 'src/app/apis/oefening.api';
-import { WorkoutApi } from 'src/app/apis/workout.api';
 import { WorkoutPage } from './pages/workout/workout.page';
+import { OefeningNieuwPage } from './pages/oefening-nieuw/oefening-nieuw.page';
+import { OefeningBewerkenPage } from './pages/oefening-bewerken/oefening-bewerken.page';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { NumberInputComponent } from './components/inputs/number-input/number-input.component';
+import { TrafficLightInputComponent } from './components/inputs/traffic-light-input/traffic-light-input.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCardModule } from '@angular/material/card';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
-    OefeningPage,
+    
     OefeningPrestatieComponent,
     ReadMoreReadLessComponent,
     OefeningFormComponent,
     PrestatieFormComponent,
     VorigePrestatiesComponent,
-    OefeningenOverzichtPage,
+    
     PrestatieDagComponent,
     WorkoutItemComponent,
+
+    OefeningPage,
+    OefeningenOverzichtPage,
     WorkoutOverzichtPage,
-    WorkoutPage
+    WorkoutPage,
+    OefeningNieuwPage,
+    OefeningBewerkenPage,
+
+    NumberInputComponent,
+    TrafficLightInputComponent,
   ],
   imports: [
     CommonModule,
     FitRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSliderModule,
+    MatButtonModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatCardModule,
+    MatChipsModule,
+    MatButtonToggleModule,
+    MatIconModule,
   ],
   providers: [
     ClaimsAuthGuard,
     AuthPolicyValidator,
-    // OefeningApi,
-    // WorkoutApi
+    DatePipe,
   ]
 })
 export class FitModule {}

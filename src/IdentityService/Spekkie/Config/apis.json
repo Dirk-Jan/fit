@@ -22,10 +22,11 @@
     "Description":null,
     "UserClaims":[
       "KlantId",
-      "FitFlex.Oefening.Read",
-      "FitFlex.Oefening.Add",
-      "FitFlex.Oefening.Prestatie.Add",
-      "FitFlex.Oefening.Prestatie.Read"
+      "Fit.Oefening.Read",
+      "Fit.Oefening.Add",
+      "Fit.Oefening.Edit",
+      "Fit.Oefening.Prestatie.Add",
+      "Fit.Oefening.Prestatie.Read"
     ],
     "Properties":{
 

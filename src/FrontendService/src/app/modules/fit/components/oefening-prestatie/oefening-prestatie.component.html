@@ -1,25 +1,18 @@
-<div class="d-flex">
-    <div class="input-group kg-container">
-        <input disabled type="text" inputmode="numeric" pattern="[0-9]*" min="0" max="999" class="form-control" id="gewicht" name="segewichtt1" placeholder="-" [value]="prestatie.gewicht">
-        <div class="input-group-append">
-            <span class="input-group-text">Kg</span>
+<mat-card>
+
+    <div class="flex">
+        <p *ngIf="prestatie.gewicht">{{prestatie.gewicht}} Kg</p>
+        <p *ngIf="prestatie.herhalingen">{{prestatie.herhalingen}} Reps</p>
+        <p *ngIf="prestatie.sets">{{prestatie.sets}} Sets</p>
+        
+        <div class="flex2">
+            <div #oefeningZwaarteDot *ngIf="prestatie.oefeningZwaarte" class="dot"></div>
         </div>
+
     </div>
-    <div class="input-group set-container">    
-        <input disabled type="text" inputmode="numeric" pattern="[0-9]*" min="0" max="99" class="form-control" id="herhalingen" name="herhalingen" placeholder="Herhalingen" [value]="prestatie.herhalingen">
-        <div class="input-group-append">
-            <span class="input-group-text">Reps</span>
-        </div>
-    </div>
-</div>
 
-<!-- <textarea class="form-control">{{prestatie.opmerking}}</textarea> -->
-<input *ngIf="prestatie.opmerking" disabled type="text" [value]="prestatie.opmerking" class="form-control opmerking">
+    <p *ngIf="prestatie.opmerking"><strong>Opmerking: </strong>{{prestatie.opmerking}}</p>
 
-<div class="timestamp">{{prestatie.datum | date:'HH:mm:ss'}}</div>
+    <div class="timestamp">{{prestatie.datum | date:'HH:mm:ss'}}</div>
 
-
-
-<!-- <p>
-    <app-read-more-read-less [text]="prestatie.opmerking"></app-read-more-read-less>
-</p> -->
+</mat-card>

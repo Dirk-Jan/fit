@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { OefeningApi } from 'src/app/apis/oefening.api';
-import { Router } from '@angular/router';
-import { InternalEndpoints } from 'src/app/constants/internal-endpoints';
+import { fromEventPattern } from 'rxjs';
+import { Oefening } from 'src/app/models/oefening';
 
 @Component({
   selector: 'app-oefening-form',
@@ -10,21 +9,47 @@ import { InternalEndpoints } from 'src/app/constants/internal-endpoints';
   styleUrls: ['./oefening-form.component.css']
 })
 export class OefeningFormComponent implements OnInit {
-  form = new FormGroup({
-    naam: new FormControl(),
-    omschrijving: new FormControl()
-  });
+  private _oefening: Oefening;
 
-  constructor(
-    private oefeningApi: OefeningApi,
-    private router: Router
-    ) { }
+  get oefening(): Oefening {
+      return this._oefening;
+  }
+  @Input() set oefening(value: Oefening) {
+      this._oefening = value;
+      this.updateForm();
+  }
+  @Output() submitClicked: EventEmitter<Oefening> = new EventEmitter();
+  @Output() cancelClicked: EventEmitter<void> = new EventEmitter();
+
+  naamFormControl = new FormControl();
+  omschrijvingFormControl = new FormControl();
+
+  public form: FormGroup;
+
+  constructor() { }
 
   ngOnInit(): void {
+    this.updateForm();
   }
 
-  saveOefening() {
-    this.oefeningApi.add(this.form.value)
-      .subscribe(x => this.router.navigateByUrl(InternalEndpoints.OefeningenOverzicht));
+  private updateForm(): void {
+    console.log('update form', this.oefening);
+    if (this.oefening !== undefined) {
+      this.naamFormControl.setValue(this.oefening.naam);
+      this.omschrijvingFormControl.setValue(this.oefening.omschrijving);
+    }
+
+    this.form = new FormGroup({
+      naam: this.naamFormControl,
+      omschrijving: this.omschrijvingFormControl
+    });
+  }
+
+  public cancel(): void {
+    this.cancelClicked.emit();
+  }
+
+  public submit(): void {
+    this.submitClicked.emit(this.form.value);
   }
 }

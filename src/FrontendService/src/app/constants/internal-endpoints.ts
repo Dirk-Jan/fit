@@ -12,6 +12,8 @@ export const InternalEndpoints = {
     OefeningenOverzicht: `/${RouterModulePaths.FitModulePrefix}/${RouterPaths.OefeningenOverzicht}`,
     OefeningDetails: `/${RouterModulePaths.FitModulePrefix}/${RouterPaths.OefeningDetails}`,
     NieuweOefening: `/${RouterModulePaths.FitModulePrefix}/${RouterPaths.NieuweOefening}`,
+    OefeningBewerken: `/${RouterModulePaths.FitModulePrefix}/${RouterPaths.OefeningBewerken}`,
+
     workoutDetails: `/${RouterModulePaths.FitModulePrefix}/${RouterPaths.WorkoutDetails}`,
     workoutOverzicht: `/${RouterModulePaths.FitModulePrefix}/${RouterPaths.WorkoutOverzicht}`
 

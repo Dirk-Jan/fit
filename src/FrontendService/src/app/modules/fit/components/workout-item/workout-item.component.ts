@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { InternalEndpoints } from 'src/app/constants/internal-endpoints';
 import { WorkoutItem } from 'src/app/models/workout-item';
 
 @Component({
@@ -10,9 +12,12 @@ export class WorkoutItemComponent implements OnInit {
 
   @Input() workoutItem: WorkoutItem;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  public goToOefening(): void {
+    this.router.navigateByUrl(`${InternalEndpoints.OefeningDetails}/${this.workoutItem.oefeningId}`);
+  }
 }

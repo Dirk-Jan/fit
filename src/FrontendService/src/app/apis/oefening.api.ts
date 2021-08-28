@@ -24,8 +24,11 @@ export class OefeningApi {
 	}
 
 	add(oefening: Oefening): Observable<Oefening> {
-		console.log('hallo oefening ', oefening)
 		return this.http.post<Oefening>(this.baseUrl + '/oefeningen', oefening);
+    }
+
+	public edit(oefening: Oefening): Observable<Oefening> {
+		return this.http.put<Oefening>(this.baseUrl + '/oefeningen', oefening);
     }
     
     addPrestatie(oefening: Oefening, prestatie: Prestatie): Observable<any> {
