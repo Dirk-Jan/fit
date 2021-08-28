@@ -45,5 +45,6 @@ namespace PrestatieService
                     dbContext.Database.Migrate();
                 });
         }
+        
     }
 }

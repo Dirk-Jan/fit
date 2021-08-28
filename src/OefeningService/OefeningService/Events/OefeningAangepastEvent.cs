@@ -1,4 +1,4 @@
-﻿using Minor.Miffy.MicroServices.Events;
+﻿using Minor.Miffy;
 using OefeningService.Constants;
 using OefeningService.Models;
 

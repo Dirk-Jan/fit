@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Minor.Miffy.MicroServices.Events;
+using Minor.Miffy;
+using Minor.Miffy.MicroServices.Abstractions;
 using Moq;
 using OefeningService.CommandListeners;
 using OefeningService.Commands;

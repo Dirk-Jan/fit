@@ -1,5 +1,5 @@
-﻿using Minor.Miffy.MicroServices.Commands;
-using Minor.Miffy.MicroServices.Events;
+﻿using Minor.Miffy.MicroServices;
+using Minor.Miffy.MicroServices.Abstractions;
 using OefeningService.Commands;
 using OefeningService.Constants;
 using OefeningService.Events;
@@ -18,7 +18,7 @@ namespace OefeningService.CommandListeners
             _eventPublisher = eventPublisher;
         }
         
-        [CommandListener(QueueNames.MaakOefeningAan)]
+        [CommandListener]
         public MaakOefeningAanCommand HandleMaakKlantAanCommand(MaakOefeningAanCommand command)
         {
             _oefeningRepository.Add(command.Oefening);
@@ -31,7 +31,7 @@ namespace OefeningService.CommandListeners
             return command;
         }
         
-        [CommandListener(QueueNames.PasOefeningAan)]
+        [CommandListener]
         public PasOefeningAanCommand HandlePasOefeningAanCommand(PasOefeningAanCommand command)
         {
             _oefeningRepository.Edit(command.Oefening);
