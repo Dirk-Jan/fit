@@ -1,7 +1,6 @@
-﻿using System;
-using KlantService.Constants;
+﻿using KlantService.Constants;
 using KlantService.Models;
-using Minor.Miffy.MicroServices.Events;
+using Minor.Miffy;
 
 namespace KlantService.Events
 {

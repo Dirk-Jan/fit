@@ -1,10 +1,8 @@
 ﻿using KlantService.Commands;
-using KlantService.Constants;
 using KlantService.Events;
-using KlantService.Models;
 using KlantService.Repositories.Abstractions;
-using Minor.Miffy.MicroServices.Commands;
-using Minor.Miffy.MicroServices.Events;
+using Minor.Miffy.MicroServices;
+using Minor.Miffy.MicroServices.Abstractions;
 
 namespace KlantService.CommandListeners
 {
@@ -19,7 +17,7 @@ namespace KlantService.CommandListeners
             _eventPublisher = eventPublisher;
         }
 
-        [CommandListener(QueueNames.MaakKlantAan)]
+        [CommandListener]
         public MaakKlantAanCommand HandleMaakKlantAanCommand(MaakKlantAanCommand command)
         {
             _klantRepository.Add(command.Klant);
