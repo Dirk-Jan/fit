@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, ViewChild, AfterViewInit } from '@angular/core';
-import { KeyValuePipe } from '@angular/common';
 import { Prestatie } from 'src/app/models/prestatie';
 import { OefeningZwaarte } from 'src/app/enums/oefening-zwaarte';
 
@@ -10,8 +9,7 @@ import { OefeningZwaarte } from 'src/app/enums/oefening-zwaarte';
 })
 export class OefeningPrestatieComponent implements OnInit, AfterViewInit {
 
-  @ViewChild('poep') oefeningZwaarteDot;
-  // @ViewChild('poep') poep;
+  @ViewChild('oefeningZwaarteDot') oefeningZwaarteDot;
   
   @Input() prestatie: Prestatie;
 
@@ -20,9 +18,6 @@ export class OefeningPrestatieComponent implements OnInit, AfterViewInit {
   constructor() { }
 
   ngAfterViewInit(): void {
-
-    console.log('oefeningZwaarte', this.oefeningZwaarte);
-    console.log('viewchild', this.oefeningZwaarteDot);
 
     if (this.oefeningZwaarteDot === undefined)
       return;
