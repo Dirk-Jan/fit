@@ -1,10 +1,11 @@
 ﻿using BFF.Constants;
 using BFF.Events;
 using BFF.Repositories.Abstractions;
-using Minor.Miffy.MicroServices.Events;
+using Minor.Miffy.MicroServices;
 
 namespace BFF.EventListeners
 {
+    [EventListener]
     public class PrestatieEventListener
     {
         private readonly IPrestatieRepository _prestatieRepository;
@@ -14,7 +15,6 @@ namespace BFF.EventListeners
             _prestatieRepository = prestatieRepository;
         }
 
-        [EventListener]
         [Topic(TopicNames.PrestatieGeregistreerd)]
         public void HandlePrestatieGeregistreerdEvent(PrestatieGeregistreerdEvent e)
         {

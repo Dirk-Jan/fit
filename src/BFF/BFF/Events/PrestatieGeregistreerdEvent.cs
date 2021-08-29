@@ -1,6 +1,6 @@
 ﻿using BFF.Constants;
 using BFF.Models;
-using Minor.Miffy.MicroServices.Events;
+using Minor.Miffy;
 
 namespace BFF.Events
 {

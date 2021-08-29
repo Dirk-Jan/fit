@@ -8,7 +8,7 @@ using BFF.Repositories.Abstractions;
 using BFF.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Minor.Miffy.MicroServices.Commands;
+using Minor.Miffy.MicroServices.Abstractions;
 
 namespace BFF.Controllers
 {

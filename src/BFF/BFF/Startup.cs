@@ -3,17 +3,12 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using BFF.Constants;
-using BFF.DAL;
-using BFF.Repositories;
-using BFF.Repositories.Abstractions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Minor.Miffy.MicroServices.Commands;
 
 namespace BFF
 {
@@ -29,16 +24,6 @@ namespace BFF
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton(Program.BusContext);
-            services.AddTransient<ICommandPublisher, CommandPublisher>();
-            services.AddScoped<IOefeningRepository, OefeningRepository>();
-            services.AddScoped<IPrestatieRepository, PrestatieRepository>();
-            services.AddScoped<IWorkoutRepository, WorkoutRepository>();
-            services.AddDbContext<BFFContext>(e =>
-            {
-                e.UseSqlServer(Environment.GetEnvironmentVariable(EnvNames.DbConnectionString));
-            });
-
             services.AddAuthentication("Bearer").AddJwtBearer(options =>
             {
                 options.Authority = Environment.GetEnvironmentVariable(EnvNames.AuthenticationServerAddress);

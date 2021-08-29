@@ -1,14 +1,12 @@
 using System;
-using System.Linq;
 using System.Threading.Tasks;
 using BFF.Commands;
 using BFF.Constants;
 using BFF.Models;
 using BFF.Repositories.Abstractions;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Minor.Miffy.MicroServices.Commands;
+using Minor.Miffy.MicroServices.Abstractions;
 
 namespace BFF.Controllers
 {
