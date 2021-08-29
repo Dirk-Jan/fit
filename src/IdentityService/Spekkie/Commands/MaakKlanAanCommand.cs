@@ -1,4 +1,4 @@
-﻿using Minor.Miffy.MicroServices.Commands;
+﻿using Minor.Miffy;
 using Spekkie.Constants;
 using Spekkie.Models;
 

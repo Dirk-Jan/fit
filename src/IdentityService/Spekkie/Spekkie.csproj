@@ -5,11 +5,10 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Dirk-JanB.Minor.Miffy.Microservices" Version="0.0.16" />
+        <PackageReference Include="Dirk-JanB.Minor.Miffy.RabbitMQBus" Version="0.0.9" />
         <PackageReference Include="IdentityServer4.AspNetIdentity" Version="3.0.1" />
         <PackageReference Include="IdentityServer4.AspNetIdentity" Version="3.0.1" />
-        <PackageReference Include="MaartenH.Minor.Miffy.Abstractions" Version="2.3.1" />
-        <PackageReference Include="MaartenH.Minor.Miffy.Microservices" Version="2.3.1" />
-        <PackageReference Include="MaartenH.Minor.Miffy.RabbitMQBus" Version="2.3.1" />
 
         <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="3.0.0" />
 
@@ -18,6 +17,7 @@
         <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.0.0" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.3" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
         <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.0.1" />
 
         <PackageReference Include="Serilog" Version="2.9.0" />

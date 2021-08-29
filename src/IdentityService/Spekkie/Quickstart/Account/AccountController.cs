@@ -17,7 +17,7 @@ using System;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Minor.Miffy.MicroServices.Commands;
+using Minor.Miffy.MicroServices.Abstractions;
 using Spekkie;
 using Spekkie.Commands;
 using Spekkie.Constants;
@@ -86,7 +86,7 @@ namespace IdentityServer4.Quickstart.UI
 
                 if (result.Succeeded)
                 {
-                    MaakKlantAanCommand commandResult = await _commandPublisher.PublishAsync<MaakKlantAanCommand>(
+                    var commandResult = await _commandPublisher.PublishAsync(
                         new MaakKlantAanCommand
                         {
                             Klant = new Klant

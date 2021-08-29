@@ -12,7 +12,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Minor.Miffy.MicroServices.Commands;
 using Spekkie.Constants;
 
 namespace Spekkie
@@ -42,8 +41,6 @@ namespace Spekkie
             var config = new Config(loggerFactory);
 
             services.AddSingleton(loggerFactory);
-            services.AddSingleton(Program.BusContext);
-            services.AddTransient<ICommandPublisher, CommandPublisher>();
             
             services.AddControllersWithViews();
 
