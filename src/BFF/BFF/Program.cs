@@ -3,6 +3,7 @@ using BFF.Constants;
 using BFF.DAL;
 using BFF.Repositories;
 using BFF.Repositories.Abstractions;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -29,15 +30,21 @@ namespace BFF
 
             return Host.CreateDefaultBuilder(args)
                 .ConfigureMessageBusWrapperHostDefaults(builder => { }, busContext)
-                .ConfigureServices((hostContext, services) =>
+                // .ConfigureMessageBusWrapperClientDefaults(builder => { }, busContext)
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                })
+                .ConfigureServices(services =>
                 {
                     services.AddDbContext<BFFContext>(e =>
                     {
                         e.UseSqlServer(Environment.GetEnvironmentVariable(EnvNames.DbConnectionString));
                     });
-                    services.AddScoped<IKlantRepository, KlantRepository>();
-                    services.AddScoped<IOefeningRepository, OefeningRepository>();
-                    services.AddScoped<IPrestatieRepository, PrestatieRepository>();
+                    services.AddTransient<IKlantRepository, KlantRepository>();
+                    services.AddTransient<IOefeningRepository, OefeningRepository>();
+                    services.AddTransient<IPrestatieRepository, PrestatieRepository>();
+                    services.AddTransient<IWorkoutRepository, WorkoutRepository>();
                     
                     
                     // You need to comment this when adding a migration

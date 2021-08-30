@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Minor.Miffy;
 using Minor.Miffy.MicroServices;
 using Minor.Miffy.RabbitMQBus;
@@ -28,7 +30,10 @@ namespace PrestatieService
             IBusContext<IConnection> busContext = contextBuilder.CreateContext();
 
             return Host.CreateDefaultBuilder(args)
-                .ConfigureMessageBusWrapperHostDefaults(builder => { }, busContext)
+                .ConfigureMessageBusWrapperHostDefaults(builder =>
+                {
+                    var types = Assembly.GetEntryAssembly().GetTypes();
+                }, busContext)
                 .ConfigureServices((hostContext, services) =>
                 {
                     services.AddDbContext<PrestatieContext>(e =>
@@ -36,7 +41,7 @@ namespace PrestatieService
                         e.UseSqlServer(Environment.GetEnvironmentVariable(EnvNames.DbConnectionString));
                         // e.UseLoggerFactory(loggerFactory);
                     });
-                    services.AddSingleton<IPrestatieRepository, PrestatieRepository>();
+                    services.AddTransient<IPrestatieRepository, PrestatieRepository>();
                     
                     using var serviceScope = services.BuildServiceProvider().GetRequiredService<IServiceScopeFactory>()
                         .CreateScope();

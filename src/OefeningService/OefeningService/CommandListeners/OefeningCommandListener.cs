@@ -1,7 +1,6 @@
 ﻿using Minor.Miffy.MicroServices;
 using Minor.Miffy.MicroServices.Abstractions;
 using OefeningService.Commands;
-using OefeningService.Constants;
 using OefeningService.Events;
 using OefeningService.Repositories.Abstractions;
 

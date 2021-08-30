@@ -8,7 +8,7 @@ namespace PrestatieService.Commands
     {
         public Prestatie Prestatie { get; set; }
 
-        protected RegistreerPrestatieCommand() : base(QueueNames.RegistreerPrestatie)
+        public RegistreerPrestatieCommand() : base(QueueNames.RegistreerPrestatie)
         {
         }
     }

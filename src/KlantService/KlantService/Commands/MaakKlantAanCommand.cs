@@ -8,7 +8,7 @@ namespace KlantService.Commands
     {
         public Klant Klant { get; set; }
 
-        protected MaakKlantAanCommand() : base(QueueNames.MaakKlantAan)
+        public MaakKlantAanCommand() : base(QueueNames.MaakKlantAan)
         {
         }
     }

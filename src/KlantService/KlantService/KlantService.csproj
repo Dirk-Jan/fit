@@ -6,7 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Dirk-JanB.Minor.Miffy.Microservices" Version="0.0.14" />
+      <PackageReference Include="Dirk-JanB.Minor.Miffy.Microservices" Version="0.0.190" />
       <PackageReference Include="Dirk-JanB.Minor.Miffy.RabbitMQBus" Version="0.0.9" />
       <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.9" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.9">

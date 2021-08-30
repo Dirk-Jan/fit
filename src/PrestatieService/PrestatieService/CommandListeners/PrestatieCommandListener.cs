@@ -1,7 +1,6 @@
 ﻿using Minor.Miffy.MicroServices;
 using Minor.Miffy.MicroServices.Abstractions;
 using PrestatieService.Commands;
-using PrestatieService.Constants;
 using PrestatieService.Events;
 using PrestatieService.Repositories.Abstractions;
 
