@@ -1,7 +1,7 @@
 # FROM djja/angular:20200403 as build
 FROM node as build
 
-RUN npm update
+# RUN npm update
 RUN npm install -g @angular/cli
 
 WORKDIR /app
