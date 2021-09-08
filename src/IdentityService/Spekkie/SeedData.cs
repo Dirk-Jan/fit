@@ -25,10 +25,11 @@ namespace Spekkie
                     new Claim(AuthClaims.SpekkieSettingsViewAll, AuthClaims.True),
                     new Claim(AuthClaims.SpekkieSettingsCanEnableDisableRegister, AuthClaims.True),
                     
-                    new Claim(FitAuthClaims.FitFlexOefeningAdd, FitAuthClaims.True),
-                    new Claim(FitAuthClaims.FitFlexOefeningRead, FitAuthClaims.True),
-                    new Claim(FitAuthClaims.FitFlexOefeningPrestatieAdd, FitAuthClaims.True),
-                    new Claim(FitAuthClaims.FitFlexOefeningPrestatieRead, FitAuthClaims.True),
+                    new Claim(FitAuthClaims.FitOefeningAdd, FitAuthClaims.True),
+                    new Claim(FitAuthClaims.FitOefeningRead, FitAuthClaims.True),
+                    new Claim(FitAuthClaims.FitOefeningEdit, FitAuthClaims.True),
+                    new Claim(FitAuthClaims.FitOefeningPrestatieAdd, FitAuthClaims.True),
+                    new Claim(FitAuthClaims.FitOefeningPrestatieRead, FitAuthClaims.True),
                 }
             }
         };

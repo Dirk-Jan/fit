@@ -99,9 +99,9 @@ namespace IdentityServer4.Quickstart.UI
                     result = await _userManager.AddClaimsAsync(user, new[]
                     {
                         new Claim(JwtClaimTypes.Name, $"{viewModel.FirstName} {viewModel.LastName}"),
-                        new Claim(FitAuthClaims.FitFlexOefeningRead, FitAuthClaims.True),
-                        new Claim(FitAuthClaims.FitFlexOefeningPrestatieRead, FitAuthClaims.True),
-                        new Claim(FitAuthClaims.FitFlexOefeningPrestatieAdd, FitAuthClaims.True),
+                        new Claim(FitAuthClaims.FitOefeningRead, FitAuthClaims.True),
+                        new Claim(FitAuthClaims.FitOefeningPrestatieRead, FitAuthClaims.True),
+                        new Claim(FitAuthClaims.FitOefeningPrestatieAdd, FitAuthClaims.True),
                         new Claim(Claims.KlantId, commandResult.Klant.Id.ToString()), 
                     });
 

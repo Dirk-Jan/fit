@@ -53,7 +53,7 @@ namespace BFF
                     policy.RequireClaim(AuthClaims.FitOefeningPrestatieRead, AuthClaims.True);
                 });
                 options.AddPolicy(AuthPolicies.KanOefeningenToevoegenPolicy, policy => policy.RequireClaim(AuthClaims.FitOefeningAdd, AuthClaims.True));
-                options.AddPolicy(AuthPolicies.KanOefeningenAanpassenPolicy, policy => policy.RequireClaim(AuthClaims.FitFlexOefeningEdit, AuthClaims.True));
+                options.AddPolicy(AuthPolicies.KanOefeningenAanpassenPolicy, policy => policy.RequireClaim(AuthClaims.FitOefeningEdit, AuthClaims.True));
                 options.AddPolicy(AuthPolicies.KanPrestatiesToevoegenPolicy, policy => policy.RequireClaim(AuthClaims.FitOefeningPrestatieAdd, AuthClaims.True));
             });
 
