@@ -34,17 +34,12 @@ jobs:
           manifests: |
             deployment/manifests/Namespace/namespace.yaml
             deployment/manifests/Ingress/ingress.yaml
-            deployment/manifests/Mssql/deployment.yaml
-            deployment/manifests/Mssql/pvc.yaml
-            deployment/manifests/Mssql/secret.yaml
-            deployment/manifests/Mssql/service.yaml
             deployment/manifests/RabbitMQ/deployment.yaml
             deployment/manifests/RabbitMQ/service.yaml
             deployment/manifests/FrontendService/deployment.yaml
             deployment/manifests/FrontendService/service.yaml
             deployment/manifests/BFF/deployment.yaml
             deployment/manifests/BFF/service.yaml
-            deployment/manifests/IdentityService/configmap.yaml
             deployment/manifests/IdentityService/deployment.yaml
             deployment/manifests/IdentityService/service.yaml
             deployment/manifests/KlantService/deployment.yaml
