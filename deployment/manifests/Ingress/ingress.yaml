@@ -1,8 +1,9 @@
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: main-ingress
   annotations:
+    # nginx.ingress.kubernetes.io/rewrite-target: /
     nginx.ingress.kubernetes.io/use-regex: "true"
     kubernetes.io/ingress.class: "nginx"    
     nginx.ingress.kubernetes.io/proxy-buffering: "on"
@@ -11,52 +12,40 @@ metadata:
     # certmanager.k8s.io/issuer: "letsencrypt-production"
 spec:
   tls:
-    - secretName: djja-nl-tls
+    - secretName: dirk-jan-eu-tls
       hosts:
-        - djja.nl
-        - bff.fit.djja.nl
-        - fit.djja.nl
-        - identity.djja.nl
+        - dirk-jan.eu
+        - bff.fit.dirk-jan.eu
+        - fit.dirk-jan.eu
+        - identity.dirk-jan.eu
   rules:
-    # - host: bff.fit.dirk-jan.eu
-    #   http:
-    #     paths:
-    #       - path: /(.*)
-    #         backend:
-    #           serviceName: bff
-    #           servicePort: 80
-    - host: bff.fit.djja.nl
+    - host: bff.fit.ingress.dirk-jan.eu
       http:
         paths:
           - path: /(.*)
+            pathType: Prefix
             backend:
-              serviceName: bff
-              servicePort: 80
-    # - host: fit.dirk-jan.eu
-    #   http:
-    #     paths:
-    #       - path: /(.*)
-    #         backend:
-    #           serviceName: fit-frontend
-    #           servicePort: 80
-    - host: fit.djja.nl
+              service:
+                name: bff
+                port:
+                  number: 80
+    - host: fit.ingress.dirk-jan.eu
       http:
         paths:
           - path: /(.*)
+            pathType: Prefix
             backend:
-              serviceName: fit-frontend
-              servicePort: 80
-    # - host: identity.dirk-jan.eu
-    #   http:
-    #     paths:
-    #       - path: /(.*)
-    #         backend:
-    #           serviceName: identity
-    #           servicePort: 80
-    - host: identity.djja.nl
+              service:
+                name: fit-frontend
+                port:
+                  number: 80
+    - host: identity.ingress.dirk-jan.eu
       http:
         paths:
           - path: /(.*)
+            pathType: Prefix
             backend:
-              serviceName: identity
-              servicePort: 80
+              service:
+                name: identity
+                port:
+                  number: 80
