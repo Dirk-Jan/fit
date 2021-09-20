@@ -58,6 +58,9 @@ export class AuthService {
     }
 
     hasAuthClaim(claim: string) : boolean {
+        if (this.token === undefined || this.token === null)
+            return false;
+
         let result = atob(this.token.split('.')[1])
 
         let tokenKeyValuePair = `"${claim}":"true"`;
