@@ -8,6 +8,7 @@ using BFF.Repositories.Abstractions;
 using BFF.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Minor.Miffy.MicroServices.Abstractions;
 
 namespace BFF.Controllers
@@ -16,20 +17,19 @@ namespace BFF.Controllers
     [Route(Routes.Oefeningen)]
     public class OefeningController : BaseController
     {
+        private readonly ILogger<OefeningController> _logger;
         private readonly IOefeningRepository _oefeningRepository;
         private readonly IPrestatieRepository _prestatieRepository;
         private readonly ICommandPublisher _commandPublisher;
 
-        public OefeningController(
-            IOefeningRepository oefeningRepository, 
-            IPrestatieRepository prestatieRepository, 
-            ICommandPublisher commandPublisher)
+        public OefeningController(ILogger<OefeningController> logger, IOefeningRepository oefeningRepository, IPrestatieRepository prestatieRepository, ICommandPublisher commandPublisher)
         {
+            _logger = logger;
             _oefeningRepository = oefeningRepository;
             _prestatieRepository = prestatieRepository;
             _commandPublisher = commandPublisher;
         }
-        
+
         [HttpGet]
         [Authorize(Policy = AuthPolicies.KanOefeningenZienPolicy)]
         public IActionResult GetAll()
@@ -79,6 +79,7 @@ namespace BFF.Controllers
             {
                 Oefening = oefening
             });
+            
             return Ok();
         }
     }

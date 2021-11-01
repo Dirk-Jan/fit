@@ -16,6 +16,23 @@
         "BROKER_CONNECTION_STRING": "amqp://guest:guest@localhost:5672"
       },
       "applicationUrl": "http://localhost:5000"
+    },
+    "Online": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "DB_CONNECTION_STRING": "Server=dirk-jan.eu,2433;Database=IdentityService;User Id=sa;Password=WlRnZibWQ_zWVIZ-#43HZhE9PQ",
+        "CONFIG_PATH_CLIENTS": "Config/clients.json",
+        "CONFIG_PATH_IDS": "Config/ids.json",
+        "CONFIG_PATH_APIS": "Config/apis.json",
+        "REGISTER_ENABLED": "true",
+        "PUBLIC_ORIGIN": "http://localhost:5000",
+        "REGISTER_REDIRECT_URL": "http://localhost:4200",
+        "BROKER_EXCHANGE_NAME": "Fit.Messagebus",
+        "BROKER_CONNECTION_STRING": "amqp://oompaloompa:oompaloompa@dirk-jan.eu:31672"
+      },
+      "applicationUrl": "http://localhost:5000"
     }
   }
 }

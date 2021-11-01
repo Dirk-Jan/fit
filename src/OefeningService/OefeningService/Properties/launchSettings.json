@@ -9,6 +9,16 @@
         "BROKER_CONNECTION_STRING": "amqp://guest:guest@localhost:5672",
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
+    },
+    "Online": {
+      "commandName": "Project",
+      "launchBrowser": false,
+      "environmentVariables": {
+        "DB_CONNECTION_STRING": "Server=dirk-jan.eu,2433;Database=OefeningService;User Id=sa;Password=WlRnZibWQ_zWVIZ-#43HZhE9PQ",
+        "BROKER_EXCHANGE_NAME": "Fit.Messagebus",
+        "BROKER_CONNECTION_STRING": "amqp://oompaloompa:oompaloompa@dirk-jan.eu:31672",
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
     }
   }
 }

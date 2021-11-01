@@ -1,4 +1,5 @@
-﻿using Minor.Miffy.MicroServices;
+﻿using System;
+using Minor.Miffy.MicroServices;
 using Minor.Miffy.MicroServices.Abstractions;
 using OefeningService.Commands;
 using OefeningService.Events;
@@ -39,7 +40,7 @@ namespace OefeningService.CommandListeners
             {
                 Oefening = command.Oefening
             });
-            
+        
             return command;
         }
     }

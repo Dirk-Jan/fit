@@ -40,12 +40,13 @@ namespace BFF.Repositories
         
         public void Edit(Oefening oefening)
         {
-            _context.Oefeningen.Update(oefening);
+            var oefeningInDatabase = _context.Oefeningen.FirstOrDefault(x => x.Id == oefening.Id);
+            if (oefeningInDatabase == null) 
+                return;
             
-            // var oefeningInDatabase = _context.Oefeningen.First(x => x.Id == oefening.Id);
-            // oefeningInDatabase.Naam = oefening.Naam;
-            // oefeningInDatabase.Omschrijving = oefening.Omschrijving;
-            
+            oefeningInDatabase.Naam = oefening.Naam;
+            oefeningInDatabase.Omschrijving = oefening.Omschrijving;
+                
             _context.SaveChanges();
         }
     }

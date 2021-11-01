@@ -5,8 +5,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Dirk-JanB.Minor.Miffy.Microservices" Version="0.0.16" />
-        <PackageReference Include="Dirk-JanB.Minor.Miffy.RabbitMQBus" Version="0.0.9" />
+        <PackageReference Include="Dirk-JanB.Minor.Miffy.Microservices" Version="0.1.0" />
+        <PackageReference Include="Dirk-JanB.Minor.Miffy.RabbitMQBus" Version="0.1.0" />
         <PackageReference Include="IdentityServer4.AspNetIdentity" Version="3.0.1" />
         <PackageReference Include="IdentityServer4.AspNetIdentity" Version="3.0.1" />
 
