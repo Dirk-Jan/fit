@@ -74,7 +74,6 @@ jobs:
         with:
           namespace: fit
           manifests: |
-            ${{ needs.vars.outputs.ManifestsPath }}/configmap.yaml
             ${{ needs.vars.outputs.ManifestsPath }}/deployment.yaml
             ${{ needs.vars.outputs.ManifestsPath }}/service.yaml
           images: ${{ needs.vars.outputs.DockerImange }}:${{ github.sha }}
