@@ -7,6 +7,7 @@ import { InternalEndpoints } from 'src/app/constants/internal-endpoints';
 import { RouterPaths } from 'src/app/constants/router-paths';
 import { AuthPolicyValidator } from 'src/app/auth/auth-policy-validator';
 import { AuthPolicies } from 'src/app/constants/auth-policies';
+import { Spiergroep } from 'src/app/enums/spiergroep';
 
 @Component({
   selector: 'app-oefening',
@@ -18,6 +19,7 @@ export class OefeningPage implements OnInit {
   readonly showOefeningEditButton: boolean;
 
   oefening: Oefening = new Oefening();
+  spiergroepString: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -35,7 +37,29 @@ export class OefeningPage implements OnInit {
       {
         console.log(oefening);
         this.oefening = oefening;
+        this.spiergroepString = this.getSpiergroepAsString(oefening.spiergroep);
       });
+  }
+
+  private getSpiergroepAsString(spiergroep: Spiergroep) : string {
+    switch (spiergroep) {
+      case Spiergroep.Armen:
+        return 'Armen';
+      case Spiergroep.Benen:
+        return 'Benen';
+      case Spiergroep.Billen:
+        return 'Billen';
+      case Spiergroep.Borst:
+        return 'Borst';
+      case Spiergroep.Buik:
+        return 'Buik';
+      case Spiergroep.Rug:
+        return 'Rug';
+      case Spiergroep.Schouders:
+        return 'Schouders';
+      default:
+        return 'Niet ingevuld';
+    }
   }
 
   public editOefening() : void {

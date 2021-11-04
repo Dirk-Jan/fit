@@ -12,6 +12,21 @@
         <textarea rows="4" matInput placeholder="Omschrijving oefening (optioneel)" formControlName="omschrijving"></textarea>
     </mat-form-field>
 
+    <mat-form-field appearance="fill">
+        <mat-label>Spiergroep</mat-label>
+        <!-- <mat-select [(value)]="selected"> -->
+        <mat-select formControlName="spiergroep">
+            <mat-option>Niet ingedeeld</mat-option>
+            <mat-option value="0">Armen</mat-option>
+            <mat-option value="1">Benen</mat-option>
+            <mat-option value="2">Billen</mat-option>
+            <mat-option value="3">Borst</mat-option>
+            <mat-option value="4">Buik</mat-option>
+            <mat-option value="5">Rug</mat-option>
+            <mat-option value="6">Schouders</mat-option>
+        </mat-select>
+    </mat-form-field>
+
     <button mat-raised-button color="accent" type="submit" class="btn btn-primary">Opslaan</button>
     <button mat-raised-button color="accent" type="button" class="btn btn-primary" (click)="cancel()">Annuleren</button>
 </form>

@@ -28,6 +28,7 @@ namespace OefeningService.Repositories
             
             oefeningInDatabase.Naam = oefening.Naam;
             oefeningInDatabase.Omschrijving = oefening.Omschrijving;
+            oefeningInDatabase.Spiergroep = oefening.Spiergroep;
                 
             _oefeningContext.SaveChanges();
         }
