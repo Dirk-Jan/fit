@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { fromEventPattern } from 'rxjs';
+import { Spiergroep } from 'src/app/enums/spiergroep';
 import { Oefening } from 'src/app/models/oefening';
 
 @Component({
@@ -23,6 +24,7 @@ export class OefeningFormComponent implements OnInit {
 
   naamFormControl = new FormControl();
   omschrijvingFormControl = new FormControl();
+  spiergroepFormControl = new FormControl();
 
   public form: FormGroup;
 
@@ -37,11 +39,13 @@ export class OefeningFormComponent implements OnInit {
     if (this.oefening !== undefined) {
       this.naamFormControl.setValue(this.oefening.naam);
       this.omschrijvingFormControl.setValue(this.oefening.omschrijving);
+      this.spiergroepFormControl.setValue(this.oefening.spiergroep?.toString());
     }
 
     this.form = new FormGroup({
       naam: this.naamFormControl,
-      omschrijving: this.omschrijvingFormControl
+      omschrijving: this.omschrijvingFormControl,
+      spiergroep: this.spiergroepFormControl
     });
   }
 
@@ -50,6 +54,9 @@ export class OefeningFormComponent implements OnInit {
   }
 
   public submit(): void {
-    this.submitClicked.emit(this.form.value);
+    let oefening: Oefening = this.form.value as Oefening;
+    oefening.spiergroep = +oefening.spiergroep; // Cast to number
+
+    this.submitClicked.emit(oefening);
   }
 }

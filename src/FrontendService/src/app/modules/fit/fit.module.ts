@@ -28,6 +28,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select'; 
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatChipsModule,
     MatButtonToggleModule,
     MatIconModule,
+    MatSelectModule,
   ],
   providers: [
     ClaimsAuthGuard,

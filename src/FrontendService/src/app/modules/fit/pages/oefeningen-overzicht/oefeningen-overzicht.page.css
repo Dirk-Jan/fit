@@ -6,3 +6,14 @@ a {
 p {
     text-align: center;
 }
+
+mat-form-field {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+mat-select {
+    margin: 0;
+    padding: 0;
+}

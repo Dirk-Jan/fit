@@ -47,7 +47,8 @@ namespace BFF.Controllers
             {
                 Id = oefening.Id,
                 Naam = oefening.Naam,
-                Omschrijving = oefening.Omschrijving
+                Omschrijving = oefening.Omschrijving,
+                Spiergroep = oefening.Spiergroep,
             };
 
             var klantId = GetKlantIdFromToken();

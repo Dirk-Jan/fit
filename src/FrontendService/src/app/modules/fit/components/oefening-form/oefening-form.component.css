@@ -1,7 +1,3 @@
-#naamInput {
-    display: block;
-}
-
-#omschrijvingInput {
+mat-form-field {
     display: block;
 }

@@ -46,6 +46,7 @@ namespace BFF.Repositories
             
             oefeningInDatabase.Naam = oefening.Naam;
             oefeningInDatabase.Omschrijving = oefening.Omschrijving;
+            oefeningInDatabase.Spiergroep = oefening.Spiergroep;
                 
             _context.SaveChanges();
         }
