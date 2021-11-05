@@ -1,6 +1,6 @@
 <mat-form-field appearance="fill">
     <mat-label>Spiergroep filter</mat-label>
-    <mat-select [(value)]="selected" (selectionChange)="spiergroepOnSelectionChanged($event.value)">
+    <mat-select [(value)]="selectedSpiergroep" (selectionChange)="spiergroepOnSelectionChanged($event.value)">
       <!-- <mat-option>Alles</mat-option> -->
       <mat-option value="all">Alles</mat-option>
       <mat-option value="0">Armen</mat-option>

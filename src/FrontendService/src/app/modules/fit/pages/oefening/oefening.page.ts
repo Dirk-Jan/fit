@@ -8,6 +8,7 @@ import { RouterPaths } from 'src/app/constants/router-paths';
 import { AuthPolicyValidator } from 'src/app/auth/auth-policy-validator';
 import { AuthPolicies } from 'src/app/constants/auth-policies';
 import { Spiergroep } from 'src/app/enums/spiergroep';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-oefening',
@@ -25,6 +26,7 @@ export class OefeningPage implements OnInit {
     private route: ActivatedRoute,
     private oefeningApi: OefeningApi,
     private router: Router,
+    private location: Location,
     private authPolicyValidator: AuthPolicyValidator
     ) { 
       this.showOefeningEditButton = authPolicyValidator.isAllowed(AuthPolicies.KanOefeningenAanpassenPolicy);
@@ -64,5 +66,9 @@ export class OefeningPage implements OnInit {
 
   public editOefening() : void {
     this.router.navigate([InternalEndpoints.OefeningBewerken, this.oefening.id]);
+  }
+
+  public goBack() : void {
+    this.location.back();
   }
 }
