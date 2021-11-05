@@ -1,4 +1,4 @@
-# FROM djja/angular:20200403 as build
+# FROM djja/angular:latest as build
 FROM node as build
 
 # RUN npm update
@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . .
 
 RUN npm install
-RUN ng build --prod --configuration production
+RUN ng build --configuration production
 
 
 FROM nginx:alpine
