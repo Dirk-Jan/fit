@@ -14,7 +14,7 @@ export class OefeningPrestatieComponent implements OnInit, AfterViewInit {
   @Input() prestatie: Prestatie;
 
   public oefeningZwaarte: string;
-  public showOefeningZwaarte: boolean = false;
+  public showOefeningZwaarte: boolean = true;
 
   constructor() { }
 
@@ -22,8 +22,6 @@ export class OefeningPrestatieComponent implements OnInit, AfterViewInit {
 
     if (this.oefeningZwaarteDot === undefined)
       return;
-
-    this.showOefeningZwaarte = true;
 
     let element = this.oefeningZwaarteDot.nativeElement;
 
@@ -51,6 +49,8 @@ export class OefeningPrestatieComponent implements OnInit, AfterViewInit {
       case OefeningZwaarte.TeLicht:
         this.oefeningZwaarte = 'Te licht';
         break;
+      default:
+        this.showOefeningZwaarte = false;
     }
   }
 
