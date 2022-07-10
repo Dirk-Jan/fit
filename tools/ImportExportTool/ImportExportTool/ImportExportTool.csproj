@@ -6,9 +6,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="MaartenH.Minor.Miffy.Abstractions" Version="2.3.1" />
-      <PackageReference Include="MaartenH.Minor.Miffy.Microservices" Version="2.3.1" />
-      <PackageReference Include="MaartenH.Minor.Miffy.RabbitMQBus" Version="2.3.1" />
+        <PackageReference Include="Dirk-JanB.Minor.Miffy.Microservices" Version="0.1.0"/>
+        <PackageReference Include="Dirk-JanB.Minor.Miffy.RabbitMQBus" Version="0.1.0"/>
       <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.4" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.4" />
       <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="3.1.5" />

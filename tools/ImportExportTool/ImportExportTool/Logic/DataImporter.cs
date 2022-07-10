@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using ImportExportTool.Commands;
 using ImportExportTool.Models;
-using Minor.Miffy.MicroServices.Commands;
+using Minor.Miffy.MicroServices.Abstractions;
 
 namespace ImportExportTool.Logic
 {

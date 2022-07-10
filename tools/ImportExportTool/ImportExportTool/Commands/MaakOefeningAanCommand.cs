@@ -1,6 +1,6 @@
 ﻿using ImportExportTool.Constants;
 using ImportExportTool.Models;
-using Minor.Miffy.MicroServices.Commands;
+using Minor.Miffy;
 
 namespace ImportExportTool.Commands
 {
