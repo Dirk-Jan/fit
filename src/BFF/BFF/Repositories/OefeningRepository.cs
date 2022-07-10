@@ -4,6 +4,7 @@ using System.Linq;
 using BFF.DAL;
 using BFF.Models;
 using BFF.Repositories.Abstractions;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace BFF.Repositories
@@ -21,6 +22,14 @@ namespace BFF.Repositories
         {
             var query = _context.Oefeningen
                 .OrderBy(oefening => oefening.Naam);
+            return query.ToList();
+        }
+        
+        public IEnumerable<Oefening> GetAllWithSomePrestaties()
+        {
+            var query = _context.Oefeningen
+                .OrderBy(oefening => oefening.Naam)
+                .Include(x => x.Prestaties.OrderByDescending(x => x.Datum).Take(5));
             return query.ToList();
         }
 

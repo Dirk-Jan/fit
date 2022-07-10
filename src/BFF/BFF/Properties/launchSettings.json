@@ -14,13 +14,14 @@
     },
     "Online": {
       "commandName": "Project",
-      "applicationUrl": "http://localhost:3000",
+      "applicationUrl": "http://localhost:5432",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "DB_CONNECTION_STRING": "Server=dirk-jan.eu,2433;Database=FrontendService;User Id=sa;Password=WlRnZibWQ_zWVIZ-#43HZhE9PQ",
         "AUTH_AUTHORITY": "http://localhost:5000",
         "BROKER_EXCHANGE_NAME": "Fit.Messagebus",
-        "BROKER_CONNECTION_STRING": "amqp://oompaloompa:oompaloompa@dirk-jan.eu:31672"
+        "BROKER_CONNECTION_STRING": "amqp://oompaloompa:oompaloompa@dirk-jan.eu:31672",
+        "ASPNETCORE_URLS": "http://*:5432/"
       }
     }
   }
