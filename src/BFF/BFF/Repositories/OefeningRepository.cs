@@ -25,11 +25,11 @@ namespace BFF.Repositories
             return query.ToList();
         }
         
-        public IEnumerable<Oefening> GetAllWithSomePrestaties()
+        public IEnumerable<Oefening> GetAllWithSomePrestaties(Guid klantId)
         {
             var query = _context.Oefeningen
                 .OrderBy(oefening => oefening.Naam)
-                .Include(x => x.Prestaties.OrderByDescending(x => x.Datum).Take(5));
+                .Include(x => x.Prestaties.Where(x => x.KlantId == klantId).OrderByDescending(x => x.Datum).Take(5));
             return query.ToList();
         }
 

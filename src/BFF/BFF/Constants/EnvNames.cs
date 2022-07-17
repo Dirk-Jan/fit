@@ -4,5 +4,6 @@ namespace BFF.Constants
     {
         internal const string DbConnectionString = "DB_CONNECTION_STRING";
         internal const string AuthenticationServerAddress = "AUTH_AUTHORITY";
+        internal const string ApiKeySmartwatchController = "API_KEY_SMARTWATCH_CONTROLLER";
     }
 }

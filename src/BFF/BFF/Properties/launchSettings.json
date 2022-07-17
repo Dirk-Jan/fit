@@ -21,7 +21,8 @@
         "AUTH_AUTHORITY": "http://localhost:5000",
         "BROKER_EXCHANGE_NAME": "Fit.Messagebus",
         "BROKER_CONNECTION_STRING": "amqp://oompaloompa:oompaloompa@dirk-jan.eu:31672",
-        "ASPNETCORE_URLS": "http://*:5432/"
+        "ASPNETCORE_URLS": "http://*:5432/",
+        "API_KEY_SMARTWATCH_CONTROLLER": "aap"
       }
     }
   }

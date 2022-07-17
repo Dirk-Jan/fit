@@ -9,7 +9,7 @@ using BFF.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Minor.Miffy.MicroServices.Abstractions;
+using Minor.Miffy;
 
 namespace BFF.Controllers
 {
