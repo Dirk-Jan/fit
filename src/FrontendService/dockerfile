@@ -1,5 +1,5 @@
 # FROM djja/angular:latest as build
-FROM node:12 as build
+FROM node:14.20 as build
 
 # RUN npm update
 RUN npm install -g @angular/cli
